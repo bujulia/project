@@ -7,8 +7,6 @@
 	2015-3-2: Created
 */
 
-// test github
-//
 function runPrefixMethod(obj, method) {
   ['', 'webkit', 'moz', 'o', 'ms'].some(function(pf) {
     var m = pf + method.charAt(0)[pf.length ? 'toUpperCase' : 'toLowerCase']() + method.slice(1);
