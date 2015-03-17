@@ -52,4 +52,4 @@ $('#autocomplete').autocomplete({
   source: ['Innovative Map', 'Future Map']
 });
 
-$('#menu-1,#menu-2').menu();
+$('#menu-1,#menu-2,#menu-3').menu();
