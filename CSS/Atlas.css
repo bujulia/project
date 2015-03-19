@@ -66,7 +66,7 @@ iframe {
   user-select: none;
 }
 
-#slider-range-max {
+#slider-month{
   position: absolute;
   left: 180px;
   margin-left: 100px;
@@ -76,4 +76,26 @@ iframe {
   height: 12px;
   background: black;
 }
-
+#beds {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	color: white;
+	background-color: black;
+}
+/*
+#slider-range {
+  position: absolute;
+  left: 180px;
+  margin-left: 100px;
+  margin-right: 100px;
+  right: 0;
+  bottom: 30px;
+  height: 12px;
+  background: black;
+}
+#beds-range {
+	position: absolute;
+	left: 180px;
+	  bottom: 150px;
+}*/

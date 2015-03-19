@@ -17,6 +17,7 @@ function runPrefixMethod(obj, method) {
   });
 };
 
+
 $('#imprint').button().click(function(event) {
   $('#dialog' ).dialog({ title: 'Imprint' });
   $('#dialogframe').prop('src', 'Descriptions/Imprint.html');
@@ -48,15 +49,16 @@ $('#accordion').accordion().click(function(event) {
   }
 });
 
+
 $('#autocomplete').autocomplete({
   source: ['Innovative Map', 'Future Map']
 });
 
 $('#menu-1,#menu-2,#menu-3').menu();
 
-/*Slider-range-max*/
+/*Slider-month*/
 	 $(function() {
-$( "#slider-range-max" ).slider({
+$( "#slider-month" ).slider({
 range: "max",
 min: 1,
 max: 12,
@@ -65,6 +67,32 @@ slide: function( event, ui ) {
 $( "#amount" ).val( ui.value );
 }
 });
-$( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
+$( "#amount" ).val( $( "#slider-month" ).slider( "value" ) );
+ enableZoom: true;
 });
+
+
+
+/*alert window
+$( "#slider-range-max" ).mouseover(function() {
+alert( "Choose your month" );
+});
+*/
+
+
+/*Slider-range
+ $(function() {
+ $("#slider-range").slider({
+        range: true,
+        min: 1,
+        max: 12,
+        values: [1, 12],
+        step:1
+slide: function( event, ui ) {
+$( "#amount-range" ).val( ui.value );
+}
+});
+$( "#amount-range" ).val( $( "#slider-range" ).slider( "value" ) );
+});*/
+
 

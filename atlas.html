@@ -8,7 +8,7 @@ Author: H. R. Baer, hbaer@ethz.ch
 Versions:
 2015-1-28: created
 -->
-
+<head>
 <meta charset="utf-8">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
@@ -22,6 +22,21 @@ Versions:
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
 
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+
+
+
+
+
+
+
+
+</head>
 
 <!-- 
 <html lang="en">
@@ -69,9 +84,9 @@ $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
 
 <!-- The panel to place a map -->
 <div class="mappanel">
-  <iframe id="mapframe" frameborder="0" src="Maps/ne_50m_countries.svg"></iframe>
+  <iframe  id="mapframe" frameborder="0" src="Maps/ne_50m_countries.svg"></iframe>
 </div>
-
+																					
 <!-- The panel to chose a map from a list -->
 <div class="navigation ns">
 <div id="tabs">
@@ -116,13 +131,24 @@ $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
 </div>
 
 <!-- Slider -->
-<!-- from template
-<p>
-<label for="amount">Minimum number of bedrooms:</label>
-<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-</p>
--->
-<div id="slider-range-max"></div>
+<
+
+<div id="beds">
+	<label for="amount">The month you choose:</label>
+	<input type="text" id="amount" readonly style="border:0; width: 30px; color:#f6931f; background-color: black; font-weight:bold;">
+</div>
+<div title="choose the month you desire" id="slider-month"></div>
+
+<!-- Reserve an element to display dialogs 
+div id="beds-range">
+	<label for="amount-range">The range of months you choose:</label>
+	<input type="text" id="amount-range" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</div>											-->
+
+
+<!-- Reserve an element to display dialogs 
+<div id="slider-range"></div>					-->
+
 
 
 <!-- Reserve an element to display dialogs -->
