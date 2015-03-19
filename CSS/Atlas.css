@@ -65,3 +65,15 @@ iframe {
   -webkit-user-select: none;
   user-select: none;
 }
+
+#slider-range-max {
+  position: absolute;
+  left: 180px;
+  margin-left: 100px;
+  margin-right: 100px;
+  right: 0;
+  bottom: 0;
+  height: 12px;
+  background: black;
+}
+

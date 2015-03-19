@@ -53,3 +53,18 @@ $('#autocomplete').autocomplete({
 });
 
 $('#menu-1,#menu-2,#menu-3').menu();
+
+/*Slider-range-max*/
+	 $(function() {
+$( "#slider-range-max" ).slider({
+range: "max",
+min: 1,
+max: 12,
+value: 1,
+slide: function( event, ui ) {
+$( "#amount" ).val( ui.value );
+}
+});
+$( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
+});
+

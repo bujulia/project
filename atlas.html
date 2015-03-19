@@ -17,6 +17,46 @@ Versions:
 <link rel="stylesheet" href="CSS/Atlas.css">
 <script src="jquery-ui-1.11.2/external/jquery/jquery.js"></script>
 <script src="jquery-ui-1.11.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+
+<!-- 
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery UI Slider - Range with fixed maximum</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script>
+$(function() {
+$( "#slider-range-max" ).slider({
+range: "max",
+min: 1,
+max: 10,
+value: 2,
+slide: function( event, ui ) {
+$( "#amount" ).val( ui.value );
+}
+});
+$( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
+});
+</script>
+</head>
+<body>
+<p>
+<label for="amount">Minimum number of bedrooms:</label>
+<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+<div id="slider-range-max"></div>
+</body>
+</html>
+-->
+
 
 <body>
 
@@ -74,6 +114,16 @@ Versions:
 <div class="infopanel">
   <iframe id="infoframe" frameborder="0" scrolling="yes"></iframe>
 </div>
+
+<!-- Slider -->
+<!-- from template
+<p>
+<label for="amount">Minimum number of bedrooms:</label>
+<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+-->
+<div id="slider-range-max"></div>
+
 
 <!-- Reserve an element to display dialogs -->
 <div id="dialog" title="Information">
