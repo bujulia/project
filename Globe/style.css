@@ -1,0 +1,51 @@
+body {
+    /* Linear gradient for the outerspace */
+    background-color: #000000;
+    /*background-image: -webkit-gradient(linear, left top, right bottom, from(#000), to(#333));*/
+    /*background-image: -webkit-linear-gradient(left top, #000, #333);*/
+    overflow: hidden;
+}
+
+#info {
+    position: absolute;
+    z-index: 10;
+    left: 25px;
+    top: 25px;
+}
+
+#defs {
+    height: 0;
+    width:0;
+}
+
+.frame {
+    fill: none;
+    pointer-events: all;
+}
+
+.feature {
+    fill: #E49135;
+    stroke: #fff;
+    stroke-width: .5px;
+}
+
+.globe {
+    stroke: rgba(255, 255, 255, .5);
+    stroke-width: .25px;
+}
+
+.star {
+    fill: #fff;
+    stroke: rgba(255, 255, 255, .5);
+    stroke-width: .25px;
+}
+
+.Sun {
+    stroke: rgba(255, 204, 0, .5);
+    stroke-width: .25px;
+    fill: #9C2A00;
+    background-image: -webkit-radial-gradient(circle, red, yellow, orange); /* Safari */
+    background-image: -o-radial-gradient(circle, red, yellow, orange); /* Opera 11.6 to 12.0 */
+    background-image: -moz-radial-gradient(circle, red, yellow, orange); /* Firefox 3.6 to 15 */
+    background-image: radial-gradient(circle, red, yellow, green); /* Standard syntax */
+}

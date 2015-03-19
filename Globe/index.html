@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <svg id="defs">
+        <defs>
+
+            <!-- Create a linear gradient from #005C99 (left side of the globe) to #0099FF (right side of the globe) -->
+
+            <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#005C99;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#0099FF;stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="gradSun" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#E25822;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#FFCC00;stop-opacity:1" />
+            </linearGradient>
+
+            <!-- Create filter for the glowed boundary of the Earth "glow" and for the sun "glowSun". By changing the values, the colour of the glow will change -->
+            
+            <filter id="glow">
+                <feColorMatrix type="matrix"
+                    values=
+                    "0 0 0 0   0
+                     0 0 0 0.9 0 
+                     0 0 0 0.9 0 
+                     0 0 0 1   0"/>
+
+                <!-- Blur boundaries of the glow rectangle using the stdDeviation -->
+
+                <feGaussianBlur stdDeviation="7" result="coloredBlur"/>
+                <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+            <filter id="glowSun">
+                <feColorMatrix type="matrix"
+                    values=
+                    "0 0 0 0   0
+                     0 0 0 0.9 0 
+                     0 0 0 0.9 0 
+                     0 0 0 1   0"/>
+
+                <!-- Blur boundaries of the glow rectangle using the stdDeviation -->
+
+                <feGaussianBlur stdDeviation="20" result="coloredBlur"/>
+                <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+        </defs>
+    </svg>
+    <script src="http://marcneuwirth.com/experiments/globe/d3.custom.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
