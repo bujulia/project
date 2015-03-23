@@ -12,27 +12,15 @@ Versions:
 <meta charset="utf-8">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-<title>Atlas Prototype | Static Layout using jQuery UI</title>
-<link rel="stylesheet" href="jquery-ui-1.11.2/jquery-ui.css">
+<title>Destination Finder</title>
+<link rel="stylesheet" href="libs/jquery-ui.css">
 <link rel="stylesheet" href="CSS/Atlas.css">
-<script src="jquery-ui-1.11.2/external/jquery/jquery.js"></script>
-<script src="jquery-ui-1.11.2/jquery-ui.js"></script>
+<script src="libs/external/jquery/jquery.js"></script>
+<script src="libs/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
-
-
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
-
-
-
-
-
-
 
 
 
@@ -77,9 +65,9 @@ $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
 
 <!-- Menubar and menu items -->
 <div class="menubar ns">
+  <button id="fullscreen">Fullscreen</button>
   <button id="imprint">Imprint</button>
   <button id="description">Map Description</button>
-  <button id="fullscreen">Fullscreen</button>
 </div>
 
 <!-- The panel to place a map -->
@@ -157,4 +145,4 @@ div id="beds-range">
 </div>
 
 <!-- Load atlas script after the HTML elements are created -->
-<script src="Scripts/Atlas.js"></script>
+<script src="src/Atlas.js"></script>
