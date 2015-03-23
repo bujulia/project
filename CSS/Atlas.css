@@ -100,3 +100,11 @@ iframe {
 	left: 180px;
 	  bottom: 150px;
 }*/
+
+.share-buttons{
+	list-style: none;
+}
+
+.share-buttons li{
+	display: inline;
+}

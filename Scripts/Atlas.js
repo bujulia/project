@@ -94,5 +94,3 @@ $( "#amount-range" ).val( ui.value );
 });
 $( "#amount-range" ).val( $( "#slider-range" ).slider( "value" ) );
 });*/
-
-
