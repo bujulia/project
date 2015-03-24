@@ -24,8 +24,8 @@ body {
 }
 
 .feature {
-    fill: #E49135;
-    stroke: #fff;
+    fill: #E1E1E1;
+    stroke: #000;
     stroke-width: .5px;
 }
 

@@ -180,7 +180,7 @@
                     },
                     type: 'Feature',
                     properties: {
-                        radius: 90
+                        radius: 60
                     }
                 });
             }
