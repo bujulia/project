@@ -38,7 +38,7 @@
 
         var path = d3.geo.path()
             .projection(Globe)
-            .pointRadius(2);
+            .pointRadius(2)
 
         Globe.scale(Globe.scale() * 1.2);
 
@@ -85,7 +85,6 @@
                     return spacePath(d);
                 });
 
-
         svg.append("rect")
             .attr("class", "frame")
             .attr("width", width)
@@ -109,7 +108,7 @@
 
             features.enter().append("path")
                 .attr("class", "feature")
-                .attr("d", function(d){ return path(circle.clip(d)); });
+                .attr("d", function(d){ return path(circle.clip(d)); })
         });
 
         //Redraw all items with new projections
@@ -181,7 +180,7 @@
                     },
                     type: 'Feature',
                     properties: {
-                        radius: 100
+                        radius: 90
                     }
                 });
             }
@@ -195,7 +194,7 @@
         }
 
         function sunPlace(){
-            return [150,70];
+            return [240,160];
         }
     }
 
