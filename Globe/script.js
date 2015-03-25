@@ -18,7 +18,7 @@
 
     function init(){
 
-        //Setup path for outerspace
+        // Setup path for outerspace
         var space = d3.geo.azimuthal()
             .mode("equidistant") // Outerspace has a equidistant projection
             .translate([width / 2, height / 2]);
@@ -29,7 +29,7 @@
             .projection(space)
             .pointRadius(1);
 
-        //Setup path for globe
+        // Setup path for globe
         var Globe = d3.geo.azimuthal()
             .mode("orthographic") // Globe has a orthographic projection
             .translate([width / 2, height / 2]);
@@ -42,7 +42,7 @@
 
         Globe.scale(Globe.scale() * 1.2);
 
-        //Setup zoom behavior
+        // Setup zoom behavior
         var zoom = d3.behavior.zoom(true)
             .translate(Globe.origin())
             .scale(Globe.scale())
@@ -59,7 +59,7 @@
                     .call(zoom)
                     .on("dblclick.zoom", null);
 
-        //Create a list of stars and the sun and add them to outerspace
+        // Create a list of stars and the sun and add them to outerspace
         var starList1 = createStars(1000);
         var starList2 = createSun(1);
                 
@@ -90,7 +90,7 @@
             .attr("width", width)
             .attr("height", height);
 
-        //Create the base globe
+        // Create the base globe
         var backgroundCircle = svg.append("circle")
             .attr('cx', width / 2)
             .attr('cy', height / 2)
@@ -102,7 +102,7 @@
         var g = svg.append("g"),
             features;
 
-        //Add all of the countries to the globe
+        // Add all of the countries to the globe
         d3.json("world-countries.json", function(collection) {
             features = g.selectAll(".feature").data(collection.features);
 
@@ -111,7 +111,7 @@
                 .attr("d", function(d){ return path(circle.clip(d)); })
         });
 
-        //Redraw all items with new projections
+        // Redraw all items with new projections
         function redraw(){
             features.attr("d", function(d){
                 return path(circle.clip(d));
@@ -128,11 +128,11 @@
             });
         }
 
-
+        // Rotation of the earth only in the horizontal direction
         function move() {
             if(d3.event){
                 var scale = d3.event.scale;
-                var origin = [d3.event.translate[0] * -1, d3.event.translate[1]];
+                var origin = [d3.event.translate[0] * -1, 0];
                 
                 Globe.scale(scale);
                 space.scale(scale * 3);
@@ -142,7 +142,7 @@
                 Globe.origin(origin);
                 circle.origin(origin);
                 
-                //globe and stars spin in the opposite direction because of the projection mode
+                // Globe and stars spin in the opposite direction because of the projection mode
                 var spaceOrigin = [origin[0] * -1, origin[1] * -1];
                 space.origin(spaceOrigin);
                 redraw();
@@ -150,7 +150,6 @@
         }
 
         // Function that creates stars
-
         function createStars(number){
             var data = [];
             for(var i = 0; i < number; i++){
@@ -169,7 +168,6 @@
         }
 
         // Function that creates the sun
-
         function createSun(number){
             var data = [];
             for(var i = 0; i < number; i++){
@@ -180,15 +178,14 @@
                     },
                     type: 'Feature',
                     properties: {
-                        radius: 60
+                        radius: 60 // Size of the sun
                     }
                 });
             }
             return data;
         }
 
-        // Randomizing the position of the stars
-
+        // Randomizing the position of the stars and position of the sun
         function randomLonLat(){
             return [Math.random() * 360 - 180, Math.random() * 180 - 90];
         }
