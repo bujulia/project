@@ -24,8 +24,8 @@ body {
 }
 
 .feature {
-    fill: #E49135;
-    stroke: #fff;
+    fill: #E1E1E1;
+    stroke: #000;
     stroke-width: .5px;
 }
 
@@ -43,9 +43,9 @@ body {
 .Sun {
     stroke: rgba(255, 204, 0, .5);
     stroke-width: .25px;
-    fill: #9C2A00;
+    fill: #ffff00;
     background-image: -webkit-radial-gradient(circle, red, yellow, orange); /* Safari */
     background-image: -o-radial-gradient(circle, red, yellow, orange); /* Opera 11.6 to 12.0 */
-    background-image: -moz-radial-gradient(circle, red, yellow, orange); /* Firefox 3.6 to 15 */
+    background: -moz-radial-gradient(circle, red, yellow, orange); /* Firefox 3.6 to 15 */
     background-image: radial-gradient(circle, red, yellow, green); /* Standard syntax */
 }
