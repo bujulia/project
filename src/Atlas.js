@@ -67,9 +67,21 @@ slide: function( event, ui ) {
 $( "#amount" ).val( ui.value );
 }
 });
+
 $( "#amount" ).val( $( "#slider-month" ).slider( "value" ) );
- enableZoom: true;
+enableZoom: true;
+
 });
+
+/*Print the Window*/
+function printIT() {
+    window.print();
+}
+
+
+
+
+
 
 
 

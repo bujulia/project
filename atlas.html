@@ -23,6 +23,8 @@ Versions:
 <link rel="stylesheet" href="/resources/demos/style.css">
 
 
+<script src="http://zwibbler.com/zwibbler-demo.js"></script>
+
 <<<<<<< HEAD
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -69,20 +71,28 @@ $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
 -->
 
 
+   
+
+ 
+
+
 <body>
 
 <!-- Menubar and menu items -->
-
 <div class="menubar ns">
-	<a href="atlas.html"><img id="logo" src="src/logo.png" alt="Logo"></a>
+  <a href="atlas.html"><img id="logo" src="src/logo.png" alt="Logo"></a>
 	<button id="home">H</button>						<!-- invisible button to leave space for the logo -->
 	<button id="fullscreen">Fullscreen</button>
 	<button id="imprint">Imprint</button>
 	<button id="description">Map Description</button>
-
+  <button id="printbutton" onclick="printIT()">Print</button>
+  <button onclick="cmd()">generate PDF</button> 
 </div>
 
-<!-- The panel to place a map -->
+
+
+<!-- The panel to place a map-->
+
 <div class="mappanel">
   <iframe  id="mapframe" frameborder="0" src="Maps/ne_50m_countries.svg"></iframe>
 </div>
@@ -132,6 +142,9 @@ $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
 </div>
 </div>
 
+
+
+
 <div class="infobox">
  <iframe id="QuickTripWidget" allowTransparency="true" src="http://www.quicktrip.com/quicktrip-widget.html?Affiliate=48bdd172-f175-4aca-ab9f-079cbbd8f61a&Mode=flight&Culture=en-CA" width="300" height="250" scrolling="no" frameBorder="0"></iframe>  
 </div>
@@ -142,11 +155,9 @@ $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
 </div>
 
 <!-- Slider -->
-<
-
 <div id="beds">
 	<label for="amount">The month you choose:</label>
-	<input type="text" id="amount" readonly style="border:0; width: 30px; color:#f6931f; background-color: black; font-weight:bold;">
+	<input type="text" id="amount" readonly style="border:0; width: 30px; color:#f6931f; background-color: black; font-weight:bold;" >
 </div>
 <div title="choose the month you desire" id="slider-month"></div>
 
@@ -170,7 +181,10 @@ div id="beds-range">
 <!-- Load atlas script after the HTML elements are created -->
 <<<<<<< HEAD
 <script src="Scripts/Atlas.js"></script>
-</body>
+
 =======
 <script src="src/Atlas.js"></script>
 >>>>>>> origin/master
+
+
+</body>
