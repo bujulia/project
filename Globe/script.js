@@ -42,6 +42,17 @@
 
         Globe.scale(Globe.scale() * 1.2);
 
+        // Setup path for sun
+        var Sun = d3.geo.azimuthal()
+            .mode("equidistant") // Outerspace has a equidistant projection
+            .translate([width / 2, height / 2]);
+
+        Sun.scale(Sun.scale() / 3);
+
+        var SunPath = d3.geo.path()
+            .projection(Sun)
+            .pointRadius(1);
+
         // Setup zoom behavior
         var zoom = d3.behavior.zoom(true)
             .translate(Globe.origin())
@@ -61,7 +72,7 @@
 
         // Create a list of stars and the sun and add them to outerspace
         var starList1 = createStars(1000);
-        var starList2 = createSun(1);
+        //var starList2 = createSun(1);
                 
         var stars = svg.append("g")
             .selectAll("g")
@@ -74,16 +85,16 @@
                     return spacePath(d);
                 });
 
-        var Sun = svg.append("g")
-            .selectAll("g")
-            .data(starList2)
-            .enter()
-            .append("path")
-                .attr("class", "Sun")
-                .attr("d", function(d){
-                    spacePath.pointRadius(d.properties.radius);
-                    return spacePath(d);
-                });
+        //var Sun = svg.append("g")
+         //   .selectAll("g")
+          //  .data(starList2)
+          //  .enter()
+          //  .append("path")
+           //     .attr("class", "Sun")
+            //    .attr("d", function(d){
+            //        spacePath.pointRadius(d.properties.radius);
+            //        return spacePath(d);
+            //    });
 
         svg.append("rect")
             .attr("class", "frame")
@@ -98,6 +109,16 @@
             .attr('class', 'globe')
             .attr("filter", "url(#glow)")
             .attr("fill", "url(#gradBlue)");
+
+        // Create the sun
+
+        var Sun = svg.append("circle")
+            .attr('cx', 160)
+            .attr('cy', 240)
+            .attr('r', Sun.scale())
+            .attr('class', 'Sun')
+            .attr("filter", "url(#glowSun)")
+            .attr("fill", "url(#gradSun)");
 
         var g = svg.append("g"),
             features;
@@ -122,10 +143,10 @@
                 return spacePath(d);
             });
 
-            Sun.attr("d", function(d) {
-                spacePath.pointRadius(d.properties.radius);
-                return spacePath(d);
-            });
+            //Sun.attr("d", function(d) {
+            //    spacePath.pointRadius(d.properties.radius);
+            //    return spacePath(d);
+            //});
         }
 
         // Rotation of the earth only in the horizontal direction
@@ -168,22 +189,22 @@
         }
 
         // Function that creates the sun
-        function createSun(number){
-            var data = [];
-            for(var i = 0; i < number; i++){
-                data.push({
-                    geometry: {
-                        type: 'Point',
-                        coordinates: sunPlace()
-                    },
-                    type: 'Feature',
-                    properties: {
-                        radius: 60 // Size of the sun
-                    }
-                });
-            }
-            return data;
-        }
+        //function createSun(number){
+          //  var data = [];
+        //for(var i = 0; i < number; i++){
+        //        data.push({
+          //          geometry: {
+           //             type: 'Point',
+           //             coordinates: sunPlace()
+           //         },
+           //         type: 'Feature',
+           //         properties: {
+           //             radius: 60 // Size of the sun
+           //         }
+           //     });
+           // }
+           // return data;
+        //}
 
         // Randomizing the position of the stars and position of the sun
         function randomLonLat(){
