@@ -36,46 +36,6 @@ Versions:
 
 </head>
 
-<!-- 
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>jQuery UI Slider - Range with fixed maximum</title>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
-<script>
-$(function() {
-$( "#slider-range-max" ).slider({
-range: "max",
-min: 1,
-max: 10,
-value: 2,
-slide: function( event, ui ) {
-$( "#amount" ).val( ui.value );
-}
-});
-$( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
-});
-</script>
-</head>
-<body>
-<p>
-<label for="amount">Minimum number of bedrooms:</label>
-<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-</p>
-<div id="slider-range-max"></div>
-</body>
-</html>
--->
-
-
-   
-
- 
-
-
 <body>
 
 <!-- Menubar and menu items test -->
@@ -86,13 +46,10 @@ $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
 	<button id="imprint">Imprint</button>
 	<button id="description">Map Description</button>
   <button id="printbutton" onclick="printIT()">Print</button>
-  <button onclick="cmd()">generate PDF</button> 
+  <button id="createpdf" onclick="cmd()">generate PDF</button> 
 </div>
 
-
-
 <!-- The panel to place a map-->
-
 <div class="mappanel">
   <iframe  id="mapframe" frameborder="0" src="Maps/ne_50m_countries.svg"></iframe>
 </div>
@@ -130,7 +87,7 @@ $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
   </div>
   <div id="tabs-2">
     <p>Enter a search string.</p>
-    <input id="autocomplete">
+	<input id="tags">
   </div>
   <!--Share Buttons-->
   <ul class="share-buttons">
@@ -141,7 +98,6 @@ $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
 	</ul>
 </div>
 </div>
-
 
 
 
