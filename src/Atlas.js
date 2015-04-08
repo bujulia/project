@@ -7,6 +7,34 @@
 	2015-3-2: Created
 */
 
+var map = L.map('map', {
+    center: [25, 115],
+    zoom: 4,
+});
+// add an OpenStreetMap tile layer
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+// add a marker in the given location, attach some popup content to it and open the popup
+
+L.marker([51.5, -0.09]).addTo(map)
+    //.bindPopup('A pretty CSS3 popup. <br> Easily customizable.')
+    .openPopup();
+/*
+var circle = L.circle([51.508, -0.11], 500, {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5
+}).addTo(map);	
+	
+	// add an Mapbox tile layer
+
+L.tileLayer('http://{s}.tiles.mapbox.com/v3/MapID/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18
+}).addTo(map);*/
+
+
 function runPrefixMethod(obj, method) {
   ['', 'webkit', 'moz', 'o', 'ms'].some(function(pf) {
     var m = pf + method.charAt(0)[pf.length ? 'toUpperCase' : 'toLowerCase']() + method.slice(1);
