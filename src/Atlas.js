@@ -35,6 +35,14 @@ $('#fullscreen').button().click(function(event) {
   var element = document.querySelector('body');
   runPrefixMethod(element, 'requestFullScreen');
 });
+/*Print the Window*/
+$('#printbutton').button().click(function printIT() {
+    window.print();
+});
+$('#createpdf').button().click(function printIT() {
+    window.pdf();
+});
+
 
 $('#tabs').tabs();
 
@@ -73,17 +81,28 @@ enableZoom: true;
 
 });
 
-/*Print the Window*/
-function printIT() {
-    window.print();
-}
 
 
-
-
-
-
-
+ $(function() {
+var availableTags = [
+"Australia",
+"Bangladesh",
+"Laos",
+"China",
+"Japan",
+"North-Korea",
+"South-Korea",
+"Vietnam",
+"Thailand",
+"Singapore",
+"Indonesia",
+"Papa-New-guinea",
+"New Zealand"
+];
+$( "#tags" ).autocomplete({
+source: availableTags
+});
+});
 
 /*alert window
 $( "#slider-range-max" ).mouseover(function() {
