@@ -1,5 +1,5 @@
 #map { 
-	height: 90%; /* relative! ->10%for timeslider */
+	height: 90%;
 	top: 32px;
 	left: 180px;
 }
@@ -10,16 +10,17 @@
     background: white;
     background: rgba(255,255,255,0.8);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+	color: black;
     border-radius: 5px;
 	position: absolute;
-	width: 80px;
-	height: 50px;
-	left: 10px;
-	bottom: 35px;
+	width: 180px;
+	height: 60px;
+	left: 0px;
+	bottom: 0px;
 }
 .info h4 {
     margin: 0 0 5px;
-    color: #777;
+    color: black;
 }
 
 body {

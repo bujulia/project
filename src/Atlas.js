@@ -454,7 +454,23 @@ var countries = {
 
 ]
 }
-var geojson;
+
+
+// control that shows country info on hover
+var info = L.control({position: 'bottomleft'});
+info.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+    this.update();
+    return this._div;
+};
+// method that we will use to update the control based on feature properties passed
+info.update = function (props) {
+    this._div.innerHTML = '<h4>Country Information</h4>' +  (props ?
+        '<b>' + props.name + '</b><br />Continent: ' + props.continent + ''
+        : 'Hover over a country!');
+};
+info.addTo(map);
+
 //event listener for layer mouseover event
 function highlightFeature(e) {
     var layer = e.target;
@@ -471,6 +487,8 @@ function highlightFeature(e) {
     }
 	info.update(layer.feature.properties); //Update Info about Country
 }
+
+var geojson;
 //define what happens on mouseout
 function resetHighlight(e) {
     geojson.resetStyle(e.target);
@@ -490,30 +508,11 @@ function onEachFeature(feature, layer) {
     });
 }
 
-
-//INFO
-var info = L.control();
-info.onAdd = function (map) {
-    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-    this.update();
-    return this._div;
-};
-// method that we will use to update the control based on feature properties passed
-info.update = function (props) {
-    this._div.innerHTML = '<h4>Country Information</h4>' +  (props ?
-        '<b>' + props.name + '</b><br />'//from the template: + props.density + ' people / mi<sup>2</sup>'
-        : 'Hover over a country');
-};
-info.addTo(map);
-
-
 //add map
 geojson = L.geoJson(countries, {
     style: myStyle,
     onEachFeature: onEachFeature
 }).addTo(map);
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function runPrefixMethod(obj, method) {
   ['', 'webkit', 'moz', 'o', 'ms'].some(function(pf) {
