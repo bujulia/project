@@ -1,7 +1,25 @@
 #map { 
-	height: 100%;
+	height: 90%; /* relative! ->10%for timeslider */
 	top: 32px;
-	left: 180px; 
+	left: 180px;
+}
+/* .info stays for information about a country */
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+	position: absolute;
+	width: 80px;
+	height: 50px;
+	left: 10px;
+	bottom: 35px;
+}
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
 }
 
 body {
@@ -15,7 +33,6 @@ body {
   bottom: 0;
   right: 0;
 }
-/* test */
 
 .menubar {
   position: absolute;
@@ -87,13 +104,13 @@ body {
   margin-right: 100px;
   right: 0;
   bottom: 0;
-  height: 20px;
+  height: 10px;
   background: gray;
 }
 #beds { /*font*/
 	position: absolute;
 	left: 10px;
-	bottom: 10px;
+	bottom: 0px;
 	color: white;
 	background-color: black;
 }
