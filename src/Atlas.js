@@ -10,16 +10,18 @@
 var map = L.map('map', {
     center: [25, 115],
     zoom: 4,
+	maxZoom: 16,
+	minZoom: 3,
+	scrollWheelZoom: true, // we can also zoom with mousewheel
+	keyboard: true, // we can also navigate with keyboard
+	keyboardPanOffset: 280, // Amount of pixels to pan when pressing an arrow key.
+	keyboardZoomOffset: 1, //Number of zoom levels to change when pressing + or - key.
 });
 // add an OpenStreetMap tile layer
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
-// add a marker in the given location, attach some popup content to it and open the popup
 
-L.marker([51.5, -0.09]).addTo(map)
-    //.bindPopup('A pretty CSS3 popup. <br> Easily customizable.') 
-    .openPopup();
 /*
 var circle = L.circle([51.508, -0.11], 500, {
     color: 'red',
@@ -92,6 +94,39 @@ var myStyle = {
     "opacity": 0.65
 };
 
+// add a marker in the given location, attach some popup content to it and open the popup
+//from London: var culture = L.marker([51.5, -0.09])
+
+////////////////////////////////////////////////////////////////////////////////////GEOJSON WINTERSPORTS////////////////////////////////////////////////////////////////////	  
+var wintersports = {
+"type": "FeatureCollection",                                                                             
+"features": [
+      { "type": "Feature",	"geometry": {"type": "Point", "coordinates": [139, 36.79]}, "properties": {"ID": "W1", "category": "ski", "country": "japan", "name": "Mt. Naeba", "Jan": 1, "Feb": 1, "Mar": 1, "Apr": 1, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 1, "slope_length": 100, "lifts": 16, "heigth_up": 1789, "heigth_down": 900, "heigth_diff": 889, "popupContent": "This is where the Rockies play!"}},
+	  { "type": "Feature",	"geometry": {"type": "Point", "coordinates": [138.5, 36.7]}, "properties": {"ID": "W2", "category": "ski"}},
+	  { "type": "Feature",	"geometry": {"type": "Point", "coordinates": [140.69, 42.86]}, "properties": {"ID": "W3", "category": "ski"}},
+	  { "type": "Feature",	"geometry": {"type": "Point", "coordinates": [138.45, 36.92]}, "properties": {"ID": "W4", "category": "ski"}},
+	  { "type": "Feature",	"geometry": {"type": "Point", "coordinates": [137.83, 36.7]}, "properties": {"ID": "W5", "category": "ski"}},
+	  { "type": "Feature",	"geometry": {"type": "Point", "coordinates": [137.85, 36.71]}, "properties": {"ID": "W6", "category": "ski"}},
+	  { "type": "Feature",	"geometry": {"type": "Point", "coordinates": [140.39, 38.16]}, "properties": {"ID": "W7", "category": "ski"}},
+	  { "type": "Feature",	"geometry": {"type": "Point", "coordinates": [140.9, 42.74]}, "properties": {"ID": "W8", "category": "ski"}},
+	  { "type": "Feature",	"geometry": {"type": "Point", "coordinates": [138.82, 36.98]}, "properties": {"ID": "W9", "category": "ski"}},
+	  { "type": "Feature",	"geometry": {"type": "Point", "coordinates": [136.87, 35.99]}, "properties": {"ID": "W10", "category": "ski"}},
+	  { "type": "Feature",	"geometry": {"type": "Point", "coordinates": [128.45, 44.78]}, "properties": {"ID": "W11", "category": "ski"}},
+	  ]
+     };
+	
+$(document).ready(function(){
+        $('input[type="checkbox"]').click(function(){
+            if($(this).prop("checked") == true){
+                L.geoJson(wintersports).addTo(map);
+            }
+            else if($(this).prop("checked") == false){
+				L.geoJson(wintersports).removeFrom(map);
+			}
+        });
+    });	  
+	  
+////////////////////////////////////////////////////////////////////////////////////GEOJSON COUNTRIES////////////////////////////////////////////////////////////////////	  
 var countries = {
 "type": "FeatureCollection",
                                                                                 
@@ -497,6 +532,7 @@ function resetHighlight(e) {
 //define a click listener that zooms to the country
 function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
+	duration: 0.3;
 }
 
 
@@ -632,3 +668,36 @@ $( "#amount-range" ).val( ui.value );
 });
 $( "#amount-range" ).val( $( "#slider-range" ).slider( "value" ) );
 });*/
+
+
+var cities = new L.LayerGroup();
+	    L.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.').addTo(cities),
+		L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.').addTo(cities),
+		L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.').addTo(cities),
+		L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.').addTo(cities);
+var overlays = {
+    "Cities": cities
+};
+L.control.layers(overlays).addTo(map);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
