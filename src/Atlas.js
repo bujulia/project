@@ -98,7 +98,7 @@ var myStyle = {
 //from London: var culture = L.marker([51.5, -0.09])
 
 ////////////////////////////////////////////////////////////////////////////////////GEOJSON WINTERSPORTS////////////////////////////////////////////////////////////////////	  
-var wintersports = {
+var ski = {
 "type": "FeatureCollection",                                                                             
 "features": [
       { "type": "Feature",	"geometry": {"type": "Point", "coordinates": [139, 36.79]}, "properties": {"ID": "W1", "category": "ski", "country": "japan", "name": "Mt. Naeba", "Jan": 1, "Feb": 1, "Mar": 1, "Apr": 1, "May": 0, "Jun": 0, "Jul": 0, "Aug": 0, "Sep": 0, "Oct": 0, "Nov": 0, "Dec": 1, "slope_length": 100, "lifts": 16, "heigth_up": 1789, "heigth_down": 900, "heigth_diff": 889, "popupContent": "This is where the Rockies play!"}},
@@ -114,14 +114,66 @@ var wintersports = {
 	  { "type": "Feature",	"geometry": {"type": "Point", "coordinates": [128.45, 44.78]}, "properties": {"ID": "W11", "category": "ski"}},
 	  ]
      };
+	 
+	 
+var crski = {
+"type": "FeatureCollection",                                                                             
+"features": [
+
+};
+
+var icefishing = {
+"type": "FeatureCollection",                                                                             
+"features": [
+
+};
+
+var golf = {
+"type": "FeatureCollection",                                                                             
+"features": [
+
+};
+
+var surf = {
+"type": "FeatureCollection",                                                                             
+"features": [
+
+};
+
+var music = {
+"type": "FeatureCollection",                                                                             
+"features": [
+
+};
+
+var wonders = {
+"type": "FeatureCollection",                                                                             
+"features": [
+
+};
+
+	 
+	 var golficon = L.icon({
+    iconUrl: 'golf.png',
+    //iconRetinaUrl: 'golf.png',
+    iconSize: [128, 128],
+    //iconAnchor: [22, 94],
+    //popupAnchor: [-3, -76],
+    //shadowUrl: 'golf.png',
+    //shadowRetinaUrl: 'golf.png',
+    //shadowSize: [68, 95],
+    //shadowAnchor: [22, 94]
+});
 	
 $(document).ready(function(){
         $('input[type="checkbox"]').click(function(){
             if($(this).prop("checked") == true){
                 L.geoJson(wintersports).addTo(map);
+				//L.marker([wintersports], {icon: WintersportIcon}).addTo(map);
             }
             else if($(this).prop("checked") == false){
 				L.geoJson(wintersports).removeFrom(map);
+				//L.marker([wintersports], {icon: WintersportIcon}).removeFrom(map);
 			}
         });
     });	  
