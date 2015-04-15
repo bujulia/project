@@ -80,6 +80,118 @@ body {
   user-select: none;
 }
 
+#search {
+   position: absolute;
+  right: 600px;
+  top: 2px;
+ 
+}
+#text {
+   position: absolute;
+  right: 780px;
+  top: 2px;
+ 
+}
+#imprint {
+   position: absolute;
+  right: 500px;
+  top: 2px;
+ 
+}
+
+#fullscreen {
+   position: absolute;
+  right: 400px;
+  top: 2px;
+ 
+}
+
+#description {
+   position: absolute;
+  right: 260px;
+  top: 2px;
+ 
+}
+#head {
+   position: absolute;
+  left: 200px;
+  font-size: 20px;
+}
+
+#printbutton{
+   position: absolute;
+  right: 180px;
+  top: 2px;
+ 
+}
+
+#createpdf{
+   position: absolute;
+  right: 40px;
+  top: 2px;
+ 
+}
+#tabs {
+   position: absolute;
+  left: 0;
+  top: 32px;
+  right: 0;
+  bottom: 0;
+  height: 40;
+  
+}
+
+
+
+
+
+
+#menu{
+   position: absolute;
+  left: 0;
+  top: 60px;
+  right: 0;
+  bottom: 0;
+   background: #00FF00;
+}
+
+#overview{
+    position: absolute;
+  left: 0;
+  top: 40px;
+  right: 0;
+  bottom: 0;
+  height: 160px;
+  width: 180px;
+  background: #004C00;
+}
+ul.overview {
+    
+}
+
+    li {
+       height:75px;}
+#innovative{
+   position: absolute;
+  left: 0;
+  top: 200px;
+   right: 0;
+  bottom: 0;
+  height: 160px;
+  width: 180px;
+  background: #7F0000;
+}
+
+#other{
+  position: absolute;
+  left: 0;
+  top: 360px;
+  right: 0;
+  bottom: 0;
+  height: 160px;
+  width: 180px;
+  background: #ffff00;
+}
 #slider-month{
   position: absolute;
   left: 180px;
@@ -107,6 +219,7 @@ body {
 	border: 0;
 }
 
+#ui-menu { width: 600px; }
 #home{
 	visibility: hidden;
 }
@@ -133,4 +246,39 @@ body {
 
 .share-buttons li{
 	display: inline;
+}
+
+nav {
+  position: absolute;
+  top:2px;
+  left:450px;
+  
+}
+.dropdown-toggle {
+  
+  top:0px;
+}
+ul.dropdown {
+  display:none;
+  position: relative;
+  top: 100%;
+  margin-top: .5em;
+  background: #FFF0F5;
+  min-width: 12em;
+ 
+  padding: 0;
+  z-index:1;
+  height:300px;
+  border-radius: 0 0 .2em .2em;
+  list-style-type: none;
+    li {
+      list-style-type: none;
+      a {
+        text-decoration: none;
+		
+        padding: .5em 1em;
+        display: block;
+      }
+	  
+   }
 }

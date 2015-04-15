@@ -40,6 +40,7 @@ Versions:
 
 <!-- Menubar and menu items test -->
 <div class="menubar ns">
+  <h1 id="head"><font color="#003300">Destination Finder</font></h1>
   <a href="atlas.html"><img id="logo" src="src/logo.png" alt="Logo"></a>
 	<button id="home">H</button>						<!-- invisible button to leave space for the logo -->
 	<button id="fullscreen">Fullscreen</button>
@@ -47,48 +48,60 @@ Versions:
 	<button id="description">Map Description</button>
   <button id="printbutton" onclick="printIT()">Print</button>
   <button id="createpdf" onclick="cmd()">generate PDF</button> 
+  <label id="text" for="search">Search: </label>
+	<input id="search">
 </div>
 
+
+<!-- Share buttons -->
+<nav>
+<button class="dropdown-toggle"><font color="white">Share</font></button>
+<ul class="dropdown">
+		<li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html&t=Share" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Facebook.png"><font color="black">Facebook</font></a></li>
+		<li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html&text=Share:%20http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Twitter.png"><font color="black">Twitter</font></a></li>
+		<li><a href="https://plus.google.com/share?url=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Google+.png"><font color="black">Google+</font></a></li>
+		<li><a href="mailto:?subject=Share&body=Now%20We%20can%20Share%20the%20map%20content:%20http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Email.png"><font color="black">Mail</font></a></li>
+	
+</ul>
+</nav>
 <!-- The panel to place a map
 <div class="mappanel">
   <iframe  id="mapframe" frameborder="0" src="Maps/ne_50m_countries.svg"></iframe>
 </div>-->
 																					
 <!-- The panel to chose a map from a list -->
-<div class="navigation ns">
-<div id="tabs">
-  <ul>
-    <li><a href="#tabs-1">Content</a></li>
-    <li><a href="#tabs-2">Search</a></li>
-  </ul>
-  <div id="tabs-1">
-    <div id="accordion">
-      <h3>Nature</h3>
-      <div>
+ <div>
         <ul id="menu-1">
-          <li id="overview">Nature</li>
+          <li id="overview">Nature
+		  <ul>
+          <li>Wonders of Nature</li>
+          <li>Wildlife</li>
+		  </ul>
+		  </li>
         </ul>
       </div>
-      <h3>Sport</h3>
+  
       <div>
         <ul id="menu-2">
-          <li id="innovative">Wintersport</li>
-          <li id="future">Summersport</li>
+          <li id="innovative">Sports
+		   <ul>
+          <li>Winter sports</li>
+          <li>Summer sports</li>
+		  </ul>
+		  </li>
         </ul>
       </div>
-      <h3>Culture</h3>
+      
       <div>
         <ul id="menu-3">
-          <li id="innovative">Music</li>
-          <li id="future">Culture</li>
+          <li id="other">Culture
+		  <ul>
+          <li>Culture</li>
+          <li>Music</li>
+		  </ul>
+		  </li>
         </ul>
       </div>	  
-    </div>
-  </div>
-  <div id="tabs-2">
-    <p>Enter a search string.</p>
-	<input id="tags">
-  </div>
   <!--Share Buttons-->
   <ul class="share-buttons">
 		<li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html&t=Share" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Facebook.png"></a></li>

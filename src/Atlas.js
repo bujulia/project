@@ -555,6 +555,45 @@ source: availableTags
 });
 });
 
+//menu
+$('#autocomplete').autocomplete({
+  source: ['Innovative Map', 'Future Map']
+});
+
+$('#menu-1,#menu-2,#menu-3').menu();
+
+//search button
+$(function() {
+    var availableTags = [
+      
+    ];
+    $( "#search" ).autocomplete({
+      source: availableTags
+    });
+  });
+
+$(function() {
+    $( "#menu" ).menu();
+  });
+
+
+
+//drop down menu with share buttons
+$(function() {
+  
+// Dropdown toggle
+$('.dropdown-toggle').button().click(function(){
+  $(this).next('.dropdown').toggle();
+});
+
+$(document).click(function(e) {
+  var target = e.target;
+  if (!$(target).is('.dropdown-toggle') && !$(target).parents().is('.dropdown-toggle')) {
+    $('.dropdown').hide();
+  }
+});
+
+});
 /*alert window
 $( "#slider-range-max" ).mouseover(function() {
 alert( "Choose your month" );
