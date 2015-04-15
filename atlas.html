@@ -23,13 +23,12 @@ Versions:
 <link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-<script src="http://zwibbler.com/zwibbler-demo.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
-<script src="./countries2.json"></script> <!-- countries geojson overlay -->
-<link rel="polygons" type"application/json" href=".countries.json"> <!-- a better alternative to countries geojson overlay -->
+<script src="src/countries.js" type="text/javascript"></script> <!-- external countries geojson overlay -->
+
 
 </head>
 
@@ -85,10 +84,23 @@ Versions:
 		   <ul>
           <li>Winter sports</li>
 			<!-- Checkbox for Ski, Ice fishing and crSki-->
-			<input type="checkbox">
-			<input type="checkbox">
-			<input type="checkbox">
+			<form action="query_ht3.php" method="get">
+				Ski<input type="checkbox" value="ski" name="checkbox[]">
+			</form>
+			<form action="query_ht3.php" method="get">
+				CRSki<input type="checkbox" value="crski" name="checkbox[]">
+			</form>
+			<form action="query_ht3.php" method="get">
+				Ice Fishing<input type="checkbox" value="icefishing" name="checkbox[]">
+			</form>
           <li>Summer sports</li>
+		  <!-- Checkbox for Surf and Golf-->
+			<form action="query_ht3.php" method="get">
+				Surf<input type="checkbox" value="surf" name="checkbox[]">
+			</form>
+			<form action="query_ht3.php" method="get">
+				Golf<input type="checkbox" value="golf" name="checkbox[]">
+			</form>
 		  </ul>
 		  </li>
         </ul>
