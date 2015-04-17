@@ -23,13 +23,12 @@ Versions:
 <link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-<script src="http://zwibbler.com/zwibbler-demo.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
-<script src="./countries2.json"></script> <!-- countries geojson overlay -->
-<link rel="polygons" type"application/json" href=".countries.json"> <!-- a better alternative to countries geojson overlay -->
+<script src="src/countries.js" type="text/javascript"></script> <!-- external countries geojson overlay -->
+
 
 </head>
 
@@ -55,10 +54,10 @@ Versions:
 <nav>
 <button class="dropdown-toggle"><font color="white">Share</font></button>
 <ul class="dropdown">
-		<li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html&t=Share" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Facebook.png"><font color="black">Facebook</font></a></li>
-		<li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html&text=Share:%20http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Twitter.png"><font color="black">Twitter</font></a></li>
-		<li><a href="https://plus.google.com/share?url=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Google+.png"><font color="black">Google+</font></a></li>
-		<li><a href="mailto:?subject=Share&body=Now%20We%20can%20Share%20the%20map%20content:%20http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Email.png"><font color="black">Mail</font></a></li>
+		<li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html&t=Share" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Facebook.png"></a><font color="black">Facebook</font></li>
+		<li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html&text=Share:%20http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Twitter.png"></a><font color="black">Twitter</font></li>
+		<li><a href="https://plus.google.com/share?url=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Google+.png"></a><font color="black">Google+</font></li>
+		<li><a href="mailto:?subject=Share&body=Now%20We%20can%20Share%20the%20map%20content:%20http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Email.png"></a><font color="black">Mail</font></li>
 	
 </ul>
 </nav>
@@ -72,44 +71,90 @@ Versions:
         <ul id="menu-1">
           <li id="overview">Nature
 		  <ul>
-          <li>Wonders of Nature</li>
-          <li>Wildlife</li>
+          <li id="example-1">Animals
+		  <ul>
+		  <li>Tiger</li>
+		  <li>Giant Panda</li>
+		  <li>Leopard</li>
+		  </ul>
+		  </li>
+          <li id="example-2">Wonders
+		  <ul>
+		  <li>Mountains</li>
+		  <li>National parks</li>
+		  <li>UNESCO World Heritage Sites</li>
+		  <li>Canyons</li>
+		  <li>Caves</li>
+		  <li>Waterfalls</li>
+		  <li>Terraced fields</li>
+		  <li>Cliffs</li>
+		  <li>Islands</li>
+		  <li>Volcanoes</li>
+		  </ul>
+		  </li>
 		  </ul>
 		  </li>
         </ul>
       </div>
-      <h3>Sport</h3>
+     
       <div>
         <ul id="menu-2">
-          <li id="innovative">Sports
+          <li id="innovative">Activities
 		   <ul>
+          <li id="example-3">Winter sports
+		  <ul>
+		  <li>Ski</li>
+		  <li>Cross Country Ski</li>
+		  <li>Ice Fishing</li>
+		  </ul>
+		  </li>
+          <li id="example-4">Summer sports
+		   <ul>
+<<<<<<< HEAD
+		  <li>Golf</li>
+		  <li>Surf</li>
+		  </ul>
+		  </li>
+=======
           <li>Winter sports</li>
+			<!-- Checkbox for Ski, Ice fishing and crSki-->
+			<form action="query_ht3.php" method="get">
+				Ski<input type="checkbox" value="ski" name="checkbox[]">
+			</form>
+			<form action="query_ht3.php" method="get">
+				CRSki<input type="checkbox" value="crski" name="checkbox[]">
+			</form>
+			<form action="query_ht3.php" method="get">
+				Ice Fishing<input type="checkbox" value="icefishing" name="checkbox[]">
+			</form>
           <li>Summer sports</li>
+		  <!-- Checkbox for Surf and Golf-->
+			<form action="query_ht3.php" method="get">
+				Surf<input type="checkbox" value="surf" name="checkbox[]">
+			</form>
+			<form action="query_ht3.php" method="get">
+				Golf<input type="checkbox" value="golf" name="checkbox[]">
+			</form>
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
 		  </ul>
 		  </li>
         </ul>
       </div>
-      <h3>Culture</h3>
+      
       <div>
         <ul id="menu-3">
           <li id="other">Culture
 		  <ul>
-          <li>Culture</li>
-          <li>Music</li>
+          <li id="example-5">Fetivals</li>
 		  </ul>
 		  </li>
         </ul>
       </div>	  
     </div>
-  <!--Share Buttons-->
-  <ul class="share-buttons">
-		<li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html&t=Share" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Facebook.png"></a></li>
-		<li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html&text=Share:%20http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Twitter.png"></a></li>
-		<li><a href="https://plus.google.com/share?url=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Google+.png"></a></li>
-		<li><a href="mailto:?subject=Share&body=Now%20We%20can%20Share%20the%20map%20content:%20http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Email.png"></a></li>
-	</ul>
-</div>
-</div>
+  
 
 
 

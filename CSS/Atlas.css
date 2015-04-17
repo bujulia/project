@@ -1,7 +1,7 @@
 #map { 
 	height: 90%;
 	top: 32px;
-	left: 180px;
+	left: 0px;
 	right: 0px;
 }
 /* .info stays for information about a country */
@@ -175,42 +175,85 @@ body {
 }
 
 #overview{
-    position: absolute;
+  position: absolute;
+  text-align: center;
   left: 0;
   top: 40px;
   right: 0;
   bottom: 0;
-  height: 160px;
+  height: 80px;
   width: 180px;
   background: #004C00;
-}
-ul.overview {
-    
+  padding: 40px 0;
 }
 
-    li {
-       height:75px;}
+
+ 
+	   
+#example-1   {display: inline-block;
+       height:75px;
+	   }
+	   
+	   li  {display: inline-block;
+	   width:120px;
+		 height:10px;
+	  
+	   }
+#example-2   {display: inline-block;
+      height:75px;
+	   }
+	   
+	    li {display: inline-block;
+	     width:120px;
+		 height:10px;
+       
+	   }
 #innovative{
    position: absolute;
+   text-align: center;
   left: 0;
   top: 200px;
-   right: 0;
   bottom: 0;
-  height: 160px;
+  height: 80px;
   width: 180px;
   background: #7F0000;
+  padding: 40px 0;
 }
 
+#example-3   {display: inline-block;
+      height:75px;
+	   }
+	   
+	    li {display: inline-block;
+	     width:120px;
+		 height:10px;
+       
+	   }
+
+#example-4   {display: inline-block;
+      height:75px;
+	   }
+	   
+	    li {display: inline-block;
+	     width:120px;
+		 height:10px;
+       
+	   }
 #other{
   position: absolute;
+  text-align: center;
   left: 0;
   top: 360px;
-  right: 0;
-  bottom: 0;
-  height: 160px;
+  height: 80px;
   width: 180px;
   background: #ffff00;
+  padding: 40px 0;
 }
+#example-5  {display: inline-block;
+      height:75px;
+	   }
+	   
+	    
 #slider-month{
   position: absolute;
   left: 180px;
@@ -259,13 +302,7 @@ ul.overview {
 	  bottom: 150px;
 }*/
 
-.share-buttons{
-	list-style: none;
-}
 
-.share-buttons li{
-	display: inline;
-}
 
 nav {
   position: absolute;
@@ -279,25 +316,20 @@ nav {
 }
 ul.dropdown {
   display:none;
-  position: relative;
+  position: absolute;
   top: 100%;
   margin-top: .5em;
-  background: #FFF0F5;
+  background: #ffffff;
   min-width: 12em;
- 
-  padding: 0;
   z-index:1;
-  height:300px;
+  padding: 0;
   border-radius: 0 0 .2em .2em;
-  list-style-type: none;
     li {
       list-style-type: none;
       a {
         text-decoration: none;
-		
         padding: .5em 1em;
         display: block;
       }
-	  
    }
 }

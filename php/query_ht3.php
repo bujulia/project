@@ -1,13 +1,13 @@
 <?
-$maxDuration=$_GET["maxDuration"];
-$maxHeight=$_GET["maxHeight"];
+$surf=$_GET["checkbox[]"]; //Checkbox1 = name, 
+//$maxHeight=$_GET["maxHeight"];
 
 //echo "<pre>Simple check to see if connection works :-)</pre>\n"; flush();
 error_reporting(E_ALL); ini_set('display_errors', true);    
 extension_loaded('pgsql') || die('pgsql module unavailable');
 
 // If you will send SQL queries as parameters please read beforehand http://en.wikipedia.org/wiki/SQL_injection !!!!!!
-  $link = pg_Connect("host=db.qgiscloud.com port=5432 dbname=vhtxpp_cjncae user=vhtxpp_cjncae password=mmkarto2013"); //nachschlagen unter QGIS/Datenbank/Spit
+  $link = pg_Connect("host=db.qgiscloud.com port=5432 dbname=vhtxpp_cjncae user=vhtxpp_cjncae password=741dcb02"); //PW look up under: QGIS/"QGISCloud-Plugin"-Window/Database/Hover over current database and wait 2sec.
  /* if(!$link){
 	//echo  "Couldn't make a connection! ". pg_last_error();
 	exit;
@@ -16,7 +16,8 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
-  $result = pg_query($link, 'select gid,st_asgeojson(the_geom) as geojson from "scot_ht3" where time <= ' . $maxDuration .'and slope <= '. $maxHeight);
+  $result = pg_query($link, SELECT * FROM "country"); 
+  // old version13: $result = pg_query($link, 'select gid,st_asgeojson(the_geom) as geojson from "scot_ht3" where time <= ' . $maxDuration .'and slope <= '. $maxHeight);
   $numrows = pg_numrows($result);
 
    // Output Array as GeoJson
@@ -40,7 +41,6 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
          )
          
       );
-
       // Add feature array to feature collection array
       array_push($geojson['features'], $feature);
    }
