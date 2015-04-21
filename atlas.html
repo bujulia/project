@@ -15,22 +15,21 @@ Versions:
 <title>Destination Finder</title>
 <link rel="stylesheet" href="libs/jquery-ui.css">
 <link rel="stylesheet" href="CSS/Atlas.css">
-<script src="libs/external/jquery/jquery.js"></script>
-<script src="libs/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
+
 <script src="src/countries.js" type="text/javascript"></script> <!-- external countries geojson overlay -->
 <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.8/mapbox.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.8/mapbox.css' rel='stylesheet' />
 
+
+<!-- plus a jQuery UI theme, here I use "flick" -->
+<script src="libs/external/jquery/jquery.js"></script>
+<script src="libs/jquery-ui.js"></script>
+<script src="libs/jquery-ui-slider-pips.js"></script>
+<link rel="stylesheet" href="libs/jquery-ui-slider-pips.css">
 
 </head>
 
@@ -63,6 +62,8 @@ Versions:
 	
 </ul>
 </nav>
+
+<div class="slider"></div>
 <!-- The panel to place a map
 <div class="mappanel">
   <iframe  id="mapframe" frameborder="0" src="Maps/ne_50m_countries.svg"></iframe>
@@ -112,7 +113,7 @@ Versions:
 		  </li>
           <li id="example-4">Summer sports
 		   <ul>
-<<<<<<< HEAD
+
 		  <li>Golf</li>
 		  <li>Surf</li>
 		  </ul>
