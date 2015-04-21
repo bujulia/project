@@ -30,7 +30,7 @@ var map = L.mapbox.map('map', 'bujulia.basemap', {
 	})
     .setView([25,115], 4);
 	
-new L.Control.Zoom({position: 'bottomleft'}).addTo(map);
+new L.Control.Zoom({position: 'topright'}).addTo(map);
 	
 	
 	

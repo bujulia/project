@@ -42,7 +42,7 @@ body {
   height: 32px;
   left: 0;
   right: 0;
-  background: linear-gradient(0deg, #444, #888);
+  background: linear-gradient(0deg, #c2c2c2, #dbdbdb);
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
@@ -67,7 +67,7 @@ body {
   top: 32px;
   right: 0;
   bottom: 32px;
-  background: #9ecae1; 
+  background: #ffffff; 
 }
 
 .infopanel {
@@ -161,10 +161,6 @@ body {
 }
 
 
-
-
-
-
 #menu{
    position: absolute;
   left: 0;
@@ -174,6 +170,47 @@ body {
    background: #00FF00;
 }
 
+.nature1 {
+	background: #1dd300;
+	color: black;
+	}
+
+.nature2 {
+	background: #52e93a;
+	color: black;
+	}
+
+.nature3 {
+	background: #7ae969;
+	color: black;
+	}	
+
+.activities1 {
+	background: #c7007d;
+	color: black;
+	}
+	
+.activities2 {
+	background: #e339a4;
+	color: black;
+	}
+	
+.activities3 {
+	background: #e366b5;
+	color: black;
+	}
+
+.culture1 {
+	background: #ff6c00;
+	color: black;
+	}
+	
+.culture2 {
+	background: #ff9140;
+	color: black;
+	}
+	
+	
 #overview{
   position: absolute;
   text-align: center;
@@ -183,11 +220,8 @@ body {
   bottom: 0;
   height: 80px;
   width: 180px;
-  background: #B5A642;
   padding: 40px 0;
 }
-
-
  
 	   
 #example-1   {display: inline-block;
@@ -216,7 +250,6 @@ body {
   bottom: 0;
   height: 80px;
   width: 180px;
-  background: #800000;
   padding: 40px 0;
 }
 
@@ -246,7 +279,7 @@ body {
   top: 360px;
   height: 80px;
   width: 180px;
-  background: #BC8F8F;
+
   padding: 40px 0;
 }
 #example-5  {display: inline-block;
