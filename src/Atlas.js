@@ -12,7 +12,28 @@ function doSomething() {
     return false;
 }
 
-var map = L.map('map', {
+L.mapbox.accessToken = 'pk.eyJ1IjoiYnVqdWxpYSIsImEiOiJpNnpsb0dFIn0.j2t-srvzbqOy3xq9QZDGIA'; //access token so that the map can be taken from mapbox online
+
+var southWest = L.latLng(-180,-90),
+	northEast = L.latLng(180,90),
+	bounds = L.latLngBounds(southWest, northEast);
+
+var map = L.mapbox.map('map', 'bujulia.basemap', {
+	maxZoom: 7,
+	minZoom: 2,
+	scrollWheelZoom: true, // we can also zoom with mousewheel
+	keyboard: true, // we can also navigate with keyboard
+	keyboardPanOffset: 280, // Amount of pixels to pan when pressing an arrow key.
+	keyboardZoomOffset: 1, //Number of zoom levels to change when pressing + or - key.
+	maxBounds: bounds
+	})
+    .setView([25,115], 4);
+	
+	
+	
+	
+
+/* var map = L.map('map', {
     center: [25, 115],
     zoom: 4,
 	maxZoom: 16,
@@ -21,11 +42,12 @@ var map = L.map('map', {
 	keyboard: true, // we can also navigate with keyboard
 	keyboardPanOffset: 280, // Amount of pixels to pan when pressing an arrow key.
 	keyboardZoomOffset: 1, //Number of zoom levels to change when pressing + or - key.
-});
+}); 
+
 // add an OpenStreetMap tile layer
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+}).addTo(map); */
 
 /*
 var circle = L.circle([51.508, -0.11], 500, {
@@ -53,10 +75,11 @@ function onMapClick(e) {
 }
 map.on('click', onMapClick);
 
-var myStyle = {
-    "color": "#ff7800",
-    "weight": 5,
-    "opacity": 0.65
+var countryStyle = {
+    "fillOpacity": 0, 
+    "weight": 0.1,
+    "opacity": 0.65,
+	"color": '#a5a5a5'
 };
 
 // add a marker in the given location, attach some popup content to it and open the popup
@@ -187,10 +210,9 @@ function highlightFeature(e) {
     var layer = e.target;
 
     layer.setStyle({
-        weight: 5,
-        color: '#666',
+        weight: 4,
+        fillOpacity: 0,
         dashArray: '',
-        fillOpacity: 0.7
     });
 
     if (!L.Browser.ie && !L.Browser.opera) {
@@ -222,7 +244,7 @@ function onEachFeature(feature, layer) {
 
 //add map
 geojson = L.geoJson(countries, { //var countries comes from external js-file 
-    style: myStyle,
+    style: countryStyle,
     onEachFeature: onEachFeature
 }).addTo(map);
 
