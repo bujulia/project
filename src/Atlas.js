@@ -25,29 +25,17 @@ var map = L.mapbox.map('map', 'bujulia.basemap', {
 	keyboard: true, // we can also navigate with keyboard
 	keyboardPanOffset: 280, // Amount of pixels to pan when pressing an arrow key.
 	keyboardZoomOffset: 1, //Number of zoom levels to change when pressing + or - key.
-	maxBounds: bounds
+	maxBounds: bounds,
+	zoomControl: false,
 	})
     .setView([25,115], 4);
 	
+new L.Control.Zoom({position: 'bottomleft'}).addTo(map);
+	
 	
 	
 	
 
-/* var map = L.map('map', {
-    center: [25, 115],
-    zoom: 4,
-	maxZoom: 16,
-	minZoom: 3,
-	scrollWheelZoom: true, // we can also zoom with mousewheel
-	keyboard: true, // we can also navigate with keyboard
-	keyboardPanOffset: 280, // Amount of pixels to pan when pressing an arrow key.
-	keyboardZoomOffset: 1, //Number of zoom levels to change when pressing + or - key.
-}); 
-
-// add an OpenStreetMap tile layer
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map); */
 
 /*
 var circle = L.circle([51.508, -0.11], 500, {
