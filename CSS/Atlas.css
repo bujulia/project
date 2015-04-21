@@ -183,7 +183,7 @@ body {
   bottom: 0;
   height: 80px;
   width: 180px;
-  background: #004C00;
+  background: #B5A642;
   padding: 40px 0;
 }
 
@@ -216,7 +216,7 @@ body {
   bottom: 0;
   height: 80px;
   width: 180px;
-  background: #7F0000;
+  background: #800000;
   padding: 40px 0;
 }
 
@@ -246,7 +246,7 @@ body {
   top: 360px;
   height: 80px;
   width: 180px;
-  background: #ffff00;
+  background: #BC8F8F;
   padding: 40px 0;
 }
 #example-5  {display: inline-block;
@@ -254,23 +254,19 @@ body {
 	   }
 	   
 	    
-#slider-month{
+.slider{
   position: absolute;
   left: 180px;
   margin-left: 100px;
   margin-right: 100px;
   right: 0;
-  bottom: 0;
+  bottom: 40px;
   height: 10px;
   background: gray;
 }
-#beds { /*font*/
-	position: absolute;
-	left: 10px;
-	bottom: 0px;
-	color: white;
-	background-color: black;
-}
+.ui-slider-label {
+ color: #000000 ;
+ }
 
 #logo{
 	left: 8px;
@@ -319,7 +315,7 @@ ul.dropdown {
   position: absolute;
   top: 100%;
   margin-top: .5em;
-  background: #ffffff;
+  background: #00FFFFFFF;
   min-width: 12em;
   z-index:1;
   padding: 0;
