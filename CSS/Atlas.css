@@ -1,3 +1,29 @@
+#map { 
+	height: 90%;
+	top: 32px;
+	left: 0px;
+	right: 0px;
+}
+/* .info stays for information about a country */
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+	color: black;
+    border-radius: 5px;
+	position: absolute;
+	width: 180px;
+	height: 60px;
+	left: 0px;
+	bottom: 0px;
+}
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+
 body {
   font-family: "Helvetica Neue", sans-serif;
   font-size: 70%;
@@ -9,7 +35,6 @@ body {
   bottom: 0;
   right: 0;
 }
-/* test */
 
 .menubar {
   position: absolute;
@@ -17,7 +42,7 @@ body {
   height: 32px;
   left: 0;
   right: 0;
-  background: linear-gradient(0deg, #444, #888);
+  background: linear-gradient(0deg, #c2c2c2, #dbdbdb);
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
@@ -42,7 +67,7 @@ body {
   top: 32px;
   right: 0;
   bottom: 32px;
-  background: #9ecae1; 
+  background: #ffffff; 
 }
 
 .infopanel {
@@ -74,23 +99,207 @@ body {
   user-select: none;
 }
 
-#slider-month{
+#search {
+   position: absolute;
+  right: 600px;
+  top: 2px;
+ 
+}
+#text {
+   position: absolute;
+  right: 780px;
+  top: 2px;
+ 
+}
+#imprint {
+   position: absolute;
+  right: 500px;
+  top: 2px;
+ 
+}
+
+#fullscreen {
+   position: absolute;
+  right: 400px;
+  top: 2px;
+ 
+}
+
+#description {
+   position: absolute;
+  right: 260px;
+  top: 2px;
+ 
+}
+#head {
+   position: absolute;
+  left: 200px;
+  font-size: 20px;
+}
+
+#printbutton{
+   position: absolute;
+  right: 180px;
+  top: 2px;
+ 
+}
+
+#createpdf{
+   position: absolute;
+  right: 40px;
+  top: 2px;
+ 
+}
+#tabs {
+   position: absolute;
+  left: 0;
+  top: 32px;
+  right: 0;
+  bottom: 0;
+  height: 40;
+  
+}
+
+
+#menu{
+   position: absolute;
+  left: 0;
+  top: 60px;
+  right: 0;
+  bottom: 0;
+   background: #00FF00;
+}
+
+.nature1 {
+	background: #1dd300;
+	color: black;
+	}
+
+.nature2 {
+	background: #52e93a;
+	color: black;
+	}
+
+.nature3 {
+	background: #7ae969;
+	color: black;
+	}	
+
+.activities1 {
+	background: #c7007d;
+	color: black;
+	}
+	
+.activities2 {
+	background: #e339a4;
+	color: black;
+	}
+	
+.activities3 {
+	background: #e366b5;
+	color: black;
+	}
+
+.culture1 {
+	background: #ff6c00;
+	color: black;
+	}
+	
+.culture2 {
+	background: #ff9140;
+	color: black;
+	}
+	
+	
+#overview{
+  position: absolute;
+  text-align: center;
+  left: 0;
+  top: 40px;
+  right: 0;
+  bottom: 0;
+  height: 80px;
+  width: 180px;
+  padding: 40px 0;
+}
+ 
+	   
+#example-1   {display: inline-block;
+       height:75px;
+	   }
+	   
+	   li  {display: inline-block;
+	   width:120px;
+		 height:10px;
+	  
+	   }
+#example-2   {display: inline-block;
+      height:75px;
+	   }
+	   
+	    li {display: inline-block;
+	     width:120px;
+		 height:10px;
+       
+	   }
+#innovative{
+   position: absolute;
+   text-align: center;
+  left: 0;
+  top: 200px;
+  bottom: 0;
+  height: 80px;
+  width: 180px;
+  padding: 40px 0;
+}
+
+#example-3   {display: inline-block;
+      height:75px;
+	   }
+	   
+	    li {display: inline-block;
+	     width:120px;
+		 height:10px;
+       
+	   }
+
+#example-4   {display: inline-block;
+      height:75px;
+	   }
+	   
+	    li {display: inline-block;
+	     width:120px;
+		 height:10px;
+       
+	   }
+#other{
+  position: absolute;
+  text-align: center;
+  left: 0;
+  top: 360px;
+  height: 80px;
+  width: 180px;
+
+  padding: 40px 0;
+}
+#example-5  {display: inline-block;
+      height:75px;
+	   }
+	   
+	    
+.slider{
   position: absolute;
   left: 180px;
   margin-left: 100px;
   margin-right: 100px;
   right: 0;
-  bottom: 0;
-  height: 12px;
-  background: black;
+  bottom: 40px;
+  height: 10px;
+  background: gray;
 }
-#beds {
-	position: absolute;
-	left: 10px;
-	bottom: 10px;
-	color: white;
-	background-color: black;
-}
+.ui-slider-label {
+ color: #000000 ;
+ }
 
 #logo{
 	left: 8px;
@@ -101,6 +310,7 @@ body {
 	border: 0;
 }
 
+#ui-menu { width: 600px; }
 #home{
 	visibility: hidden;
 }
@@ -121,10 +331,34 @@ body {
 	  bottom: 150px;
 }*/
 
-.share-buttons{
-	list-style: none;
-}
 
-.share-buttons li{
-	display: inline;
+
+nav {
+  position: absolute;
+  top:2px;
+  left:450px;
+  
+}
+.dropdown-toggle {
+  
+  top:0px;
+}
+ul.dropdown {
+  display:none;
+  position: absolute;
+  top: 100%;
+  margin-top: .5em;
+  background: #00FFFFFFF;
+  min-width: 12em;
+  z-index:1;
+  padding: 0;
+  border-radius: 0 0 .2em .2em;
+    li {
+      list-style-type: none;
+      a {
+        text-decoration: none;
+        padding: .5em 1em;
+        display: block;
+      }
+   }
 }
