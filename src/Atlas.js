@@ -7,10 +7,7 @@
 	2015-3-2: Created
 */
 //////connection to php file
-function doSomething() {
-    $.get("php/query_ht3.php");
-    return false;
-}
+
 
 L.mapbox.accessToken = 'pk.eyJ1IjoiYnVqdWxpYSIsImEiOiJpNnpsb0dFIn0.j2t-srvzbqOy3xq9QZDGIA'; //access token so that the map can be taken from mapbox online
 
@@ -29,13 +26,8 @@ var map = L.mapbox.map('map', 'bujulia.basemap', {
 	zoomControl: false,
 	})
     .setView([25,115], 4);
-	
 new L.Control.Zoom({position: 'topright'}).addTo(map);
 	
-	
-	
-	
-
 
 /*
 var circle = L.circle([51.508, -0.11], 500, {
@@ -45,13 +37,12 @@ var circle = L.circle([51.508, -0.11], 500, {
 }).addTo(map);	
 */
 
-
-
-// popups as layers (when you need something more than attaching a popup to an object)
+/*simple popup ---- popups as layers (when you need something more than attaching a popup to an object)
 var popup = L.popup()
     .setLatLng([39.916667, 116.383333])
     .setContent("Beijing")
     .openOn(map);
+*/
 
 //popup show the coordinates of the clicked point
 var popup2 = L.popup();
@@ -69,7 +60,7 @@ var countryStyle = {
     "opacity": 0.65,
 	"color": '#a5a5a5'
 };
-
+/*
 // add a marker in the given location, attach some popup content to it and open the popup
 //from London: var culture = L.marker([51.5, -0.09])
 
@@ -175,8 +166,106 @@ $(document).ready(function(){
 				//L.marker([ski], {icon: WintersportIcon}).removeFrom(map);
 			}
         });
-});	  
-	  
+});	*/  
+//****************************** PHP Layers *********************************
+var ecoStyle = {"color": "#ffffff"}
+
+var month = '"January"';
+
+
+var tiger = new L.geoJson.ajax("php/requesttiger.php?month="+month, {"color": "#ffffff"});
+var giantpanda = new L.geoJson.ajax("php/requestgiantpanda.php?month="+month);
+var orangutan = new L.geoJson.ajax("php/requestorangutan.php?month="+month);
+var asiaticelephant = new L.geoJson.ajax("php/requestasiaticelephant.php?month="+month);
+var redpanda = new L.geoJson.ajax("php/requestredpanda.php?month="+month);
+var komododragon = new L.geoJson.ajax("php/requestkomododragon.php?month="+month);
+
+var nature = new L.geoJson.ajax("php/requestnature.php?month="+month);
+var crski = new L.geoJson.ajax("php/requestcrski.php?month="+month);
+var icefishing = new L.geoJson.ajax("php/requesticefishing.php?month="+month);
+var golf = new L.geoJson.ajax("php/requestgolf.php?month="+month);
+var surf = new L.geoJson.ajax("php/requestsurf.php?month="+month);
+var ski = new L.geoJson.ajax("php/requestski.php?month="+month);
+var festivals = new L.geoJson.ajax("php/requestfestivals.php?month="+month);
+
+
+//***************************************	  
+// Checkbox
+$(document).ready(function(){
+	$('input[value="tiger"]').click(function(){
+      	     if($(this).prop("checked") == true){
+                tiger.addTo(map);}
+	else if ($(this).prop("checked") == false){
+		map.removeLayer(tiger);}});
+	$('input[value="giantpanda"]').click(function(){
+      	     if($(this).prop("checked") == true){
+                giantpanda.addTo(map);}
+	else if ($(this).prop("checked") == false){
+		map.removeLayer(giantpanda);}});
+	$('input[value="orangutan"]').click(function(){
+      	     if($(this).prop("checked") == true){
+                orangutan.addTo(map);}
+	else if ($(this).prop("checked") == false){
+		map.removeLayer(orangutan);}});
+	$('input[value="asiaticelephant"]').click(function(){
+      	     if($(this).prop("checked") == true){
+                asiaticelephant.addTo(map);}
+	else if ($(this).prop("checked") == false){
+		map.removeLayer(asiaticelephant);}});
+	$('input[value="redpanda"]').click(function(){
+      	     if($(this).prop("checked") == true){
+                redpanda.addTo(map);}
+	else if ($(this).prop("checked") == false){
+		map.removeLayer(redpanda);}});
+	$('input[value="komododragon"]').click(function(){
+      	     if($(this).prop("checked") == true){
+                komododragon.addTo(map);}
+	else if ($(this).prop("checked") == false){
+		map.removeLayer(komododragon);}});				
+
+
+	$('input[value="nature"]').click(function(){
+             if($(this).prop("checked") == true){
+                nature.addTo(map);}
+	else if ($(this).prop("checked") == false){
+		map.removeLayer(nature);}});
+
+
+	$('input[value="ski"]').click(function(){
+             if($(this).prop("checked") == true){
+                ski.addTo(map);}
+	else if ($(this).prop("checked") == false){
+		map.removeLayer(ski);}});
+	$('input[value="crski"]').click(function(){
+             if($(this).prop("checked") == true){
+                crski.addTo(map);}
+	else if ($(this).prop("checked") == false){
+		map.removeLayer(crski);}});
+	$('input[value="icefishing"]').click(function(){
+             if($(this).prop("checked") == true){
+                icefishing.addTo(map);}
+	else if ($(this).prop("checked") == false){
+		map.removeLayer(icefishing);}});
+
+	$('input[value="golf"]').click(function(){
+             if($(this).prop("checked") == true){
+                golf.addTo(map);}
+	else if ($(this).prop("checked") == false){
+		map.removeLayer(golf);}});
+	$('input[value="surf"]').click(function(){
+      	     if($(this).prop("checked") == true){
+                surf.addTo(map);}
+	else if ($(this).prop("checked") == false){
+		map.removeLayer(surf);}});
+
+	$('input[value="festivals"]').click(function(){
+      	     if($(this).prop("checked") == true){
+                festivals.addTo(map);}
+	else if ($(this).prop("checked") == false){
+		map.removeLayer(festivals);}});
+});
+
+
 
 // control that shows country info on hover
 var info = L.control({position: 'bottomleft'});
