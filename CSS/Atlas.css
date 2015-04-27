@@ -4,6 +4,7 @@
 	left: 0px;
 	right: 0px;
 }
+
 /* .info stays for information about a country */
 .info {
     padding: 6px 8px;
@@ -18,10 +19,6 @@
 	height: 60px;
 	left: 0px;
 	bottom: 0px;
-}
-.info h4 {
-    margin: 0 0 5px;
-    color: #777;
 }
 
 body {
@@ -42,8 +39,8 @@ body {
   height: 32px;
   left: 0;
   right: 0;
-  background: linear-gradient(0deg, #c2c2c2, #dbdbdb);
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  background: linear-gradient(0deg, #cccccc, #e5e5e5);
+  -webkit-tap-highlight-color: #b3b3b3;
 }
 
 .menuitem {
@@ -57,18 +54,9 @@ body {
   right: 0;
   bottom: 0;
   width: 180px;
-  background: #000;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: #b3b3b3;
 }
 
-.mappanel {
-  position: absolute;
-  left: 180px;
-  top: 32px;
-  right: 0;
-  bottom: 32px;
-  background: #ffffff; 
-}
 
 .infopanel {
   position: absolute;
@@ -85,11 +73,10 @@ body {
   bottom: 32px;
 }
 
-
-#mapframe {
-  width: 100%;
-  height: 100%;
+button {
+  background-color: #b3b3b3;
 }
+
 
 .ns {
   -webkit-touch-callout: none;
@@ -160,7 +147,7 @@ body {
   
 }
 
-
+/* what do we need that for? theres no id=menu in the html*/
 #menu{
    position: absolute;
   left: 0;
@@ -295,7 +282,8 @@ body {
   right: 0;
   bottom: 40px;
   height: 10px;
-  background: gray;
+  background: #cccccc;
+  outline-color: #b3b3b3;
 }
 .ui-slider-label {
  color: #000000 ;
@@ -314,7 +302,8 @@ body {
 #home{
 	visibility: hidden;
 }
-/*
+/* do we need that anymore???
+
 #slider-range {
   position: absolute;
   left: 180px;
@@ -348,7 +337,7 @@ ul.dropdown {
   position: absolute;
   top: 100%;
   margin-top: .5em;
-  background: #00FFFFFFF;
+  background: #00FFFFFFF; /* what color is that?*/
   min-width: 12em;
   z-index:1;
   padding: 0;
