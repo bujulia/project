@@ -18,7 +18,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	}*/
 
   $result = pg_query($link, 'select "Name", "Country", st_asgeojson(wkb_geometry) as geojson from crski where ' . $month . '=1'); //wkb_geometry
-  $numrows = pg_numrows($result)
+  $numrows = pg_numrows($result);
 
   // Output Array as GeoJson
   //$resultArray = pg_fetch_all($result);
