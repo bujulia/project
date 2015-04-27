@@ -113,20 +113,24 @@
             features;
 
         // Add all of the countries to the globe
-        d3.json("world-countries.json", function(collection) {
-            features = g.selectAll(".feature").data(collection.features);
+            d3.json("world-countries.json", function(collection) {
+            features = g.selectAll(".feature").data(collection.features)
+            
 
             features.enter().append("path")
                 .attr("class", "feature")
                 .attr("d", function(d){ return path(circle.clip(d)); })
+                // Get the mouse as pointer when the mouse is over the continents... Doesn't work!!!
+                .on("mouseover",function(){
+                    svg.style.cursor = "pointer";
+                })
+                // Go from the globe to the 2D map by clicking on the continents
+                .on("click",function(){
+                    window.location.href='atlas.html#map';
+                });
+
         });
 
-        // Select the needed countries
-
-        d3.json("world-countries.json", function(collection) {
-            selfeatures = g.select("China").data(collection.selfeatures);
-            selfeatures.css('fill' ,'#F00');
-        });
 
         // Redraw all items with new projections
         function redraw(){
