@@ -32,7 +32,7 @@
         // Setup path for globe
         var Globe = d3.geo.azimuthal()
             .mode("orthographic") // Globe has a orthographic projection
-            .translate([width / 2, height / 2.5]);
+            .translate([width / 2, height / 2.25]);
 
         var scale0 = Globe.scale();
 
@@ -40,7 +40,7 @@
             .projection(Globe)
             .pointRadius(2)
 
-        Globe.scale(Globe.scale() * 1.2);
+        Globe.scale(Globe.scale() * 1.5);
 
         // Setup path for sun
         var Sun = d3.geo.azimuthal()
@@ -53,7 +53,7 @@
             .projection(Sun)
             .pointRadius(2)
 
-        Sun.scale(Sun.scale() / 3);
+        Sun.scale(Sun.scale() / 5);
 
         // Setup zoom behavior
         var zoom = d3.behavior.zoom(true)
@@ -88,7 +88,7 @@
 
         // Create the Sun
         var Sun = svg.append("circle")
-            .attr('cx', 240)
+            .attr('cx', 1240)
             .attr('cy', 160)
             .attr('r', Sun.scale())
             .attr('class', 'Sun')
@@ -103,7 +103,7 @@
         // Create the base globe
         var backgroundCircle = svg.append("circle")
             .attr('cx', width / 2)
-            .attr('cy', height / 2.5)
+            .attr('cy', height / 2.25)
             .attr('r', Globe.scale())
             .attr('class', 'globe')
             .attr("filter", "url(#glow)")
@@ -112,7 +112,7 @@
         var g = svg.append("g"),
             features;
 
-        // Add all of the countries to the globe
+        // Add all the countries to the globe
             d3.json("world-countries.json", function(collection) {
             features = g.selectAll(".feature").data(collection.features)
             
@@ -120,10 +120,7 @@
             features.enter().append("path")
                 .attr("class", "feature")
                 .attr("d", function(d){ return path(circle.clip(d)); })
-                // Get the mouse as pointer when the mouse is over the continents... Doesn't work!!!
-                .on("mouseover",function(){
-                    svg.style.cursor = "pointer";
-                })
+                
                 // Go from the globe to the 2D map by clicking on the continents
                 .on("click",function(){
                     window.location.href='atlas.html#map';
@@ -142,11 +139,6 @@
                 spacePath.pointRadius(d.properties.radius);
                 return spacePath(d);
             });
-
-            //Sun.attr("d", function(d) {
-            //    spacePath.pointRadius(d.properties.radius);
-            //    return spacePath(d);
-            //});
         }
 
         // Rotation of the earth only in the horizontal direction
@@ -188,7 +180,6 @@
             }
             return data;
         }        
-
 
         // Randomizing the position of the stars
         
