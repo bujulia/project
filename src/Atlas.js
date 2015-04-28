@@ -27,17 +27,7 @@ var map = L.mapbox.map('map', 'bujulia.basemap', {
 	})
     .setView([25,115], 4);
 new L.Control.Zoom({position: 'topright'}).addTo(map);
-	
 
-//popup show the coordinates of the clicked point
-var popup2 = L.popup();
-function onMapClick(e) {
-    popup2
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(map);
-}
-map.on('click', onMapClick);
 
 var countryStyle = {
     "fillOpacity": 0, 
@@ -265,7 +255,7 @@ $('#autocomplete').autocomplete({
 $('#menu-1,#menu-2,#menu-3').menu();
 
 // set up an array to hold the months
-var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 // lets be fancy for the demo and select the current month.
 var activeMonth = new Date().getMonth();
 
@@ -374,15 +364,6 @@ $( "#amount-range" ).val( $( "#slider-range" ).slider( "value" ) );
 });*/
 
 
-var cities = new L.LayerGroup();
-	    L.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.').addTo(cities),
-		L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.').addTo(cities),
-		L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.').addTo(cities),
-		L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.').addTo(cities);
-var overlays = {
-    "Cities": cities
-};
-L.control.layers(overlays).addTo(map);
 
 
 

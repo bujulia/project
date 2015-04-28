@@ -43,9 +43,6 @@ body {
   -webkit-tap-highlight-color: #b3b3b3;
 }
 
-.menuitem {
-  display: table-cell;
-}
 
 .navigation {
   position: absolute;
@@ -53,7 +50,7 @@ body {
   top: 32px;
   right: 0;
   bottom: 0;
-  width: 180px;
+  width: 60px;
   -webkit-tap-highlight-color: #b3b3b3;
 }
 
@@ -71,6 +68,16 @@ body {
   position: absolute;
   right: 0;
   bottom: 32px;
+}
+
+#infowindow {
+	bottom: 50px;
+}
+
+#widget {
+	bottom: 50px;
+	width: 300; 
+	height: 250;
 }
 
 button {
@@ -107,14 +114,14 @@ button {
 
 #fullscreen {
    position: absolute;
-  right: 400px;
+  right: 300px;
   top: 2px;
  
 }
 
 #description {
    position: absolute;
-  right: 500px;
+  right: 400px;
   top: 2px;
  
 }
@@ -126,14 +133,14 @@ button {
 
 #printbutton{
    position: absolute;
-  right: 350px;
+  right: 200px;
   top: 2px;
  
 }
 
 #share{
    position: absolute;
-  right: 300px;
+  right: 100px;
   top: 2px;
  
 }
@@ -148,16 +155,7 @@ button {
   
 }
 
-/* what do we need that for? theres no id=menu in the html*/
-#menu{
-   position: absolute;
-  left: 0;
-  top: 60px;
-  right: 0;
-  bottom: 0;
-   background: #00FF00;
-}
-
+/* colours for the themes ******************************************/
 .nature1 {
 	background: #1dd300;
 	color: black;
@@ -198,97 +196,85 @@ button {
 	color: black;
 	}
 	
+/* what is this?*/
+li  {
+	display: inline-block;
+	width:120px;
+	height:10px;
+	}
 	
-#overview{
+#nature{
   position: absolute;
   text-align: center;
   left: 0;
   top: 40px;
   right: 0;
   bottom: 0;
-  height: 80px;
-  width: 180px;
-  padding: 40px 0;
+  height: 170px;
+  width: 40px;
+  padding: 20px 0;
 }
- 
-	   
-#example-1   {display: inline-block;
-       height:75px;
-	   }
-	   
-	   li  {display: inline-block;
-	   width:120px;
-		 height:10px;
-	  
-	   }
-#example-2   {display: inline-block;
-      height:75px;
-	   }
-	   
-	    li {display: inline-block;
-	     width:120px;
-		 height:10px;
-       
-	   }
-#innovative{
+
+#activities{
    position: absolute;
    text-align: center;
   left: 0;
-  top: 200px;
+  top: 220px;
   bottom: 0;
-  height: 80px;
-  width: 180px;
-  padding: 40px 0;
+  height: 170px;
+  width: 40px;
+  padding: 5px 0;
 }
 
-#example-3   {display: inline-block;
-      height:75px;
-	   }
-	   
-	    li {display: inline-block;
-	     width:120px;
-		 height:10px;
-       
-	   }
-
-#example-4   {display: inline-block;
-      height:75px;
-	   }
-	   
-	    li {display: inline-block;
-	     width:120px;
-		 height:10px;
-       
-	   }
-#other{
+#culture{
   position: absolute;
   text-align: center;
   left: 0;
-  top: 360px;
-  height: 80px;
-  width: 180px;
-
-  padding: 40px 0;
+  top: 400px;
+  height: 170px;
+  width: 40px;
+  padding: 20px 0;
 }
-#example-5  {display: inline-block;
+ 
+#animals   {display: inline-block;
+       height:75px;
+	   }
+	   
+#wonders   {display: inline-block;
+      height:75px;
+	   }
+
+
+#winter   {display: inline-block;
+      height:75px;
+	   }
+	  
+
+#summer   {display: inline-block;
+      height:75px;
+	   }
+	   
+
+
+#festivals  {display: inline-block;
       height:75px;
 	   }
 	   
 	    
 .slider{
   position: absolute;
-  left: 180px;
+  left: 100px;
   margin-left: 100px;
   margin-right: 100px;
-  right: 0;
+  right: 200px;
   bottom: 40px;
   height: 10px;
   background: #cccccc;
   outline-color: #b3b3b3;
 }
 .ui-slider-label {
- color: #000000 ;
- text-shadow: white 0.1em 0.1em 0.2em;
+ color: #000000;
+ text-shadow: white 0.5em 0.5em 1.0em;
  }
 
 #logo{
