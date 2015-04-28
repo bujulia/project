@@ -29,12 +29,7 @@ var map = L.mapbox.map('map', 'bujulia.basemap', {
 new L.Control.Zoom({position: 'topright'}).addTo(map);
 
 
-var countryStyle = {
-    "fillOpacity": 0, 
-    "weight": 0.1,
-    "opacity": 0.65,
-	"color": '#a5a5a5'
-};
+
 
 //event listener for layer mouseover event
 function highlightFeature(e) {
@@ -64,7 +59,6 @@ function zoomToFeature(e) {
 	duration: 0.3;
 }
 
-
 function onEachFeature(feature, layer) {
     layer.on({
         mouseover: highlightFeature,
@@ -72,6 +66,13 @@ function onEachFeature(feature, layer) {
         click: zoomToFeature
     });
 }
+
+var countryStyle = {
+    "fillOpacity": 0, 
+    "weight": 0.1,
+    "opacity": 0.65,
+	"color": '#a5a5a5'
+};
 
 //add map
 geojson = L.geoJson(countries, { //var countries comes from external js-file 

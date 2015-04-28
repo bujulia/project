@@ -19,7 +19,7 @@ Versions:
 <link rel="stylesheet" href="CSS/Atlas.css">
 <link rel="stylesheet" href="Globe/style.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<!-- <script src="//code.jquery.com/jquery-1.10.2.js"></script> -->
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 
@@ -48,11 +48,10 @@ Versions:
 
 <!-- Menubar and menu items test -->
 <div class="menubar ns">
-	<h1 id="head"><font color="#003300">Destination Finder</font></h1>
-	<a href="atlas.html"><img id="logo" src="src/logo_2.png" alt="Logo"></a>
+	<a href="atlas.html"><img id="logo" src="src/banner.png" alt="Logo"></a>
 	<button id="home">H</button>						<!-- invisible button to leave space for the logo -->
 	<button id="description">Map Description</button>
-	<button id="printbutton" onclick="printIT()">Print</button>
+	<button id="printbutton" onclick="printIT()"> &#9113 </button>
 	<button id="fullscreen">Fullscreen</button>
 	<button id="imprint">Imprint</button>
 	<label id="text" for="search">Search: </label>
@@ -124,7 +123,7 @@ Versions:
 </div>   
 <div>
     <ul id="menu-2">
-          <li class="activities1" id="activities"> A<br>C<br>T<br>I<br>V<br>I<br>T<br>I<br>E<br>S
+          <li class="activities1" id="activities"> S<br>P<br>O<br>R<br>T<br>S
 		  <ul>
 			<li class="activities2" id="winter">Winter sports
 			<ul>		  
@@ -180,7 +179,7 @@ Versions:
 <div class="infobox" id="infowindow"></div>
 
 <div class="infobox">
- <iframe id="widget" allowTransparency="true" src="http://www.quicktrip.com/quicktrip-widget.html?Affiliate=48bdd172-f175-4aca-ab9f-079cbbd8f61a&Mode=flight&Culture=en-CA"  scrolling="no" frameBorder="0"></iframe>  
+ <iframe id="widget" allowTransparency="true" src="http://www.quicktrip.com/quicktrip-widget.html?Affiliate=48bdd172-f175-4aca-ab9f-079cbbd8f61a&Mode=flight&Culture=en-CA" width="300" height="250" scrolling="no" frameBorder="0"></iframe>  
 </div>
  
 <!-- Reserve an element to display dialogs -->
