@@ -17,7 +17,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
-  $result = pg_query($link, 'select "ECO_NAME", "AREA", st_asgeojson(wkb_geometry) as geojson from asiaticelephant where ' . $month . '=1');
+  $result = pg_query($link, 'select "ECO_NAME", "AREA", st_asgeojson(wkb_geometry) as geojson from asiaticelephant');
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson
@@ -32,7 +32,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
    // Add edges to GeoJSON array
    while($edge=pg_fetch_assoc($result)) {
 
-      $feature = array(
+	$feature = array(
          'type' => 'Feature',
          'geometry' => json_decode($edge['geojson'], true),
          'crs' => array(

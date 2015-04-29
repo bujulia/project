@@ -17,7 +17,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
-  $result = pg_query($link, 'select "ECO_NAME", "AREA", st_asgeojson(wkb_geometry) as geojson from redpanda where ' . $month . '=1'); //geom
+  $result = pg_query($link, 'select "ECO_NAME", "AREA", st_asgeojson(wkb_geometry) as geojson from redpanda'); //geom
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson

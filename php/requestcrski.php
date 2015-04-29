@@ -17,7 +17,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
-  $result = pg_query($link, 'select "Name", "Country", st_asgeojson(wkb_geometry) as geojson from crski where ' . $month . '=1'); //wkb_geometry
+  $result = pg_query($link, 'select "Name", "Country", "Slope_Leng", st_asgeojson(wkb_geometry) as geojson from crski where ' . $month . '=1'); //wkb_geometry
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson
@@ -32,15 +32,18 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
    // Add edges to GeoJSON array
    while($edge=pg_fetch_assoc($result)) {
 
-      $feature = array(
+$feature = array(
          'type' => 'Feature',
          'geometry' => json_decode($edge['geojson'], true),
          'crs' => array(
             'type' => 'EPSG',
-            'properties' => array('code' => '4326')
-         )
-         
+            'properties' => array('code' => '4326' )),
+	'properties' => array(
+	'name' => $edge['Name'],					//name
+	'country' => $edge['Country'],					//country
+	'slope_length' => $edge['Slope_Leng'])				//Slope Length
       );
+
 
       // Add feature array to feature collection array
       array_push($geojson['features'], $feature);

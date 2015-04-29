@@ -17,7 +17,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
-  $result = pg_query($link, 'select "Name", "Country", st_asgeojson(wkb_geometry) as geojson from surf where ' . $month . '=1'); //wkb_geometry
+  $result = pg_query($link, 'select "Name", "Country", "Typ", "Experience", "Frequency", "QualityWS", "WaveDirect", st_asgeojson(wkb_geometry) as geojson from surf where ' . $month . '=1'); //wkb_geometry
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson
@@ -37,9 +37,15 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
          'geometry' => json_decode($edge['geojson'], true),
          'crs' => array(
             'type' => 'EPSG',
-            'properties' => array('code' => '4326')
-         )
-         
+            'properties' => array('code' => '4326' )),
+	'properties' => array(
+	'name' => $edge['Name'],						//Name
+	'country' => $edge['Country'],						//Country
+	'typ' => $edge['Typ'],							//Typ
+	'experience' => $edge['Experience'],					//Experience
+	'frequency' => $edge['Frequency'],					//Frequency
+	'qualityws' => $edge['QualityWS'],					//QualityWS
+	'wavedirect' => $edge['WaveDirect'])					//WaveDirect
       );
 
       // Add feature array to feature collection array

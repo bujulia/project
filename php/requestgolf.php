@@ -17,7 +17,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
-  $result = pg_query($link, 'select "Name", "Country", st_asgeojson(wkb_geometry) as geojson from golf where ' . $month . '=1'); //geom
+  $result = pg_query($link, 'select "Name", "Country", "Holes", "Length", "Terrain", "Par", "Practice", st_asgeojson(wkb_geometry) as geojson from golf where ' . $month . '=1'); //geom
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson
@@ -32,14 +32,20 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
    // Add edges to GeoJSON array
    while($edge=pg_fetch_assoc($result)) {
 
-      $feature = array(
+            $feature = array(
          'type' => 'Feature',
          'geometry' => json_decode($edge['geojson'], true),
          'crs' => array(
             'type' => 'EPSG',
-            'properties' => array('code' => '4326')
-         )
-         
+            'properties' => array('code' => '4326' )),
+	'properties' => array(
+	'name' => $edge['Name'],						//Name
+	'country' => $edge['Country'],						//Country
+	'holes' => $edge['Holes'],						//Holes
+	'length' => $edge['Length'],						//Length
+	'terrain' => $edge['Terrain'],						//Terrain
+	'par' => $edge['Par'],							//Par
+	'practice' => $edge['Practice'])					//Practice
       );
 
       // Add feature array to feature collection array
