@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <svg id="defs">
         <defs>
 
@@ -15,13 +14,12 @@
                 <stop offset="0%" style="stop-color:#0099FF;stop-opacity:1" />
                 <stop offset="100%" style="stop-color:#B8DBFF;stop-opacity:1" />
             </linearGradient>
-            <radialGradient id="gradSun" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="15%" style="stop-color:#E25822;stop-opacity:1" />
-                <stop offset="95%" style="stop-color:#FFCC00;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#FFFF00;stop-opacity:1" />
-            </radialGradient>
+            <linearGradient id="gradSun" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#E25822;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#FFCC00;stop-opacity:1" />
+            </linearGradient>
 
-            <!-- Create filter for the glowed boundary of the Earth "glow" and for the sun "glowSun". -->
+            <!-- Create filter for the glowed boundary of the Earth "glow" and for the sun "glowSun". By changing the values, the colour of the glow will change -->
             
             <filter id="glow">
                 <feColorMatrix type="matrix"
@@ -33,7 +31,7 @@
 
                 <!-- Blur boundaries of the glow rectangle using the stdDeviation -->
 
-                <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+                <feGaussianBlur stdDeviation="7" result="coloredBlur"/>
                 <feMerge>
                     <feMergeNode in="coloredBlur"/>
                     <feMergeNode in="SourceGraphic"/>
@@ -49,22 +47,13 @@
 
                 <!-- Blur boundaries of the glow rectangle using the stdDeviation -->
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
-=======
-                <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
->>>>>>> origin/master
-=======
-                <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
->>>>>>> origin/master
+                <feGaussianBlur stdDeviation="20" result="coloredBlur"/>
                 <feMerge>
                     <feMergeNode in="coloredBlur"/>
                     <feMergeNode in="SourceGraphic"/>
                 </feMerge>
             </filter>
         </defs>
-
     </svg>
     <script src="http://marcneuwirth.com/experiments/globe/d3.custom.js"></script>
     <script src="script.js"></script>
