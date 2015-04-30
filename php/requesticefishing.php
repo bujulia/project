@@ -32,25 +32,15 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
    // Add edges to GeoJSON array
    while($edge=pg_fetch_assoc($result)) {
 
-<<<<<<< HEAD
-      $feature = array(
-=======
             $feature = array(
->>>>>>> origin/master
          'type' => 'Feature',
          'geometry' => json_decode($edge['geojson'], true),
          'crs' => array(
             'type' => 'EPSG',
-<<<<<<< HEAD
-            'properties' => array('code' => '4326')
-         )
-         
-=======
             'properties' => array('code' => '4326' )),
 	'properties' => array(
 	'name' => $edge['Name'],					//name
 	'country' => $edge['Country'])					//country
->>>>>>> origin/master
       );
 
       // Add feature array to feature collection array

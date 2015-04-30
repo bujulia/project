@@ -17,11 +17,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
-<<<<<<< HEAD
-  $result = pg_query($link, 'select "Name", "Country", st_asgeojson(wkb_geometry) as geojson from ski where ' . $month . '=1');
-=======
   $result = pg_query($link, 'select "Name", "Country", "Lifts", "Height_up", "Height_dow", "Height_dif", "Slope_Leng", st_asgeojson(wkb_geometry) as geojson from ski where ' . $month . '=1');
->>>>>>> origin/master
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson
@@ -41,13 +37,6 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
          'geometry' => json_decode($edge['geojson'], true),
          'crs' => array(
             'type' => 'EPSG',
-<<<<<<< HEAD
-            'properties' => array('code' => '4326')
-         )
-         
-      );
-
-=======
             'properties' => array('code' => '4326' )),
 	'properties' => array(
 	'name' => $edge['Name'],						//Name
@@ -60,7 +49,6 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
       );
 
 
->>>>>>> origin/master
       // Add feature array to feature collection array
       array_push($geojson['features'], $feature);
    }

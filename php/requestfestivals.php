@@ -17,11 +17,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
-<<<<<<< HEAD
-  $result = pg_query($link, 'select "Name", "Country", st_asgeojson(wkb_geometry) as geojson from festivals where ' . $month . '=1'); //geom
-=======
   $result = pg_query($link, 'select "Name", "Country", "#Bands", "Attendance", "Musictype", "Others", "Youtube", st_asgeojson(wkb_geometry) as geojson from festivals where ' . $month . '=1'); //geom
->>>>>>> origin/master
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson
@@ -36,20 +32,11 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
    // Add edges to GeoJSON array
    while($edge=pg_fetch_assoc($result)) {
 
-<<<<<<< HEAD
-      $feature = array(
-=======
 $feature = array(
->>>>>>> origin/master
          'type' => 'Feature',
          'geometry' => json_decode($edge['geojson'], true),
          'crs' => array(
             'type' => 'EPSG',
-<<<<<<< HEAD
-            'properties' => array('code' => '4326')
-         )
-         
-=======
             'properties' => array('code' => '4326' )),
 	'properties' => array(
 	'name' => $edge['Name'],						//Name
@@ -59,7 +46,6 @@ $feature = array(
 	'musictype' => $edge['Musictype'],					//Musictype
 	'others' => $edge['Others'],						//Others
 	'youtube' => $edge['Youtube'])						//Youtube
->>>>>>> origin/master
       );
 
       // Add feature array to feature collection array

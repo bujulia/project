@@ -1,9 +1,10 @@
-#map { 
-	height: 90%;
+#map {
+	height: 100%;
 	top: 32px;
 	left: 0px;
 	right: 0px;
 }
+
 /* .info stays for information about a country */
 .info {
     padding: 6px 8px;
@@ -19,13 +20,9 @@
 	left: 0px;
 	bottom: 0px;
 }
-.info h4 {
-    margin: 0 0 5px;
-    color: #777;
-}
 
 body {
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 70%;
   position: absolute;
   overflow: hidden;
@@ -42,13 +39,10 @@ body {
   height: 32px;
   left: 0;
   right: 0;
-  background: linear-gradient(0deg, #444, #888);
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  background: #cccccc;
+  -webkit-tap-highlight-color: #b3b3b3;
 }
 
-.menuitem {
-  display: table-cell;
-}
 
 .navigation {
   position: absolute;
@@ -56,51 +50,30 @@ body {
   top: 32px;
   right: 0;
   bottom: 0;
-  width: 180px;
-  background: #000;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  width: 60px;
+  -webkit-tap-highlight-color: #b3b3b3;
 }
 
-.mappanel {
-  position: absolute;
-  left: 180px;
-  top: 32px;
-  right: 0;
-  bottom: 32px;
-  background: #9ecae1; 
+
+#infowindow {
+	position: absolute;
+	right: 0;
+	bottom: 340px;
+	width: 200pc;
+	background-color: #cccccc;
 }
 
-<<<<<<< HEAD
 #widget {
 	position: absolute;
 	right: 0;
 	bottom: 80px;
-<<<<<<< HEAD
 	visibility:hidden;
-=======
->>>>>>> origin/master
-=======
-.infopanel {
-  position: absolute;
-  left: 180px;
-  right: 0;
-  bottom: 0;
-  height: 32px;
-  background: #eee;
->>>>>>> parent of 4b8ff9d... changes
 }
 
-.infobox {
-  position: absolute;
-  right: 0;
-  bottom: 32px;
+button {
+  background-color: #b3b3b3;
 }
 
-
-#mapframe {
-  width: 100%;
-  height: 100%;
-}
 
 .ns {
   -webkit-touch-callout: none;
@@ -124,21 +97,21 @@ body {
 }
 #imprint {
    position: absolute;
-  right: 500px;
+  right: 10px;
   top: 2px;
  
 }
 
 #fullscreen {
    position: absolute;
-  right: 400px;
+  right: 300px;
   top: 2px;
  
 }
 
 #description {
    position: absolute;
-  right: 260px;
+  right: 400px;
   top: 2px;
  
 }
@@ -150,17 +123,19 @@ body {
 
 #printbutton{
    position: absolute;
-  right: 180px;
+  right: 200px;
+  top: 2px;
+
+ 
+}
+
+#share{
+   position: absolute;
+  right: 100px;
   top: 2px;
  
 }
 
-#createpdf{
-   position: absolute;
-  right: 40px;
-  top: 2px;
- 
-}
 #tabs {
    position: absolute;
   left: 0;
@@ -171,171 +146,160 @@ body {
   
 }
 
+/* colours for the themes ******************************************/
+.nature1 {
+	background: #1dd300;
+	color: black;
+	opacity: 0.6;
+	}
 
+.nature2 {
+	background: #52e93a;
+	color: black;
+	}
 
+.nature3 {
+	background: #7ae969;
+	color: black;
+	}	
 
+.activities1 {
+	background: #c7007d;
+	color: black;
+	opacity: 0.6;
+	}
+	
+.activities2 {
+	background: #e339a4;
+	color: black;
+	}
+	
+.activities3 {
+	background: #e366b5;
+	color: black;
+	}
 
-
-#menu{
-   position: absolute;
-  left: 0;
-  top: 60px;
-  right: 0;
-  bottom: 0;
-   background: #00FF00;
-}
-
-#overview{
+.culture1 {
+	background: #ff6c00;
+	color: black;
+	opacity: 0.6;
+	}
+	
+.culture2 {
+	background: #ff9140;
+	color: black;
+	}
+	
+/* what is this?*/
+li  {
+	display: inline-block;
+	width:120px;
+	height:10px;
+	}
+	
+#nature{
   position: absolute;
   text-align: center;
   left: 0;
   top: 40px;
   right: 0;
   bottom: 0;
-  height: 80px;
-  width: 180px;
-  background: #B5A642;
-  padding: 40px 0;
+  height: 140px;
+  width: 40px;
+  padding: 10px 0;
 }
 
-
- 
-	   
-#example-1   {display: inline-block;
-       height:75px;
-	   }
-	   
-	   li  {display: inline-block;
-	   width:120px;
-		 height:10px;
-	  
-	   }
-#example-2   {display: inline-block;
-      height:75px;
-	   }
-	   
-	    li {display: inline-block;
-	     width:120px;
-		 height:10px;
-       
-	   }
-#innovative{
+#activities{
    position: absolute;
    text-align: center;
   left: 0;
   top: 200px;
   bottom: 0;
-  height: 80px;
-  width: 180px;
-  background: #800000;
-  padding: 40px 0;
+  height: 140px;
+  width: 40px;
+  padding: 10px 0;
 }
 
-#example-3   {display: inline-block;
-      height:75px;
-	   }
-	   
-	    li {display: inline-block;
-	     width:120px;
-		 height:10px;
-       
-	   }
-
-#example-4   {display: inline-block;
-      height:75px;
-	   }
-	   
-	    li {display: inline-block;
-	     width:120px;
-		 height:10px;
-       
-	   }
-#other{
+#culture{
   position: absolute;
   text-align: center;
   left: 0;
   top: 360px;
-  height: 80px;
-  width: 180px;
-  background: #BC8F8F;
-  padding: 40px 0;
+  bottom: 0;
+  height: 140px;
+  width: 40px;
+  padding: 10px 0;
 }
-#example-5  {display: inline-block;
+ 
+#animals   {display: inline-block;
+       height:75px;
+	   }
+	   
+#wonders   {display: inline-block;
+      height:75px;
+	   }
+
+
+#winter   {display: inline-block;
+      height:75px;
+	   }
+	  
+
+#summer   {display: inline-block;
+      height:75px;
+	   }
+	   
+
+
+#festivals  {display: inline-block;
       height:75px;
 	   }
 	   
 	    
 .slider{
   position: absolute;
-  left: 180px;
+  left: 100px;
   margin-left: 100px;
   margin-right: 100px;
-  right: 0;
+  right: 200px;
   bottom: 40px;
   height: 10px;
-<<<<<<< HEAD
   background: #cccccc;
   outline-color: #b3b3b3;
-<<<<<<< HEAD
   visibility: hidden;
-=======
->>>>>>> origin/master
-=======
-  background: gray;
->>>>>>> parent of 4b8ff9d... changes
 }
 .ui-slider-label {
- color: #000000 ;
+ color: #000000;
+ font-family: Arial, Helvetica, sans-serif;
+ text-shadow: white 0.5em 0.5em 1.0em;
  }
 
 #logo{
-	left: 8px;
-	top: 2px;
+	left: 0;
+	top: 0px;
 	position: absolute;
-	height: 28px;
-	width: 28px;
+	height: 32px;
+	width: 328px;
 	border: 0;
 }
 
 #ui-menu { width: 600px; }
+
 #home{
 	visibility: hidden;
 }
-/*
-#slider-range {
-  position: absolute;
-  left: 180px;
-  margin-left: 100px;
-  margin-right: 100px;
-  right: 0;
-  bottom: 30px;
-  height: 12px;
-  background: black;
-}
-#beds-range {
-	position: absolute;
-	left: 180px;
-	  bottom: 150px;
-}*/
 
 
-
-nav {
-  position: absolute;
-  top:2px;
-  left:450px;
-  
-}
 .dropdown-toggle {
   
-  top:0px;
+  top:2px;
 }
 ul.dropdown {
   display:none;
   position: absolute;
   top: 100%;
   margin-top: .5em;
-  background: #00FFFFFFF;
+  background: #00FFFFFFF; /* what color is that?*/
   min-width: 12em;
   z-index:1;
   padding: 0;
@@ -348,10 +312,8 @@ ul.dropdown {
         display: block;
       }
    }
-<<<<<<< HEAD
 }
 
-<<<<<<< HEAD
 #infobutton {
 	right: 10px;
 	top: 100px;
@@ -373,20 +335,3 @@ ul.dropdown {
 	position: absolute;
     background: url('./images/flat_web_icon_set/color/airplane.png');
 }
-=======
-/* Defines the look of the popup window */
-            .leaflet-popup-content-wrapper {
-           background: #fff;
-           border: solid 2px #848484;
-           color:#848484;
-           font-size: 12;
-            }
-           .leaflet-popup-content{
-           margin-bottom:4px;
-           margin-top:4px;
-           margin-left:6px;
-           }
->>>>>>> origin/master
-=======
-}
->>>>>>> parent of 4b8ff9d... changes
