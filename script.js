@@ -32,7 +32,7 @@
         // Setup path for globe
         var Globe = d3.geo.azimuthal()
             .mode("orthographic") // Globe has a orthographic projection
-            .translate([width / 2, height / 2]);
+            .translate([width / 2, height / 2.25]);
 
         var scale0 = Globe.scale();
 
@@ -40,7 +40,20 @@
             .projection(Globe)
             .pointRadius(2)
 
-        Globe.scale(Globe.scale() * 1.2);
+        Globe.scale(Globe.scale() * 1.5);
+
+        // Setup path for sun
+        var Sun = d3.geo.azimuthal()
+            .mode("orthographic") // Sun has a orthographic projection
+            .translate([width / 2, height / 2]);
+
+        var scale1 = Sun.scale();
+
+        var path1 = d3.geo.path()
+            .projection(Sun)
+            .pointRadius(2)
+
+        Sun.scale(Sun.scale() / 5);
 
         // Setup zoom behavior
         var zoom = d3.behavior.zoom(true)
@@ -61,7 +74,6 @@
 
         // Create a list of stars and the sun and add them to outerspace
         var starList1 = createStars(1000);
-        var starList2 = createSun(1);
                 
         var stars = svg.append("g")
             .selectAll("g")
@@ -74,16 +86,14 @@
                     return spacePath(d);
                 });
 
-        var Sun = svg.append("g")
-            .selectAll("g")
-            .data(starList2)
-            .enter()
-            .append("path")
-                .attr("class", "Sun")
-                .attr("d", function(d){
-                    spacePath.pointRadius(d.properties.radius);
-                    return spacePath(d);
-                });
+        // Create the Sun
+        var Sun = svg.append("circle")
+            .attr('cx', 1240)
+            .attr('cy', 160)
+            .attr('r', Sun.scale())
+            .attr('class', 'Sun')
+            .attr("filter", "url(#glowSun)")
+            .attr("fill", "url(#gradSun)");
 
         svg.append("rect")
             .attr("class", "frame")
@@ -93,7 +103,7 @@
         // Create the base globe
         var backgroundCircle = svg.append("circle")
             .attr('cx', width / 2)
-            .attr('cy', height / 2)
+            .attr('cy', height / 2.25)
             .attr('r', Globe.scale())
             .attr('class', 'globe')
             .attr("filter", "url(#glow)")
@@ -102,14 +112,22 @@
         var g = svg.append("g"),
             features;
 
-        // Add all of the countries to the globe
-        d3.json("world-countries.json", function(collection) {
-            features = g.selectAll(".feature").data(collection.features);
+        // Add all the countries to the globe
+            d3.json("world-countries.json", function(collection) {
+            features = g.selectAll(".feature").data(collection.features)
+            
 
             features.enter().append("path")
                 .attr("class", "feature")
                 .attr("d", function(d){ return path(circle.clip(d)); })
+                
+                // Go from the globe to the 2D map by clicking on the continents
+                .on("click",function(){
+                    window.location.href='atlas.html#map';
+                });
+
         });
+
 
         // Redraw all items with new projections
         function redraw(){
@@ -118,11 +136,6 @@
             });
 
             stars.attr("d", function(d){
-                spacePath.pointRadius(d.properties.radius);
-                return spacePath(d);
-            });
-
-            Sun.attr("d", function(d) {
                 spacePath.pointRadius(d.properties.radius);
                 return spacePath(d);
             });
@@ -143,8 +156,9 @@
                 circle.origin(origin);
                 
                 // Globe and stars spin in the opposite direction because of the projection mode
-                var spaceOrigin = [origin[0] * -1, origin[1] * -1];
-                space.origin(spaceOrigin);
+                
+                //var spaceOrigin = [origin[0] * -1, origin[1] * -1];
+                //space.origin(spaceOrigin);
                 redraw();
             }
         }
@@ -165,33 +179,17 @@
                 });
             }
             return data;
-        }
+        }        
 
-        // Function that creates the sun
-        function createSun(number){
-            var data = [];
-            for(var i = 0; i < number; i++){
-                data.push({
-                    geometry: {
-                        type: 'Point',
-                        coordinates: sunPlace()
-                    },
-                    type: 'Feature',
-                    properties: {
-                        radius: 60 // Size of the sun
-                    }
-                });
-            }
-            return data;
-        }
-
-        // Randomizing the position of the stars and position of the sun
+        // Randomizing the position of the stars
+        
         function randomLonLat(){
             return [Math.random() * 360 - 180, Math.random() * 180 - 90];
         }
 
         function sunPlace(){
-            return [240,160];
+            
+            return ;
         }
     }
 
