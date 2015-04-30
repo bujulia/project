@@ -27,9 +27,15 @@ var map = L.mapbox.map('map', 'bujulia.basemap', {
 	})
     .setView([25,115], 4);
 new L.Control.Zoom({position: 'topright'}).addTo(map);
+<<<<<<< HEAD
 
 
 
+=======
+
+
+
+>>>>>>> origin/master
 
 //event listener for layer mouseover event
 function highlightFeature(e) {
@@ -82,6 +88,7 @@ geojson = L.geoJson(countries, { //var countries comes from external js-file
 
 
 //****************************** PHP Layers *********************************
+<<<<<<< HEAD
 var ecoStyle = {"color": "#ffffff"}
 
 var month = '"January"';
@@ -101,6 +108,159 @@ var golf = new L.geoJson.ajax("php/requestgolf.php?month="+month);
 var surf = new L.geoJson.ajax("php/requestsurf.php?month="+month);
 var ski = new L.geoJson.ajax("php/requestski.php?month="+month);
 var festivals = new L.geoJson.ajax("php/requestfestivals.php?month="+month);
+=======
+//what i implemented: js(php-part), css (bottom), php(alles), html()
+
+
+
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\DEFINE THE ICONS/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+var surfIcon = L.icon({
+    iconUrl: 'golf.png',
+    iconSize: [128, 128],
+    iconAnchor: [0, 0],
+    //prefix: 'fa', //font awesome rather than bootstrap
+    //markerColor: 'lightred', // see colors above
+    //icon: 'tint' //http://fortawesome.github.io/Font-Awesome/icons/
+});
+
+
+
+/*
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\LOAD THE LAYERS/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+///////////// 1. Polygons ///////////////
+// function for the popup window Tiger
+function popUpTiger(feature,layer){
+    layer.bindPopup('<b>' + feature.properties.ECO_NAME + '</b></br><small>('+ feature.properties.AREA +')</small>');
+    layer.on('mouseover', function(e){
+        this.openPopup();
+    });
+};
+
+// function for the popup window Giant Panda
+function popUpGiantPanda(feature,layer){
+    layer.bindPopup('<b>' + feature.properties.ECO_NAME + '</b></br><small>('+ feature.properties.AREA +')</small>');
+    layer.on('mouseover', function(e){
+        this.openPopup();
+    });
+};
+// function for the popup window Orangutan
+function popUpOrangutan(feature,layer){
+    layer.bindPopup('<b>' + feature.properties.ECO_NAME + '</b></br><small>('+ feature.properties.AREA +')</small>');
+    layer.on('mouseover', function(e){
+        this.openPopup();
+    });
+};
+// function for the popup window Asiatic Elephant
+function popUpAsiaticElephant(feature,layer){
+    layer.bindPopup('<b>' + feature.properties.ECO_NAME + '</b></br><small>('+ feature.properties.AREA +')</small>');
+    layer.on('mouseover', function(e){
+        this.openPopup();
+    });
+};
+// function for the popup window Red Panda
+function popUpRedPanda(feature,layer){
+    layer.bindPopup('<b>' + feature.properties.ECO_NAME + '</b></br><small>('+ feature.properties.AREA +')</small>');
+    layer.on('mouseover', function(e){
+        this.openPopup();
+    });
+};
+
+// function for the popup window Komododragon
+function popUpKomodoDragon(feature,layer){
+    layer.bindPopup('<b>' + feature.properties.ECO_NAME + '</b></br><small>('+ feature.properties.AREA +')</small>');
+    layer.on('mouseover', function(e){
+        this.openPopup();
+    });
+};
+*/
+
+///////////// 2. Points ///////////////
+// function for the popup window Nature-Wonders
+function popUpNature(feature,layer){
+    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country + ')</br> Typ: '
+	+ feature.properties.description +'</small>');
+    layer.on('mouseover', function(e){
+        this.openPopup();
+    });
+};
+// function for the popup window Ski
+function popUpSki(feature,layer){
+    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +') </br> Number of lifts: '
+	+ feature.properties.lifts + '</br>Height difference: '
+	+ feature.properties.height_dif + '</br>Slope Length: '
+	+ feature.properties.slope_leng + '</small>');
+    layer.on('mouseover', function(e){
+        this.openPopup();
+    });
+};
+// function for the popup window CRSki
+function popUpCRSki(feature,layer){
+    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +')</br>CR-Slope length: '
+	+ feature.properties.slope_length + '</small>');
+    layer.on('mouseover', function(e){
+        this.openPopup();
+    });
+};
+// function for the popup window IceFishing
+function popUpIceFishing(feature,layer){
+    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +')</small>');
+    layer.on('mouseover', function(e){
+        this.openPopup();
+    });
+};
+// function for the popup window Golf
+function popUpGolf(feature,layer){
+    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +') </br> Number of holes: '
+	+ feature.properties.holes + '</br>Length of course / Par: '
+	+ feature.properties.length + ' [m] / ' + feature.properties.par + '</br>Terrain: '
+	+ feature.properties.terrain + '</small>');
+    layer.on('mouseover', function(e){
+        this.openPopup();
+    });
+};
+// function for the popup window Surf
+function popUpSurf(feature,layer){
+    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +') </br> Typ: '
+	+ feature.properties.typ + '</br> Difficulty: '
+	+ feature.properties.experience + '</small>');
+    layer.on('mouseover', function(e){
+	this.openPopup();         
+    });
+};
+// function for the popup window Festivals
+function popUpFestivals(feature,layer){
+    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +') </br> Number of bands: '
+	+ feature.properties.bands + '</br>Estimated attendance: '
+	+ feature.properties.attendance + ' visitors</br>' + feature.properties.musictype + '</br>Link to Video: '
+	+ feature.properties.youtube + '</small>');
+    layer.on('mouseover', function(e){
+        this.openPopup();
+    });
+};
+
+
+var month = '"January"';
+
+//Style for polygons:
+var ecoStyle = {"fillColor": "#7ae969", "fillOpacity": "0.4", "color": "#7ae969", "opacity": "0.2", "weight": "0"};
+/*
+/////////////Polygons///////////////
+var tiger = new L.geoJson.ajax("php/requesttiger.php?", {style:ecoStyle}, {onEachFeature:popUpTiger});
+var giantpanda = new L.geoJson.ajax("php/requestgiantpanda.php?", {style:ecoStyle}, {onEachFeature:popUpGiantPanda});
+var orangutan = new L.geoJson.ajax("php/requestorangutan.php?", {style:ecoStyle}, {onEachFeature:popUpOrangutan});
+var asiaticelephant = new L.geoJson.ajax("php/requestasiaticelephant.php?", {style:ecoStyle}, {onEachFeature:popUpAsiaticElephant});
+var redpanda = new L.geoJson.ajax("php/requestredpanda.php?", {style:ecoStyle}, {onEachFeature:popUpRedPanda});
+var komododragon = new L.geoJson.ajax("php/requestkomododragon.php?", {style:ecoStyle}, {onEachFeature:popUpKomodoDragon});
+*/
+/////////////Points///////////////
+var nature = new L.geoJson.ajax("php/requestnature.php?",{onEachFeature:popUpNature});
+var ski = new L.geoJson.ajax("php/requestski.php?month="+month,{onEachFeature:popUpSki});
+var crski = new L.geoJson.ajax("php/requestcrski.php?month="+month,{onEachFeature:popUpCRSki});
+var icefishing = new L.geoJson.ajax("php/requesticefishing.php?month="+month,{onEachFeature:popUpIceFishing});
+var golf = new L.geoJson.ajax("php/requestgolf.php?month="+month,{onEachFeature:popUpGolf});
+var surf = new L.geoJson.ajax("php/requestsurf.php?month="+month,{onEachFeature:popUpSurf});
+var festivals = new L.geoJson.ajax("php/requestfestivals.php?month="+month,{onEachFeature:popUpFestivals});
+>>>>>>> origin/master
 
 
 //***************************************	  
@@ -365,6 +525,10 @@ $( "#amount-range" ).val( $( "#slider-range" ).slider( "value" ) );
 });*/
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 
 $('#infobutton').button().click(function(event) {
   $('#dialog' ).dialog({ title: 'Infowindow' });

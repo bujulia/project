@@ -1,5 +1,8 @@
 <?
+<<<<<<< HEAD
 $month=$_GET["month"]; //month parameter
+=======
+>>>>>>> origin/master
 //checkbox[]
 
 
@@ -17,7 +20,11 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
+<<<<<<< HEAD
   $result = pg_query($link, 'select name, country, st_asgeojson(geom) as geojson from "Nature" where ' . $month . '=1'); //geom
+=======
+  $result = pg_query($link, 'select name, country, descriptio, st_asgeojson(geom) as geojson from "Nature"'); //geom
+>>>>>>> origin/master
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson
@@ -37,10 +44,19 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
          'geometry' => json_decode($edge['geojson'], true),
          'crs' => array(
             'type' => 'EPSG',
+<<<<<<< HEAD
             'properties' => array('code' => '4326')
          )
          
       );
+=======
+            'properties' => array('code' => '4326' )),
+	'properties' => array(
+	'name' => $edge['name'],					//name
+	'country' => $edge['country'],					//country
+	'description' => $edge['descriptio'])				//description	
+      );			
+>>>>>>> origin/master
 
       // Add feature array to feature collection array
       array_push($geojson['features'], $feature);

@@ -17,7 +17,11 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
+<<<<<<< HEAD
   $result = pg_query($link, 'select "ECO_NAME", "AREA", st_asgeojson(wkb_geometry) as geojson from komododragon where ' . $month . '=1'); //geom
+=======
+  $result = pg_query($link, 'select "ECO_NAME", "AREA", st_asgeojson(wkb_geometry) as geojson from komododragon'); //geom
+>>>>>>> origin/master
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson

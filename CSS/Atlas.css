@@ -67,7 +67,10 @@ body {
 	position: absolute;
 	right: 0;
 	bottom: 80px;
+<<<<<<< HEAD
 	visibility:hidden;
+=======
+>>>>>>> origin/master
 }
 
 button {
@@ -266,7 +269,10 @@ li  {
   height: 10px;
   background: #cccccc;
   outline-color: #b3b3b3;
+<<<<<<< HEAD
   visibility: hidden;
+=======
+>>>>>>> origin/master
 }
 .ui-slider-label {
  color: #000000;
@@ -314,6 +320,7 @@ ul.dropdown {
    }
 }
 
+<<<<<<< HEAD
 #infobutton {
 	right: 10px;
 	top: 100px;
@@ -335,3 +342,17 @@ ul.dropdown {
 	position: absolute;
     background: url('./images/flat_web_icon_set/color/airplane.png');
 }
+=======
+/* Defines the look of the popup window */
+            .leaflet-popup-content-wrapper {
+           background: #fff;
+           border: solid 2px #848484;
+           color:#848484;
+           font-size: 12;
+            }
+           .leaflet-popup-content{
+           margin-bottom:4px;
+           margin-top:4px;
+           margin-left:6px;
+           }
+>>>>>>> origin/master

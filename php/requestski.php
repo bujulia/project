@@ -17,7 +17,11 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
+<<<<<<< HEAD
   $result = pg_query($link, 'select "Name", "Country", st_asgeojson(wkb_geometry) as geojson from ski where ' . $month . '=1');
+=======
+  $result = pg_query($link, 'select "Name", "Country", "Lifts", "Height_up", "Height_dow", "Height_dif", "Slope_Leng", st_asgeojson(wkb_geometry) as geojson from ski where ' . $month . '=1');
+>>>>>>> origin/master
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson
@@ -37,11 +41,26 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
          'geometry' => json_decode($edge['geojson'], true),
          'crs' => array(
             'type' => 'EPSG',
+<<<<<<< HEAD
             'properties' => array('code' => '4326')
          )
          
       );
 
+=======
+            'properties' => array('code' => '4326' )),
+	'properties' => array(
+	'name' => $edge['Name'],						//Name
+	'country' => $edge['Country'],						//Country
+	'lifts' => $edge['Lifts'],						//Lifts
+	'height_up' => $edge['Height_up'],					//Height_up
+	'height_dow' => $edge['Height_dow'],					//Height_dow
+	'height_dif' => $edge['Height_dif'],					//Height_dif
+	'slope_leng' => $edge['Slope_Leng'])					//Slope_Leng
+      );
+
+
+>>>>>>> origin/master
       // Add feature array to feature collection array
       array_push($geojson['features'], $feature);
    }
