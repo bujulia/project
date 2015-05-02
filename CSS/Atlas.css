@@ -269,9 +269,10 @@ li  {
   visibility: hidden;
 }
 .ui-slider-label {
- color: #000000;
+  color: #ffffff;
+  s
  font-family: Arial, Helvetica, sans-serif;
- text-shadow: white 0.5em 0.5em 1.0em;
+ text-shadow: 0.02em 0.02em 0.5em #000000;
  }
 
 #logo{

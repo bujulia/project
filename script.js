@@ -125,8 +125,7 @@
                 .on("click",function(){
                     window.location.href='atlas.html#map';
                 });
-
-        });
+            });
 
 
         // Redraw all items with new projections
@@ -192,6 +191,7 @@
             return ;
         }
     }
+    
 
     getSize();
 

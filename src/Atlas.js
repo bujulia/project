@@ -29,8 +29,6 @@ var map = L.mapbox.map('map', 'bujulia.basemap', {
 new L.Control.Zoom({position: 'topright'}).addTo(map);
 
 
-
-
 //event listener for layer mouseover event
 function highlightFeature(e) {
     var layer = e.target;
