@@ -14,3 +14,11 @@ a:visited {
   color: #7af;
   text-decoration: none
 }
+
+h3 {
+	font-size: 15px;
+}
+
+p {
+	font-size: 12px;
+}

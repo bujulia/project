@@ -338,19 +338,31 @@ function runPrefixMethod(obj, method) {
   });
 };
 
+var windowWidth = $(window).width();
+var windowHeight = $(window).height() / 2;
 
 $('#imprint').button().click(function(event) {
   $('#dialog' ).dialog({ title: 'Imprint' });
+
+  $('#dialogframe').prop({ height: windowHeight, width: windowWidth });
   $('#dialogframe').prop('src', 'Descriptions/Imprint.html');
+
   event.preventDefault();
 });
 
-$('#description').button().click(function() {
-  var url = $('#mapframe').prop('src').replace(/Maps\//, 'Descriptions/').replace(/\..*$/, '.html');
-  $('#dialog').dialog({ title: 'Map Description' });
-  $('#dialogframe').prop('src', url);
+$('#description').button().click(function(event) {
+  $('#dialog' ).dialog({ title: 'Map Description' });
+  $('#dialogframe').prop({ height: windowHeight, width: windowWidth });
+  $('#dialogframe').prop('src', 'Descriptions/Description.html');
   event.preventDefault();
 });
+
+//$('#description').button().click(function() {
+//  var url = $('#mapframe').prop('src').replace(/Maps\//, 'Descriptions/').replace(/\..*$/, '.html');
+//  $('#dialog').dialog({ title: 'Map Description' });
+//  $('#dialogframe').prop('src', url);
+//  event.preventDefault();
+//});
 
 $('#fullscreen').button().click(function(event) {
   var element = document.querySelector('body');
