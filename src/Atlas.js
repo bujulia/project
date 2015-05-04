@@ -507,7 +507,35 @@ $( "#amount-range" ).val( $( "#slider-range" ).slider( "value" ) );
 });*/
 
 
+$('#infobutton').button().click(function(event) {
+  $('#dialog-message' ).dialog({ title: 'Information', 
+  
+  position:  { my: 'top', at: 'top+60',  of: $('#infobutton') }
+  
+  });
+ 
+});
 
+
+$('#flightbutton').button().click(function() {
+  $('.widget').toggle(function(e) {
+        if ($(this).is(":visible")) {
+            $('.widget').show();
+            
+        }
+        else {
+            $('.widget').hide(); 
+            
+        };
+    });
+});
+
+
+$('#sliderbtn').button().click(function() {
+  $('.slider').show();
+ 
+  
+})
 
 
 

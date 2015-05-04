@@ -63,12 +63,11 @@ body {
 	background-color: #cccccc;
 }
 
-#widget {
-	position: absolute;
-	right: 0;
-	bottom: 80px;
-	visibility:hidden;
-}
+.widget{
+position:absolute;
+right:10px;
+bottom:150px;
+display:none;}
 
 button {
   background-color: #b3b3b3;
@@ -266,7 +265,7 @@ li  {
   height: 10px;
   background: #cccccc;
   outline-color: #b3b3b3;
-  visibility: hidden;
+  display:none;
 }
 .ui-slider-label {
  color: #ffffff;
@@ -318,20 +317,66 @@ ul.dropdown {
 	right: 10px;
 	top: 100px;
 	position: absolute;
-    background: url('./images/flat_web_icon_set/color/info.png');
+    background: url('./info.png');
+	width:50px;
+	height:50px;
+}
+
+.round-button {
+    display:block;
+    width:50px;
+    height:50px;
+    line-height:50px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 3px gray;
+  
+}
+.round-button:hover {
+    background: #262626;
 }
 
 
-#timesliderbutton {
-	bottom: 0px;
-	right:150px;
-	position: absolute;
-
-}
 
 #flightbutton {
-	bottom: 100px;
+	bottom: 80px;
 	right:10px;
 	position: absolute;
-    background: url('./images/flat_web_icon_set/color/airplane.png');
+    background: url('./airplane.png');
+	width:50px;
+	height:50px;
+}
+
+
+
+
+.li {
+    cursor: pointer;
+}
+
+
+#accordion1 ul{display:none;
+}
+
+#accordion1 ul ul{display:none;
+}
+
+
+#accordion2 ul {display:none;
+
+
+}
+
+#accordion2 ul ul{display:none;
+
+}
+ 
+#sliderbtn{
+position:absolute;
+right:600px;
+bottom:0px;
+}
+
+#dialog-message{
+background:#ffffff;
 }
