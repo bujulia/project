@@ -27,7 +27,7 @@ body {
     fill: #E1E1E1;
     stroke: #000;
     stroke-width: .5px;
-    cursor:pointer;
+    cursor:pointer; 
 }
 
 .globe {
@@ -44,5 +44,4 @@ body {
 .Sun {
     stroke: rgba(255, 204, 0, .5);
     stroke-width: .25px;
-
 }

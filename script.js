@@ -114,8 +114,7 @@
 
         // Add all the countries to the globe
             d3.json("world-countries.json", function(collection) {
-            features = g.selectAll(".feature").data(collection.features)
-            
+            features = g.selectAll(".feature").data(collection.features)            
 
             features.enter().append("path")
                 .attr("class", "feature")
@@ -124,9 +123,12 @@
                 // Go from the globe to the 2D map by clicking on the continents
                 .on("click",function(){
                     window.location.href='atlas.html#map';
-                });
-            });
 
+                })
+                //.on("mouseover", function(){
+
+              //  });
+            });
 
         // Redraw all items with new projections
         function redraw(){

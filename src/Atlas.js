@@ -343,7 +343,6 @@ var windowHeight = $(window).height() / 2;
 
 $('#imprint').button().click(function(event) {
   $('#dialog' ).dialog({ title: 'Imprint' });
-
   $('#dialogframe').prop({ height: windowHeight, width: windowWidth });
   $('#dialogframe').prop('src', 'Descriptions/Imprint.html');
 
