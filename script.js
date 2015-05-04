@@ -127,14 +127,11 @@
                 })
             });
 
-
-
         // Redraw all items with new projections
         function redraw(){
             features.attr("d", function(d){
                 return path(circle.clip(d));
             });
-
             stars.attr("d", function(d){
                 spacePath.pointRadius(d.properties.radius);
                 return spacePath(d);
@@ -148,17 +145,12 @@
                 var origin = [d3.event.translate[0] * -1, 0];
                 
                 Globe.scale(scale);
-                space.scale(scale * 3);
                 backgroundCircle.attr('r', scale);
                 path.pointRadius(2 * scale / scale0);
 
                 Globe.origin(origin);
                 circle.origin(origin);
                 
-                // Globe and stars spin in the opposite direction because of the projection mode
-                
-                //var spaceOrigin = [origin[0] * -1, origin[1] * -1];
-                //space.origin(spaceOrigin);
                 redraw();
             }
         }
@@ -194,7 +186,7 @@
     }
     
     // Rotate globe
-/**
+/*
     var λ = d3.scale.linear() // Initialise variable width
         .domain([0, width])
         .range([-180, 180]);
@@ -209,7 +201,7 @@
     function rotationGlobe(){
         current += 1;
         Globe.rotate([λ(current), 0]);
-        svg.selectAll("path").attr("d", path);
+        g.selectAll("path").attr("d", path);
     }
 
      setInterval(rotationGlobe, scrollSpeed);  
