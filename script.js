@@ -121,14 +121,13 @@
                 .attr("d", function(d){ return path(circle.clip(d)); })
                 
                 // Go from the globe to the 2D map by clicking on the continents
-                .on("click",function(){
+                .on("click",function(e){
                     window.location.href='atlas.html#map';
 
                 })
-                //.on("mouseover", function(){
-
-              //  });
             });
+
+
 
         // Redraw all items with new projections
         function redraw(){
@@ -194,6 +193,27 @@
         }
     }
     
+    // Rotate globe
+/**
+    var λ = d3.scale.linear() // Initialise variable width
+        .domain([0, width])
+        .range([-180, 180]);
+
+    var φ = d3.scale.linear() // Initialise variable height
+        .domain([0, height])
+        .range([90, -90]);
+
+    var scrollSpeed = 50; 
+    var current = 0;
+    
+    function rotationGlobe(){
+        current += 1;
+        Globe.rotate([λ(current), 0]);
+        svg.selectAll("path").attr("d", path);
+    }
+
+     setInterval(rotationGlobe, scrollSpeed);  
+*/
 
     getSize();
 

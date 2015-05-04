@@ -30,6 +30,15 @@ body {
     cursor:pointer; 
 }
 
+/* Mouse over event on target feature (nation) */
+
+.feature:hover{
+    fill: #cacaca;
+    stroke: #000;
+    stroke-width: 3px;
+    cursor:pointer; 
+}
+
 .globe {
     stroke: rgba(255, 255, 255, .5);
     stroke-width: .25px;
