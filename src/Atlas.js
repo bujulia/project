@@ -199,26 +199,38 @@ function popUpFestivals(feature,layer){
 var month = '"January"';
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\DEFINE THE ICONS/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-var surfIcon = L.icon({
-    iconUrl: 'golf.png',
-    iconSize: [128, 128],
-    iconAnchor: [0, 0],
-    //prefix: 'fa', //font awesome rather than bootstrap
-    //markerColor: 'lightred', // see colors above
-    //icon: 'tint' //http://fortawesome.github.io/Font-Awesome/icons/
-});
 
 
 //Style for polygons:
 var ecoStyle = {"fillColor": "#7ae969", "fillOpacity": "0.4", "color": "#7ae969", "opacity": "0.2", "weight": "0"};
-var golfSymbol = {"fillcolor": "#C7007D", }
+
 var golfIcon = L.icon({
-    iconUrl: 'images/Golf1.svg',
-    iconSize:     [38, 95], // size of the icon
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    iconUrl: 'images/golf.svg',
+    iconSize:     [38,200], // size of the icon
+    // iconAnchor:   [38,95], // point of the icon which will correspond to marker's location
+});
+var festivalsIcon = L.icon({
+    iconUrl: 'images/music.svg',
+    iconSize:     [38,95], // size of the icon
+    
+});
+var icefishIcon = L.icon({
+    iconUrl: 'images/icefish.png',
+    iconSize:     [25,40], // size of the icon
+    iconAnchor:   [25,20], // point of the icon which will correspond to marker's location
 });
 
-L.marker([51.5, -0.09], {icon: golfIcon}).addTo(map);
+var markers = new L.markerClusterGroup();
+
+var golfMarker = L.marker([25,115], {icon: golfIcon}).addTo(map);
+var festivalsMarker = L.marker([25,110], {icon: festivalsIcon}).addTo(map);
+var icefishMarker = L.marker([25,105], {icon: icefishIcon}).addTo(map);
+
+markers.addLayer(golfMarker);
+markers.addLayer(festivalsMarker);
+markers.addLayer(icefishMarker);
+
+map.addLayer(markers);
 
 /*
 /////////////Polygons///////////////

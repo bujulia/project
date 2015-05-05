@@ -5,13 +5,6 @@
 	right: 0px;
 }
 
-#Globe { 
-  height: 100%;
-  top: 32px;
-  left: 0px;
-  right: 0px;
-}
-
 /* .info stays for information about a country */
 .info {
     padding: 6px 8px;
@@ -405,5 +398,25 @@ background:#ffffff;
 	border: none !important;
 }
 
+/* test for the marker symbols */
+.marker-cluster-small {
+  background-color: rgba(255,255,255, 0.6);
+  }
+.marker-cluster-small div {
+  background-color: rgba(255,255,255, 0.6);
+  }
 
+.marker-cluster-medium {
+  background-color: rgba(227,102,181, 0.6);
+  }
+.marker-cluster-medium div {
+  background-color: rgba(227,102,181, 0.6);
+}
+
+.marker-cluster-large {
+  background-color: rgba(253, 156, 115, 0.6);
+  }
+.marker-cluster-large div {
+  background-color: rgba(241, 128, 23, 0.6);
+  }
  
