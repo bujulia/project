@@ -537,7 +537,14 @@ $('#sliderbtn').button().click(function() {
 })
 
 
-
+$(function() {
+	$( "#nature" ).accordion({collapsible:true,  heightStyle: 'content'});
+    $( "#culture" ).accordion({collapsible:true,  heightStyle: 'content'});
+    $( "#activities" ).accordion({collapsible:true,  heightStyle: 'content'});
+    $( "#submenu1" ).accordion({collapsible:true, active: false, heightStyle: 'content'});
+    $( "#submenu2" ).accordion({collapsible:true, active: false, heightStyle: 'content'});
+    $( "#submenu1" ).accordion({collapsible:true, active: false, heightStyle: 'content'});
+  });
 
 
 
