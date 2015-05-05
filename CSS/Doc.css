@@ -3,7 +3,6 @@ body {
   margin: 30px;
   color: white;
   background: #e1e1e1;  /*background of infowindow*/
-  position:center;
 }
 
 a:link {

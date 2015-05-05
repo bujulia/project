@@ -1,11 +1,11 @@
-#map {
+#map { 
 	height: 100%;
 	top: 32px;
 	left: 0px;
 	right: 0px;
 }
 
-#Globe {
+#Globe { 
   height: 100%;
   top: 32px;
   left: 0px;
@@ -76,9 +76,8 @@ right:10px;
 bottom:150px;
 display:none;}
 
-button {
-  background-color: #b3b3b3;
-}
+
+
 
 
 .ns {
@@ -160,12 +159,12 @@ button {
 	}
 
 .nature2 {
-	background: #52e93a;
+	background: none;
 	color: black;
 	}
 
 .nature3 {
-	background: #7ae969;
+	background: none;
 	color: black;
 	}	
 
@@ -176,12 +175,13 @@ button {
 	}
 	
 .activities2 {
-	background: #e339a4;
+	background: none;
 	color: black;
+
 	}
 	
 .activities3 {
-	background: #e366b5;
+	background: none;
 	color: black;
 	}
 
@@ -203,6 +203,13 @@ li  {
 	height:10px;
 	}
 	
+#menu{
+position:absolute;
+left: 0;
+top: 40px;
+
+}
+/*
 #nature{
   position: absolute;
   text-align: center;
@@ -211,7 +218,7 @@ li  {
   right: 0;
   bottom: 0;
   height: 140px;
-  width: 40px;
+  width: 180px;
   padding: 10px 0;
 }
 
@@ -222,7 +229,7 @@ li  {
   top: 200px;
   bottom: 0;
   height: 140px;
-  width: 40px;
+  width: 180px;
   padding: 10px 0;
 }
 
@@ -233,33 +240,30 @@ li  {
   top: 360px;
   bottom: 0;
   height: 140px;
-  width: 40px;
+  width: 180px;
   padding: 10px 0;
 }
+ */
+#animals   {
  
-#animals   {display: inline-block;
-       height:75px;
-	   }
-	   
-#wonders   {display: inline-block;
-      height:75px;
+       
 	   }
 
 
-#winter   {display: inline-block;
-      height:75px;
+
+#winter   {
+
+      
 	   }
 	  
 
-#summer   {display: inline-block;
-      height:75px;
+#summer   {
 	   }
 	   
 
 
 #festivals  {display: inline-block;
-      height:75px;
-	   }
+     	   }
 	   
 	    
 .slider{
@@ -273,11 +277,12 @@ li  {
   background: #cccccc;
   outline-color: #b3b3b3;
   display:none;
+  
 }
 .ui-slider-label {
- color: #ffffff;
+ color: #000000;
  font-family: Arial, Helvetica, sans-serif;
- text-shadow: 0.02em 0.02em 0.5em #000000;
+ text-shadow: white 0.5em 0.5em 1.0em;
  }
 
 #logo{
@@ -387,3 +392,18 @@ bottom:0px;
 #dialog-message{
 background:#ffffff;
 }
+
+.ui-accordion-header {
+    background:none !important;
+	border: none !important;
+	 
+}
+.ui-accordion-content {
+   
+    background:none !important;
+    padding:10px !important;   
+	border: none !important;
+}
+
+
+ 
