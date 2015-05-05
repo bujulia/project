@@ -113,7 +113,7 @@
             features;
 
         // Add all the countries to the globe
-            d3.json("world-countries.json", function(collection) {
+            d3.json("Maps/world-countries.json", function(collection) {
             features = g.selectAll(".feature").data(collection.features)            
 
             features.enter().append("path")
