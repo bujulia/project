@@ -121,9 +121,8 @@
                 .attr("d", function(d){ return path(circle.clip(d)); })
                 
                 // Go from the globe to the 2D map by clicking on the continents
-                .on("click",function(e){
+                .on("click",function(){
                     window.open('atlas.html');
-
                 })
             });
 

@@ -36,21 +36,20 @@ Versions:
 
 <!-- AJAX.js plugin -->
 <script src ="plugin/leaflet-ajax-master/dist/leaflet.ajax.min.js"></script>
+
+<script src="http://marcneuwirth.com/experiments/globe/d3.custom.js"></script>
+<script src="Globe.js"></script>
 </head>
 
 <body>
 
-<!--MAP-->
-<div id="Globe">
 
 <!-- Import the Globe html file into the index file -->
-<iframe src="Globe.html" width="100%" height="100%"></iframe>
-</div>
-
+<iframe id="Globe" src="Globe.html" width="100%" height="100%"></iframe>
 
 <!-- Menubar and menu items test -->
 <div class="menubar ns">
-	<a href="atlas.html"><img id="logo" src="src/banner.png" alt="Logo"></a>
+	<a href="index.html"><img id="logo" src="src/banner.png" alt="Logo"></a>
 	<button id="home">H</button>						<!-- invisible button to leave space for the logo -->
 	<button id="description">Map Description</button>
 	<button id="printbutton" onclick="printIT()"> &#9113 </button>
@@ -195,6 +194,6 @@ Versions:
 
 <div id="dialog-message" title="Information">
 <!-- Load atlas script after the HTML elements are created -->
-<script src="src/Atlas.js"></script>
+<script src="src/index.js"></script>
 
 </body>
