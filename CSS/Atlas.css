@@ -5,6 +5,13 @@
 	right: 0px;
 }
 
+#Globe {
+  height: 100%;
+  top: 32px;
+  left: 0px;
+  right: 0px;
+}
+
 /* .info stays for information about a country */
 .info {
     padding: 6px 8px;

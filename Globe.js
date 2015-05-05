@@ -122,7 +122,7 @@
                 
                 // Go from the globe to the 2D map by clicking on the continents
                 .on("click",function(e){
-                    window.location.href='atlas.html#map';
+                    window.open('atlas.html');
 
                 })
             });

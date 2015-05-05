@@ -2,7 +2,7 @@ body {
   font-family: 'Helvetica Neue', sans-serif;
   margin: 10px;
   color: white;
-  background: black;  /*background of infowindow*/
+  background: #e1e1e1;  /*background of infowindow*/
 }
 
 a:link {
@@ -17,9 +17,10 @@ a:visited {
 
 h3 {
 	font-size: 15px;
-  color: #e1e1e1;
+  color: black;
 }
 
 p {
 	font-size: 12px;
+  color: black;
 }
