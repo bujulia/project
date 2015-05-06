@@ -1,7 +1,7 @@
 <?
 $month=$_GET["month"]; //month parameter
 //checkbox[]
-
+ini_set('memory_limit', '256M');
 
 //echo "<pre>Simple check to see if connection works :-)</pre>\n"; flush();
 error_reporting(E_ALL); ini_set('display_errors', true);    
