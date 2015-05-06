@@ -273,9 +273,9 @@ top: 40px;
   
 }
 .ui-slider-label {
- color: #000000;
+ color: white;
  font-family: Arial, Helvetica, sans-serif;
- text-shadow: white 0.5em 0.5em 1.0em;
+ text-shadow: black 0.5em 0.5em 1.0em;
  }
 
 #logo{

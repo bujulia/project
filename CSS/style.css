@@ -33,7 +33,6 @@ body {
 /* Mouse over event on target feature (nation) */
 
 .feature:hover{
-    fill: #cacaca;
     stroke: #000;
     stroke-width: 3px;
     cursor:pointer; 
