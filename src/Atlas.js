@@ -30,6 +30,9 @@ var map = L.mapbox.map('map', 'bujulia.basemap', {
   }, false);
 new L.Control.Zoom({position: 'topright'}).addTo(map);
 
+/***********************Countries GeoJSON *********************/
+var geojson;
+
 //event listener for layer mouseover event
 function highlightFeature(e) {
     var layer = e.target;
@@ -43,14 +46,14 @@ function highlightFeature(e) {
     if (!L.Browser.ie && !L.Browser.opera) {
         layer.bringToFront();
     }
-	info.update(layer.feature.properties); //Update Info about Country
+	// info.update(layer.feature.properties); //Update Info about Country
 }
 
-var geojson;
+
 //define what happens on mouseout
 function resetHighlight(e) {
     geojson.resetStyle(e.target);
-	info.update(); //Update Info about Country
+	// info.update(); //Update Info about Country
 }
 //define a click listener that zooms to the country
 function zoomToFeature(e) {
@@ -91,10 +94,8 @@ var months = ["January", "February", "March", "April", "May", "June", "July", "A
 // lets be fancy for the demo and select the current month.
 var activeMonth = new Date().getMonth();
 
-var month_var = months[activeMonth];
-var month = month_var.toString();
-month = '"'+month+'"';
-console.log(month);
+var month = '"'+months[activeMonth]+'"';
+console.log(month); // console log for help
 //window.alert(month);      	   
 	   
 $(".slider")
@@ -136,31 +137,52 @@ var requestmonths = function(){
 //Style for polygons:
 var ecoStyle = {"fillColor": "#7ae969", "fillOpacity": "0.4", "color": "#7ae969", "opacity": "0.2", "weight": "0"};
 
+var natureIcon = L.icon({
+    iconUrl: 'images/nature.svg',
+    iconSize:     [38,95], // size of the icon
+    
+});
+var skiIcon = L.icon({
+    iconUrl: 'images/ski.svg',
+    iconSize:     [38,95], // size of the icon
+    
+});
+var crskiIcon =L.icon({
+    iconUrl: 'images/CRski.svg',
+    iconSize:     [38,95], // size of the icon
+    
+});
+var icefishingIcon = L.icon({
+    iconUrl: 'images/icefish.png',
+    iconSize:     [25,40], // size of the icon
+    iconAnchor:   [25,20], // point of the icon which will correspond to marker's location
+});
 var golfIcon = L.icon({
     iconUrl: 'images/golf.svg',
     iconSize:     [38,200], // size of the icon
     // iconAnchor:   [38,95], // point of the icon which will correspond to marker's location
+});
+var surfIcon = L.icon({
+    iconUrl: 'images/surf.svg',
+    iconSize:     [38,95], // size of the icon
+    
 });
 var festivalsIcon = L.icon({
     iconUrl: 'images/music.svg',
     iconSize:     [38,95], // size of the icon
     
 });
-var icefishIcon = L.icon({
-    iconUrl: 'images/icefish.png',
-    iconSize:     [25,40], // size of the icon
-    iconAnchor:   [25,20], // point of the icon which will correspond to marker's location
-});
+
 
 var markers = new L.markerClusterGroup();
 
 var golfMarker = L.marker([25,115], {icon: golfIcon}).addTo(map);
 var festivalsMarker = L.marker([25,110], {icon: festivalsIcon}).addTo(map);
-var icefishMarker = L.marker([25,105], {icon: icefishIcon}).addTo(map);
+var icefishingMarker = L.marker([25,105], {icon: icefishingIcon}).addTo(map);
 
 markers.addLayer(golfMarker);
 markers.addLayer(festivalsMarker);
-markers.addLayer(icefishMarker);
+markers.addLayer(icefishingMarker);
 
 map.addLayer(markers);
 
@@ -215,13 +237,14 @@ function popUpKomodoDragon(feature,layer){
 
 ///////////// 2. Points ///////////////
 // function for the popup window Nature-Wonders
+
 function popUpNature(feature,layer){
     layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country + ')</br> Typ: '
 	+ feature.properties.description +'</small>');
     layer.on('mouseover', function(e){
         this.openPopup();
     });
-};
+}; 
 // function for the popup window Ski
 function popUpSki(feature,layer){
     layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +') </br> Number of lifts: '
@@ -299,13 +322,26 @@ var redpanda = new L.geoJson.ajax("php/requestredpanda.php?", {style:ecoStyle}, 
 var komododragon = new L.geoJson.ajax("php/requestkomododragon.php?", {style:ecoStyle}, {onEachFeature:popUpKomodoDragon});
 */
 /////////////Points///////////////
-var nature = new L.geoJson.ajax("php/requestnature.php?",{onEachFeature:popUpNature});
-var ski = new L.geoJson.ajax("php/requestski.php?month="+month,{onEachFeature:popUpSki});
-var crski = new L.geoJson.ajax("php/requestcrski.php?month="+month,{onEachFeature:popUpCRSki});
-var icefishing = new L.geoJson.ajax("php/requesticefishing.php?month="+month,{onEachFeature:popUpIceFishing});
-var golf = new L.geoJson.ajax("php/requestgolf.php?month="+month,{onEachFeature:popUpGolf});
-var surf = new L.geoJson.ajax("php/requestsurf.php?month="+month,{onEachFeature:popUpSurf});
-var festivals = new L.geoJson.ajax("php/requestfestivals.php?month="+month,{onEachFeature:popUpFestivals});
+
+/*
+var nature = new L.geoJson.ajax("php/requestnature.php?", 
+    {pointToLayer: function(feature,latlng){
+            return L.marker(latlng, {
+                icon: golfIcon
+                }).on('mouseover', function() {
+            layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country + ')</br> Typ: '+ feature.properties.description +'</small>');
+                })
+            }
+        });
+*/
+
+var nature = new L.geoJson.ajax("php/requestnature.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:natureIcon})},onEachFeature:popUpNature});
+var ski = new L.geoJson.ajax("php/requestski.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:skiIcon})},onEachFeature:popUpSki});
+var crski = new L.geoJson.ajax("php/requestcrski.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:CRskiIcon})},onEachFeature:popUpCRSki});
+var icefishing = new L.geoJson.ajax("php/requesticefishing.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:icefishingIcon})},onEachFeature:popUpIceFishing});
+var golf = new L.geoJson.ajax("php/requestgolf.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:golfIcon})},onEachFeature:popUpGolf});
+var surf = new L.geoJson.ajax("php/requestsurf.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:surfIcon})},onEachFeature:popUpSurf});
+var festivals = new L.geoJson.ajax("php/requestfestivals.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:festivalsIcon})},onEachFeature:popUpFestivals});
 
 
 
