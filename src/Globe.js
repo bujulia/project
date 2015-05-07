@@ -122,8 +122,14 @@
                 
                 // Go from the globe to the 2D map by clicking on the continents
                 .on("click",function(){
-                    window.open('atlas.html');
-                })
+                    var windowatlas=window.open('atlas.html');
+                    // Every svg path is bound to the data from the imported geojson file.
+                    var d = d3.event.target.__data__;
+                    // There is inverse projection method in case D3 does define one.
+                    console.log(Globe.invert(d3.mouse(this)));
+                    var coord=Globe.invert(d3.mouse(this));
+                    windowatlas.postMessage({ coords: coord }, '*');
+                });
             });
 
         // Redraw all items with new projections
@@ -185,7 +191,7 @@
     }
     
     // Rotate globe
-
+/*
     var λ = d3.scale.linear() // Initialise variable width
         .domain([0, width])
         .range([-180, 180]);
@@ -205,7 +211,7 @@
 
      setInterval(rotationGlobe, scrollSpeed);  
 
-
+*/
     getSize();
 
 }(window, d3));

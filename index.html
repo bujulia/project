@@ -16,8 +16,6 @@ Versions:
 
 
 <link rel="stylesheet" href="libs/jquery-ui.css">
-<link rel="stylesheet" href="CSS/Atlas.css">
-<link rel="stylesheet" href="Globe/style.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <!-- <script src="//code.jquery.com/jquery-1.10.2.js"></script> -->
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
@@ -34,23 +32,30 @@ Versions:
 <script src="libs/jquery-ui-slider-pips.js"></script>
 <link rel="stylesheet" href="libs/jquery-ui-slider-pips.css">
 
+<link rel="stylesheet" href="CSS/Atlas.css">
+<link rel="stylesheet" href="CSS/style.css">
+
 <!-- AJAX.js plugin -->
 <script src ="plugin/leaflet-ajax-master/dist/leaflet.ajax.min.js"></script>
+
+<script src="http://marcneuwirth.com/experiments/globe/d3.custom.js"></script>
+<script src="src/Globe.js"></script>
 </head>
 
 <body>
 
-<!--MAP-->
-<div id="Globe">
 
 <!-- Import the Globe html file into the index file -->
-<iframe src="Globe.html" width="100%" height="100%"></iframe>
-</div>
-
+<iframe id="Globe" src="Globe.html" width="100%" height="100%"></iframe>
 
 <!-- Menubar and menu items test -->
 <div class="menubar ns">
-	<a href="atlas.html"><img id="logo" src="src/banner.png" alt="Logo"></a>
+
+<a href="index.html"><img id="logo" src="images/banner.png" alt="Logo"></a>
+
+
+	<a href="index.html"><img id="logo" src="images/banner.png" alt="Logo"></a>
+
 	<button id="home">H</button>						<!-- invisible button to leave space for the logo -->
 	<button id="description">Map Description</button>
 	<button id="printbutton" onclick="printIT()"> &#9113 </button>
@@ -141,7 +146,7 @@ Versions:
 				</li>
 				<li class="activities3">
 					<form action="php/requesticefishing.php" method="get">
-						Ice Fishing<input type="checkbox" value="icefishing" name="icefishing">
+						<input type="checkbox" value="icefishing" name="icefishing">Ice Fishing
 					</form>
 				</li>	  
 			</ul>
@@ -188,13 +193,9 @@ Versions:
 
 <button id="sliderbtn">Select your favorite month!</button>
 
-<!-- Reserve an element to display dialogs -->
-<div id="dialog" title="Information">
-	<iframe id="dialogframe" frameborder="0"></iframe>
-</div>
 
 <div id="dialog-message" title="Information">
 <!-- Load atlas script after the HTML elements are created -->
-<script src="src/Atlas.js"></script>
+<script src="src/index.js"></script>
 
 </body>

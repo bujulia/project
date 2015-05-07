@@ -8,7 +8,6 @@
 */
 //////connection to php file
 
-
 L.mapbox.accessToken = 'pk.eyJ1IjoiYnVqdWxpYSIsImEiOiJpNnpsb0dFIn0.j2t-srvzbqOy3xq9QZDGIA'; //access token so that the map can be taken from mapbox online
 
 var southWest = L.latLng(-180,-90),
@@ -25,9 +24,14 @@ var map = L.mapbox.map('map', 'bujulia.basemap', {
 	// maxBounds: bounds,
 	zoomControl: false
 	})
-    .setView([25,115], 4);
+  window.addEventListener('message', function(event) {
+    console.log(event.data);
+    map.setView(coord, 4);
+  }, false);
 new L.Control.Zoom({position: 'topright'}).addTo(map);
 
+/***********************Countries GeoJSON *********************/
+var geojson;
 
 //event listener for layer mouseover event
 function highlightFeature(e) {
@@ -42,14 +46,14 @@ function highlightFeature(e) {
     if (!L.Browser.ie && !L.Browser.opera) {
         layer.bringToFront();
     }
-	info.update(layer.feature.properties); //Update Info about Country
+	// info.update(layer.feature.properties); //Update Info about Country
 }
 
-var geojson;
+
 //define what happens on mouseout
 function resetHighlight(e) {
     geojson.resetStyle(e.target);
-	info.update(); //Update Info about Country
+	// info.update(); //Update Info about Country
 }
 //define a click listener that zooms to the country
 function zoomToFeature(e) {
@@ -79,22 +83,108 @@ geojson = L.geoJson(countries, { //var countries comes from external js-file
 }).addTo(map);
 
 
+
+var requestmonths = function(){
+	window.alert(month);	
+	}
+
+// set up an array to hold the months for the slider
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+// lets be fancy for the demo and select the current month.
+var activeMonth = new Date().getMonth();
+
+var month = '"'+months[activeMonth]+'"';
+console.log(month); // console log for help
+//window.alert(month);      	   
+	   
+$(".slider")
+                    
+    // activate the slider with options
+    .slider({ 
+        min: 0, 
+        max: months.length-1, 
+        value: activeMonth 
+    })
+                    
+    // add pips with the labels set to "months"
+    .slider("pips", {
+        rest: "label",
+        labels: months
+    })
+             
+    // and whenever the slider changes, lets echo out the month
+    .on("slidechange", function(e,ui) {
+        $("#labels-months-output").text( "You selected " + months[ui.value] + " (" + ui.value + ")");
+	month = '"'+months[ui.value]+'"';
+	//layer.removeLayers();		
+	requestmonths();
+	//layer.addData(month);
+//var temp 
+	//ski.clearLayers();
+	//var ski2 = new L.geoJson.ajax("php/requestski.php?month="+month,{onEachFeature:popUpSki}).addTo(map);	
+    });
+
+var requestmonths = function(){
+	window.alert(month);
+	}
+
 //****************************** PHP Layers *********************************
-//what i implemented: js(php-part), css (bottom), php(alles), html()
-
-
+//what i implemented: js(php-part, from months), css (bottom), php(alles), html()
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\DEFINE THE ICONS/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+//Style for polygons:
+var ecoStyle = {"fillColor": "#7ae969", "fillOpacity": "0.4", "color": "#7ae969", "opacity": "0.2", "weight": "0"};
+
+var natureIcon = L.icon({
+    iconUrl: 'images/nature.svg',
+    iconSize:     [38,95], // size of the icon
+    
+});
+var skiIcon = L.icon({
+    iconUrl: 'images/ski.svg',
+    iconSize:     [38,95], // size of the icon
+    
+});
+var crskiIcon =L.icon({
+    iconUrl: 'images/CRski.svg',
+    iconSize:     [38,95], // size of the icon
+    
+});
+var icefishingIcon = L.icon({
+    iconUrl: 'images/icefish.png',
+    iconSize:     [25,40], // size of the icon
+    iconAnchor:   [25,20], // point of the icon which will correspond to marker's location
+});
+var golfIcon = L.icon({
+    iconUrl: 'images/golf.svg',
+    iconSize:     [38,200], // size of the icon
+    // iconAnchor:   [38,95], // point of the icon which will correspond to marker's location
+});
 var surfIcon = L.icon({
-    iconUrl: 'golf.png',
-    iconSize: [128, 128],
-    iconAnchor: [0, 0],
-    //prefix: 'fa', //font awesome rather than bootstrap
-    //markerColor: 'lightred', // see colors above
-    //icon: 'tint' //http://fortawesome.github.io/Font-Awesome/icons/
+    iconUrl: 'images/surf.svg',
+    iconSize:     [38,95], // size of the icon
+    
+});
+var festivalsIcon = L.icon({
+    iconUrl: 'images/music.svg',
+    iconSize:     [38,95], // size of the icon
+    
 });
 
 
+var markers = new L.markerClusterGroup();
+
+var golfMarker = L.marker([25,115], {icon: golfIcon}).addTo(map);
+var festivalsMarker = L.marker([25,110], {icon: festivalsIcon}).addTo(map);
+var icefishingMarker = L.marker([25,105], {icon: icefishingIcon}).addTo(map);
+
+markers.addLayer(golfMarker);
+markers.addLayer(festivalsMarker);
+markers.addLayer(icefishingMarker);
+
+map.addLayer(markers);
 
 /*
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\LOAD THE LAYERS/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
@@ -147,13 +237,14 @@ function popUpKomodoDragon(feature,layer){
 
 ///////////// 2. Points ///////////////
 // function for the popup window Nature-Wonders
+
 function popUpNature(feature,layer){
     layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country + ')</br> Typ: '
 	+ feature.properties.description +'</small>');
     layer.on('mouseover', function(e){
         this.openPopup();
     });
-};
+}; 
 // function for the popup window Ski
 function popUpSki(feature,layer){
     layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +') </br> Number of lifts: '
@@ -202,20 +293,27 @@ function popUpSurf(feature,layer){
 function popUpFestivals(feature,layer){
     layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +') </br> Number of bands: '
 	+ feature.properties.bands + '</br>Estimated attendance: '
-	+ feature.properties.attendance + ' visitors</br>' + feature.properties.musictype + '</br>Link to Video: '
-	+ feature.properties.youtube + '</small>');
+	+ feature.properties.attendance + ' visitors</br>' + feature.properties.musictype + '</br> <a href ='+ feature.properties.youtube+'> Link to Video </a> </small>');
     layer.on('mouseover', function(e){
         this.openPopup();
     });
 };
 
 
-var month = '"January"';
-
 //Style for polygons:
 var ecoStyle = {"fillColor": "#7ae969", "fillOpacity": "0.4", "color": "#7ae969", "opacity": "0.2", "weight": "0"};
-/*
+
+
 /////////////Polygons///////////////
+//whitout popups
+var tiger = new L.geoJson.ajax("php/requesttiger.php?", {style:ecoStyle});
+var giantpanda = new L.geoJson.ajax("php/requestgiantpanda.php?", {style:ecoStyle});
+var orangutan = new L.geoJson.ajax("php/requestorangutan.php?", {style:ecoStyle});
+var asiaticelephant = new L.geoJson.ajax("php/requestasiaticelephant.php?", {style:ecoStyle});
+var redpanda = new L.geoJson.ajax("php/requestredpanda.php?", {style:ecoStyle});
+var komododragon = new L.geoJson.ajax("php/requestkomododragon.php?", {style:ecoStyle});
+//with popups
+/*
 var tiger = new L.geoJson.ajax("php/requesttiger.php?", {style:ecoStyle}, {onEachFeature:popUpTiger});
 var giantpanda = new L.geoJson.ajax("php/requestgiantpanda.php?", {style:ecoStyle}, {onEachFeature:popUpGiantPanda});
 var orangutan = new L.geoJson.ajax("php/requestorangutan.php?", {style:ecoStyle}, {onEachFeature:popUpOrangutan});
@@ -224,13 +322,27 @@ var redpanda = new L.geoJson.ajax("php/requestredpanda.php?", {style:ecoStyle}, 
 var komododragon = new L.geoJson.ajax("php/requestkomododragon.php?", {style:ecoStyle}, {onEachFeature:popUpKomodoDragon});
 */
 /////////////Points///////////////
-var nature = new L.geoJson.ajax("php/requestnature.php?",{onEachFeature:popUpNature});
-var ski = new L.geoJson.ajax("php/requestski.php?month="+month,{onEachFeature:popUpSki});
-var crski = new L.geoJson.ajax("php/requestcrski.php?month="+month,{onEachFeature:popUpCRSki});
-var icefishing = new L.geoJson.ajax("php/requesticefishing.php?month="+month,{onEachFeature:popUpIceFishing});
-var golf = new L.geoJson.ajax("php/requestgolf.php?month="+month,{onEachFeature:popUpGolf});
-var surf = new L.geoJson.ajax("php/requestsurf.php?month="+month,{onEachFeature:popUpSurf});
-var festivals = new L.geoJson.ajax("php/requestfestivals.php?month="+month,{onEachFeature:popUpFestivals});
+
+/*
+var nature = new L.geoJson.ajax("php/requestnature.php?", 
+    {pointToLayer: function(feature,latlng){
+            return L.marker(latlng, {
+                icon: golfIcon
+                }).on('mouseover', function() {
+            layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country + ')</br> Typ: '+ feature.properties.description +'</small>');
+                })
+            }
+        });
+*/
+
+var nature = new L.geoJson.ajax("php/requestnature.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:natureIcon})},onEachFeature:popUpNature});
+var ski = new L.geoJson.ajax("php/requestski.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:skiIcon})},onEachFeature:popUpSki});
+var crski = new L.geoJson.ajax("php/requestcrski.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:CRskiIcon})},onEachFeature:popUpCRSki});
+var icefishing = new L.geoJson.ajax("php/requesticefishing.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:icefishingIcon})},onEachFeature:popUpIceFishing});
+var golf = new L.geoJson.ajax("php/requestgolf.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:golfIcon})},onEachFeature:popUpGolf});
+var surf = new L.geoJson.ajax("php/requestsurf.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:surfIcon})},onEachFeature:popUpSurf});
+var festivals = new L.geoJson.ajax("php/requestfestivals.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:festivalsIcon})},onEachFeature:popUpFestivals});
+
 
 
 //***************************************	  
@@ -404,33 +516,6 @@ $('#autocomplete').autocomplete({
 });
 
 $('#menu-1,#menu-2,#menu-3').menu();
-
-// set up an array to hold the months
-var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-// lets be fancy for the demo and select the current month.
-var activeMonth = new Date().getMonth();
-
-$(".slider")
-                    
-    // activate the slider with options
-    .slider({ 
-        min: 0, 
-        max: months.length-1, 
-        value: activeMonth 
-    })
-                    
-    // add pips with the labels set to "months"
-    .slider("pips", {
-        rest: "label",
-        labels: months
-    })
-                    
-    // and whenever the slider changes, lets echo out the month
-    .on("slidechange", function(e,ui) {
-        $("#labels-months-output").text( "You selected " + months[ui.value] + " (" + ui.value + ")");
-    });
-
-
 
  $(function() {
 var availableTags = [
