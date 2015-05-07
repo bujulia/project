@@ -368,6 +368,15 @@ $('#fullscreen').button().click(function(event) {
   runPrefixMethod(element, 'requestFullScreen');
 });
 /*Print the Window*/
+$( '#printbutton' ).button({
+  icons: { primary: "ui-icon-print" }
+});
+
+// Getter
+var icons = $( '#printbutton' ).button( "option", "icons" );
+ 
+// Setter
+$( '#printbutton' ).button( "option", "icons", { primary: "ui-icon-print" } );
 $('#printbutton').button().click(function printIT() {
     window.print();
 });
@@ -451,15 +460,7 @@ $('#autocomplete').autocomplete({
 
 $('#menu-1,#menu-2,#menu-3').menu();
 
-//search button
-$(function() {
-    var availableTags = [
-      
-    ];
-    $( "#search" ).autocomplete({
-      source: availableTags
-    });
-  });
+
 
 $(function() {
     $( "#menu" ).menu();
@@ -506,6 +507,17 @@ $( "#amount-range" ).val( $( "#slider-range" ).slider( "value" ) );
 });*/
 
 
+$( '#infobutton' ).button({
+  icons: { primary: "ui-icon-info" }
+});
+
+// Getter
+var icons = $( '#infobutton' ).button( "option", "icons" );
+ 
+// Setter
+$( '#infobutton' ).button( "option", "icons", { primary: "ui-icon-info" } );
+
+
 $('#infobutton').button().click(function(event) {
   $('#dialog-message' ).dialog({ title: 'Information', 
   
@@ -531,9 +543,7 @@ $('#flightbutton').button().click(function() {
 
 
 $('#sliderbtn').button().click(function() {
-  $('.slider').show();
- 
-  
+  $('.slider').toggle("drop", { direction: "down" }, 100);
 })
 
 
@@ -541,16 +551,66 @@ $(function() {
 	$( "#nature" ).accordion({collapsible:true,  heightStyle: 'content'});
     $( "#culture" ).accordion({collapsible:true,  heightStyle: 'content'});
     $( "#activities" ).accordion({collapsible:true,  heightStyle: 'content'});
-    $( "#submenu1" ).accordion({collapsible:true, active: false, heightStyle: 'content'});
-    $( "#submenu2" ).accordion({collapsible:true, active: false, heightStyle: 'content'});
-    $( "#submenu1" ).accordion({collapsible:true, active: false, heightStyle: 'content'});
+    $( "#submenu3" ).accordion({collapsible:true, active: false, heightStyle: 'content'});
+     
+   
   });
 
 
+$("#animals").click(function(){
+		$("#animals1").slideToggle();
+		$("#animals2").slideToggle();
+		$("#animals3").slideToggle();
+		$("#animals4").slideToggle();
+		$("#animals5").slideToggle();
+		$("#animals6").slideToggle();
+		
+	});
 
 
+$("#wonders").click(function(){
+		$("#wonders1").slideToggle();
+		
+		
+	});
 
 
+$("#winter").click(function(){
+		$("#ski").slideToggle();
+		$("#cross").slideToggle();
+		$("#ice").slideToggle();
+		
+		
+	});
+
+
+$("#summer").click(function(){
+		$("#golf").slideToggle();
+		$("#surf").slideToggle();
+		
+		
+	});
+//search control
+//var controlSearch = new L.Control.Search({layer: geojson, initial: false,position:"topright"});
+
+	//map.addControl( controlSearch );
+
+
+/* var searchControl = new L.Control.Search({layer: geojson, propertyName: 'name', circleLocation:false});
+
+searchControl.on('search_locationfound', function(e) {
+
+    e.layer.setStyle({fillColor: '#3f0'});
+
+}).on('search_collapsed', function(e) {
+
+    featuresLayer.eachLayer(function(layer) {
+        featuresLayer.resetStyle(layer);
+    }); 
+});
+
+map.addControl(searchControl);
+ */
 
 
 

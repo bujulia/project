@@ -87,6 +87,7 @@ display:none;}
   top: 2px;
  
 }
+
 #text {
    position: absolute;
   right: 780px;
@@ -319,13 +320,22 @@ ul.dropdown {
 }
 
 #infobutton {
+    position: absolute;
 	right: 10px;
 	top: 100px;
-	position: absolute;
-    background: url('./info.png');
-	width:50px;
+    width:50px;
 	height:50px;
-}
+	vertical-align: middle;
+	
+	
+}.ui-button-icon-primary 
+{
+   left:1.2em !important;    // default it is 0.5, so it's always on left position...
+   -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
+  transform: scale(1.5);
+}​
+
 
 .round-button {
     display:block;
@@ -347,7 +357,7 @@ ul.dropdown {
 	bottom: 80px;
 	right:10px;
 	position: absolute;
-    background: url('./airplane.png');
+    background: url('./plane.png');
 	width:50px;
 	height:50px;
 }
@@ -392,7 +402,7 @@ background:#ffffff;
 	 
 }
 .ui-accordion-content {
-   
+    
     background:none !important;
     padding:10px !important;   
 	border: none !important;
