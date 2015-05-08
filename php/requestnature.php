@@ -15,7 +15,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
-  $result = pg_query($link, 'select name, country, descriptio, st_asgeojson(geom) as geojson from "Nature"'); //geom
+  $result = pg_query($link, 'select name, country, descriptio, st_asgeojson(geom) as geojson from "Nature4"'); //geom
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson
