@@ -15,7 +15,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
-  $result = pg_query($link, 'select "Name", "Country", "Slope_Leng", st_asgeojson(wkb_geometry) as geojson from crski where ' . $month . '=1'); //wkb_geometry
+  $result = pg_query($link, 'select "Name", "Country", "Slope_Leng", st_asgeojson(geom) as geojson from crski2 where ' . $month . '=1'); //wkb_geometry
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson

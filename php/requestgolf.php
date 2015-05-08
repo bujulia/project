@@ -15,7 +15,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
-  $result = pg_query($link, 'select "Name", "Country", "Holes", "Length", "Terrain", "Par", "Practice", st_asgeojson(wkb_geometry) as geojson from golf where ' . $month . '=1'); //geom
+  $result = pg_query($link, 'select "Name", "Country", "Holes", "Length", "Terrain", "Par", "Practice", st_asgeojson(geom) as geojson from golf2 where ' . $month . '=1'); //geom
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson

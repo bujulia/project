@@ -15,7 +15,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
-  $result = pg_query($link, 'select "Name", "Country", "#Bands", "Attendance", "Musictype", "Others", "Youtube", st_asgeojson(wkb_geometry) as geojson from festivals where ' . $month . '=1'); //geom
+  $result = pg_query($link, 'select "Name", "Country", "#Bands", "Attendance", "Musictype", "Others", "Youtube", st_asgeojson(geom) as geojson from festivals2 where ' . $month . '=1'); //geom
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson

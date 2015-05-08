@@ -15,7 +15,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
-  $result = pg_query($link, 'select "Name", "Country", "Lifts", "Height_up", "Height_dow", "Height_dif", "Slope_Leng", st_asgeojson(wkb_geometry) as geojson from ski where ' . $month . '=1');
+  $result = pg_query($link, 'select "Name", "Country", "Lifts", "Height_up", "Height_dow", "Height_dif", "Slope_Leng", st_asgeojson(geom) as geojson from ski2 where ' . $month . '=1');
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson

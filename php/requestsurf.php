@@ -15,7 +15,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
-  $result = pg_query($link, 'select "Name", "Country", "Typ", "Experience", "Frequency", "QualityWS", "WaveDirect", st_asgeojson(wkb_geometry) as geojson from surf where ' . $month . '=1'); //wkb_geometry
+  $result = pg_query($link, 'select "Name", "Country", "Typ", "Experience", "Frequency", "QualityWS", "WaveDirect", st_asgeojson(wkb_geometry) as geojson from surf2 where ' . $month . '=1'); //wkb_geometry
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson
