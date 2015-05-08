@@ -1,7 +1,5 @@
 <?
 $month=$_GET["month"]; //month parameter
-//checkbox[]
-
 
 //echo "<pre>Simple check to see if connection works :-)</pre>\n"; flush();
 error_reporting(E_ALL); ini_set('display_errors', true);    
@@ -47,11 +45,9 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	'height_dif' => $edge['Height_dif'],					//Height_dif
 	'slope_leng' => $edge['Slope_Leng'])					//Slope_Leng
       );
-
-
       // Add feature array to feature collection array
       array_push($geojson['features'], $feature);
-   }
+   };
 
 //close database connectin
 pg_close($link);

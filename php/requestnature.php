@@ -1,6 +1,5 @@
 <?
-//checkbox[]
-
+//$month=$_GET["month"];
 
 //echo "<pre>Simple check to see if connection works :-)</pre>\n"; flush();
 error_reporting(E_ALL); ini_set('display_errors', true);    
@@ -45,7 +44,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 
       // Add feature array to feature collection array
       array_push($geojson['features'], $feature);
-   }
+   };
 
 //close database connectin
 pg_close($link);

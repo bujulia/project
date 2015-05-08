@@ -1,6 +1,5 @@
 <?
-$month=$_GET["month"]; //month parameter
-//checkbox[]
+//$month=$_GET["month"]; month parameter
 ini_set('memory_limit', '256M');
 
 //echo "<pre>Simple check to see if connection works :-)</pre>\n"; flush();
@@ -39,13 +38,12 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
             'type' => 'EPSG',
             'properties' => array('code' => '4326' )),
 	'properties' => array(
-	'ECO_NAME' => $edge['ECO_NAME'],		
-	'AREA' => $edge['AREA'])					
+	'name' => $edge['ECO_NAME'],					//Name
+	'area' => $edge['AREA'])					//Area     
       );
-
       // Add feature array to feature collection array
       array_push($geojson['features'], $feature);
-   }
+   };
 
 //close database connectin
 pg_close($link);
