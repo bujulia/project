@@ -88,7 +88,7 @@
 
         // Create the Sun
         var Sun = svg.append("circle")
-            .attr('cx', 1240)
+            .attr('cx', 200)
             .attr('cy', 160)
             .attr('r', Sun.scale())
             .attr('class', 'Sun')
@@ -123,12 +123,14 @@
                 // Go from the globe to the 2D map by clicking on the continents
                 .on("click",function(){
                     var windowatlas=window.open('atlas.html');
+                    windowatlas.onload = function() {
                     // Every svg path is bound to the data from the imported geojson file.
                     var d = d3.event.target.__data__;
                     // There is inverse projection method in case D3 does define one.
                     console.log(Globe.invert(d3.mouse(this)));
                     var coord=Globe.invert(d3.mouse(this));
                     windowatlas.postMessage({ coords: coord }, '*');
+                }
                 });
             });
 
@@ -196,21 +198,16 @@
         .domain([0, width])
         .range([-180, 180]);
 
-    var φ = d3.scale.linear() // Initialise variable height
-        .domain([0, height])
-        .range([90, -90]);
-
     var scrollSpeed = 50; 
     var current = 0;
     
     function rotationGlobe(){
         current += 1;
         Globe.rotate([λ(current), 0]);
-        g.selectAll("path").attr("d", path);
+        svg.selectAll("path").attr("d", path);
     }
 
      setInterval(rotationGlobe, scrollSpeed);  
-
 */
     getSize();
 

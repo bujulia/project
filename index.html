@@ -50,12 +50,7 @@ Versions:
 
 <!-- Menubar and menu items test -->
 <div class="menubar ns">
-
-<a href="index.html"><img id="logo" src="images/banner.png" alt="Logo"></a>
-
-
 	<a href="index.html"><img id="logo" src="images/banner.png" alt="Logo"></a>
-
 	<button id="home">H</button>						<!-- invisible button to leave space for the logo -->
 	<button id="description">Map Description</button>
 	<button id="printbutton" onclick="printIT()"> &#9113 </button>
@@ -78,110 +73,7 @@ Versions:
 </ul>
 </nav>
 
-<div class="slider"></div>
-
-																					
-<!-- The panel to chose a map from a list -->
- <div>
-    <ul id="menu-1">
-    <li class="nature1" id="nature"> N<br>A<br>T<br>U<br>R<br>E
-		<ul>
-          <li class="nature2" id="animals">Animals
-		  <ul>
-			<li class="nature3">
-				<form action="php/requesttiger.php" method="get">
-					Tiger<input type="checkbox" value="tiger" name="tiger">
-				</form>
-			</li>
-			<li class="nature3">
-				<form action="php/requestgiantpanda.php" method="get">
-					Giant Panda<input type="checkbox" value="giantpanda" name="giantpanda">
-				</form>
-			</li>
-			<li class="nature3">
-				<form action="php/requestorangutan.php" method="get">
-					Orangutan<input type="checkbox" value="orangutan" name="orangutan">
-				</form>
-			</li>
-			<li class="nature3">
-				<form action="php/requestasiaticelephant.php" method="get">
-					Asiatic Elephant<input type="checkbox" value="asiaticelephant" name="asiaticelephant">
-				</form>
-			</li>
-			<li class="nature3">
-				<form action="php/requestredpanda.php" method="get">
-					Red Panda<input type="checkbox" value="redpanda" name="redpanda">
-				</form>
-			</li>
-			<li class="nature3">
-				<form action="php/requestkomododragon.php" method="get">
-					Komododragon<input type="checkbox" value="komododragon" name="komododragon">
-				</form>	 
-			</li>	
-		  </ul>		  
-			<li class="nature2" id="wonders">
-				<form action="php/requestnature.php" method="get">
-					Wonders<input type="checkbox" value="nature" name="nature">
-				</form>
-			</li>			
-		</li>
-		</ul>
-	</ul>
-</div>   
-<div>
-    <ul id="menu-2">
-          <li class="activities1" id="activities"> S<br>P<br>O<br>R<br>T<br>S
-		  <ul>
-			<li class="activities2" id="winter">Winter sports
-			<ul>		  
-				<li class="activities3">
-					<form action="php/requestski.php" method="get">
-						Ski<input type="checkbox" value="ski" name="ski">
-					</form>
-				</li>
-				<li class="activities3">			
-					<form action="php/requestcrski.php" method="get">
-						Cross Country Ski<input type="checkbox" value="crski" name="crski">
-					</form>
-				</li>
-				<li class="activities3">
-					<form action="php/requesticefishing.php" method="get">
-						<input type="checkbox" value="icefishing" name="icefishing">Ice Fishing
-					</form>
-				</li>	  
-			</ul>
-			</li>
-			<li class="activities2" id="summer">Summer sports
-			<ul>
-				<li class="activities3">
-					<form action="php/requestgolf.php" method="get">
-						Golf<input type="checkbox" value="golf" name="golf">
-					</form>
-				</li>
-				<li class="activities3">
-					<form action="php/requestsurf.php" method="get">
-						Surf<input type="checkbox" value="surf" name="surf">
-					</form>
-				</li>
-			</ul>
-			</li>
-		  </ul>
-		  </li>
-    </ul>
-</div>   
-<div>
-    <ul id="menu-3">
-        <li class="culture1" id="culture"> C<br>U<br>L<br>T<br>U<br>R<br>E
-		<ul>
-			<li class="culture2" id="festivals">
-				<form action="php/requestfestivals.php" method="get">
-					Festivals<input type="checkbox" value="festivals" name="festivals">
-				</form>
-			</li>			
-		</ul>
-		</li>
-    </ul>
-</div>	  
+<div class="slider"></div>	  
 
 <button class="round-button" id="infobutton"></button>
 <div class="infobox" id="infowindow"></div>

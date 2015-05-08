@@ -34,7 +34,7 @@ body {
 
 .feature:hover{
     stroke: #000;
-    stroke-width: 3px;
+    stroke-width: 2px;
     cursor:pointer; 
 }
 

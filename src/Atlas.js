@@ -23,10 +23,12 @@ var map = L.mapbox.map('map', 'bujulia.basemap', {
 	// maxBounds: bounds,
 	zoomControl: false
 	})
+    map.setView([25,125], 4);
   window.addEventListener('message', function(event) {
     console.log(event.data);
-    map.setView(coord, 4);
+    //map.setView(coord, 4);
   }, false);
+
 new L.Control.Zoom({position: 'topright'}).addTo(map);
 
 /***********************Countries GeoJSON *********************/
