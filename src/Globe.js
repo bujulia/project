@@ -40,7 +40,7 @@
             .projection(Globe)
             .pointRadius(2)
 
-        Globe.scale(Globe.scale() * 1.5);
+        Globe.scale(Globe.scale() * 1.6);
 
         // Setup path for sun
         var Sun = d3.geo.azimuthal()
