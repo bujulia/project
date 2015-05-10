@@ -390,5 +390,27 @@ background:#ffffff;
 	border: none !important;
 }
 
+/* styling for the marker symbols */
+.marker-cluster-small {
+  background-color: rgba(255,255,255, 0.6);
+  }
+.marker-cluster-small div {
+  background-color: rgba(255,255,255, 0.6);
+  }
+
+.marker-cluster-medium {
+  background-color: rgba(255,255,255, 0.6);
+  }
+.marker-cluster-medium div {
+  background-color: rgba(255,255,255, 0.6);
+}
+
+.marker-cluster-large {
+  background-color: rgba(255,255,255, 0.6);
+  }
+.marker-cluster-large div {
+  background-color: rgba(255,255,255, 0.6);
+  }
+
 
  

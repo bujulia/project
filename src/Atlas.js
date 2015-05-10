@@ -2,16 +2,12 @@
 	Atlas Project in Multimedia Cartography
 	Institute of Cartography and Geoinformation
 	ETH Zurich
-	Author: H. R. Baer, hbaer@ethz.ch
+	Authors: Martin Baumann, Julia Burgermeister, Ariadni Gaki, Matteo Lehmann, Raphael Vomsattel
 	Versions:
 	2015-3-2: Created
 */
 
 L.mapbox.accessToken = 'pk.eyJ1IjoiYnVqdWxpYSIsImEiOiJpNnpsb0dFIn0.j2t-srvzbqOy3xq9QZDGIA'; //access token so that the map can be taken from mapbox online
-
-var southWest = L.latLng(-180,-90),
-	northEast = L.latLng(180,90),
-	bounds = L.latLngBounds(southWest, northEast);
 
 var map = L.mapbox.map('map', 'bujulia.basemap', {
 	maxZoom: 7,
@@ -20,7 +16,6 @@ var map = L.mapbox.map('map', 'bujulia.basemap', {
 	keyboard: true, // we can also navigate with keyboard
 	keyboardPanOffset: 280, // Amount of pixels to pan when pressing an arrow key.
 	keyboardZoomOffset: 1, //Number of zoom levels to change when pressing + or - key.
-	// maxBounds: bounds,
 	zoomControl: false
 	})
     map.setView([25,125], 4);
@@ -82,6 +77,95 @@ geojson = L.geoJson(countries, { //var countries comes from external js-file
     onEachFeature: onEachFeature
 }).addTo(map);
 
+
+//****************************** PHP Layers *********************************
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\DEFINE THE ICONS/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+//Style for polygons:
+var ecoStyle = {"fillColor": "#7ae969", "fillOpacity": "0.4", "color": "#7ae969", "opacity": "0.2", "weight": "0"};
+
+var natureIcon = L.icon({
+    iconUrl: 'images/nature.svg',
+    iconSize:     [38,95], 
+    iconAnchor:   [18,67],  
+});
+var skiIcon = L.icon({
+    iconUrl: 'images/ski.svg',
+    iconSize:     [38,95], 
+    iconAnchor:   [18,67],
+});
+var crskiIcon =L.icon({
+    iconUrl: 'images/CRski.svg',
+    iconSize:     [38,95], 
+    iconAnchor:   [18,67],
+});
+var icefishingIcon = L.icon({
+    iconUrl: 'images/icefish.png',
+    iconSize:     [38,95], 
+    iconAnchor:   [18,67],
+});
+var golfIcon = L.icon({
+    iconUrl: 'images/golf.svg',
+    iconSize:     [38,95], 
+    iconAnchor:   [18,67],
+});
+var surfIcon = L.icon({
+    iconUrl: 'images/surf.svg',
+    iconSize:     [38,95], 
+    iconAnchor:   [18,67],
+});
+var festivalsIcon = L.icon({
+    iconUrl: 'images/music.svg',
+    iconSize:     [38,95], // size of the icon
+    iconAnchor:   [18,67], // anchor of the icon, found by trial an error
+});
+
+var natureCluster = new L.MarkerClusterGroup({
+    showCoverageOnHover: false,
+    disableClusteringAtZoom:7,
+    maxClusterRadius: 80});
+
+var skiCluster = new L.MarkerClusterGroup({
+    showCoverageOnHover: false,
+    disableClusteringAtZoom:7,
+    maxClusterRadius: 80});
+
+var crskiCluster = new L.MarkerClusterGroup({
+    showCoverageOnHover: false,
+    disableClusteringAtZoom:7,
+    maxClusterRadius: 80});
+
+var icefishingCluster = new L.MarkerClusterGroup({
+    showCoverageOnHover: false,
+    disableClusteringAtZoom:7,
+    maxClusterRadius: 80});
+
+var golfCluster = new L.MarkerClusterGroup({
+    showCoverageOnHover: false,
+    disableClusteringAtZoom:7,
+    maxClusterRadius: 80});
+
+var surfCluster = new L.MarkerClusterGroup({
+    showCoverageOnHover: false,
+    disableClusteringAtZoom:7,
+    maxClusterRadius: 80});
+
+var festivalsCluster = new L.MarkerClusterGroup({
+    showCoverageOnHover: false,
+    disableClusteringAtZoom:7,
+    maxClusterRadius: 80});
+
+var allCluster = new L.MarkerClusterGroup({
+    showCoverageOnHover: false,
+    disableClusteringAtZoom:7,
+    maxClusterRadius: 80});
+
+
+/*
+var test2 = L.marker([25,115]).addTo(map);
+var test1 = L.marker([25,115], {icon: festivalsIcon}).addTo(map);
+var test3 = L.marker([25,105], {icon: icefishingIcon}).addTo(map);
+*/
+
 /*************** GLOBAL VAR for the layers with months ******************/
 var ski;
 var crski;
@@ -97,8 +181,8 @@ var months = ["January", "February", "March", "April", "May", "June", "July", "A
 var activeMonth = new Date().getMonth();
 
 var month = '"'+months[activeMonth]+'"';
-//console.log(month); // console log for help    	   
-	   
+//console.log(month); // console log for help          
+       
 $(".slider")                   
     // activate the slider with options
     .slider({ 
@@ -115,97 +199,81 @@ $(".slider")
          
     // and whenever the slider changes, lets echo out the month
     .on("slidechange", function(e,ui) {
-	$("#labels-months-output").text( "You selected " + months[ui.value] + " (" + ui.value + ")");
-	month = '"'+months[ui.value]+'"';
-			// Remove old layer and reload with new data
-			ski.clearLayers(); // remove layer from canvas
- 			ski = new L.geoJson.ajax("php/requestski.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:skiIcon})},onEachFeature:popUpSki});
-					 // reassigned a layer with new data to the existing global variable
-  			crski.clearLayers(); // remove layer from canvas
-			crski = new L.geoJson.ajax("php/requestcrski.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:crskiIcon})},onEachFeature:popUpCRSki});
-			icefishing.clearLayers(); // remove layer from canvas
-			icefishing = new L.geoJson.ajax("php/requesticefishing.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:icefishingIcon})},onEachFeature:popUpIceFishing});
-			golf.clearLayers();	// remove layer from canvas
-			golf = new L.geoJson.ajax("php/requestgolf.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:golfIcon})},onEachFeature:popUpGolf});
-			surf.clearLayers();	// remove layer from canvas
-			surf = new L.geoJson.ajax("php/requestsurf.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:surfIcon})},onEachFeature:popUpSurf});
-			festivals.clearLayers();	// remove layer from canvas
-			festivals = new L.geoJson.ajax("php/requestfestivals.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:festivalsIcon})},onEachFeature:popUpFestivals});
-	
-			// You need to add the new layers to the map
-				if($('input[value=ski]').prop("checked")){
-					ski.addTo(map)
-					}
-				if($('input[value=crski]').prop("checked")){
-					crski.addTo(map)
-					}
-				if($('input[value=icefishing]').prop("checked")){
-					icefishing.addTo(map)
-					}
-				if($('input[value=surf]').prop("checked")){
-					surf.addTo(map)
-					}
-				if($('input[value=golf]').prop("checked")){
-					golf.addTo(map)
-					}
-				if($('input[value=festivals]').prop("checked")){
-					festivals.addTo(map)
-					}
-	});
+    $("#labels-months-output").text( "You selected " + months[ui.value] + " (" + ui.value + ")");
+    month = '"'+months[ui.value]+'"';
+            // Remove old layer and reload with new data
+            skiCluster.removeLayer(ski);
+            ski.clearLayers(); 
+            ski = new L.geoJson.ajax("php/requestski.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:skiIcon})},onEachFeature:popUpSki});
+            crskiCluster.removeLayer(crski);
+            crski.clearLayers(); // remove layer from canvas
+            crski = new L.geoJson.ajax("php/requestcrski.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:crskiIcon})},onEachFeature:popUpCRSki});
+            icefishingCluster.removeLayer(icefishing);
+            icefishing.clearLayers(); // remove layer from canvas
+            icefishing = new L.geoJson.ajax("php/requesticefishing.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:icefishingIcon})},onEachFeature:popUpIceFishing});
+            golfCluster.removeLayer(golf);
+            golf.clearLayers(); // remove layer from canvas
+            golf = new L.geoJson.ajax("php/requestgolf.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:golfIcon})},onEachFeature:popUpGolf});
+            surfCluster.removeLayer(surf);
+            surf.clearLayers(); // remove layer from canvas
+            surf = new L.geoJson.ajax("php/requestsurf.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:surfIcon})},onEachFeature:popUpSurf});
+            festivalsCluster.removeLayer(festivals);
+            festivals.clearLayers();    // remove layer from canvas
+            festivals = new L.geoJson.ajax("php/requestfestivals.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:festivalsIcon})},onEachFeature:popUpFestivals});
+            
+            ski .on('data:loaded', function(){
+                skiCluster.addLayer(ski);
+            }
+            );
 
-//****************************** PHP Layers *********************************
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\DEFINE THE ICONS/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-//Style for polygons:
-var ecoStyle = {"fillColor": "#7ae969", "fillOpacity": "0.4", "color": "#7ae969", "opacity": "0.2", "weight": "0"};
+            crski .on('data:loaded', function(){
+                crskiCluster.addLayer(crski);
+            }
+            );
 
-var natureIcon = L.icon({
-    iconUrl: 'images/nature.svg',
-    iconSize:     [38,95], // size of the icon
-    
-});
-var skiIcon = L.icon({
-    iconUrl: 'images/ski.svg',
-    iconSize:     [38,95], // size of the icon
-    
-});
-var crskiIcon =L.icon({
-    iconUrl: 'images/CRski.svg',
-    iconSize:     [38,95], // size of the icon
-    
-});
-var icefishingIcon = L.icon({
-    iconUrl: 'images/icefish.png',
-    iconSize:     [25,40], // size of the icon
-    iconAnchor:   [25,20], // point of the icon which will correspond to marker's location
-});
-var golfIcon = L.icon({
-    iconUrl: 'images/golf.svg',
-    iconSize:     [38,200], // size of the icon
-    // iconAnchor:   [38,95], // point of the icon which will correspond to marker's location
-});
-var surfIcon = L.icon({
-    iconUrl: 'images/surf.svg',
-    iconSize:     [38,95], // size of the icon
-    
-});
-var festivalsIcon = L.icon({
-    iconUrl: 'images/music.svg',
-    iconSize:     [38,95], // size of the icon
-    
-});
+            icefishing .on('data:loaded', function(){
+                icefishingCluster.addLayer(icefishing);
+            }
+            );
+
+            golf .on('data:loaded', function(){
+                golfCluster.addLayer(golf);
+            }
+            );
+
+            surf .on('data:loaded', function(){
+                surfCluster.addLayer(surf);
+            }
+            );
+
+            festivals .on('data:loaded', function(){
+                festivalsCluster.addLayer(festivals);
+            }
+            );
 
 
-var markers = new L.markerClusterGroup();
-
-var golfMarker = L.marker([25,115], {icon: golfIcon}).addTo(map);
-var festivalsMarker = L.marker([25,110], {icon: festivalsIcon}).addTo(map);
-var icefishingMarker = L.marker([25,105], {icon: icefishingIcon}).addTo(map);
-
-markers.addLayer(golfMarker);
-markers.addLayer(festivalsMarker);
-markers.addLayer(icefishingMarker);
-
-map.addLayer(markers);
+            // You need to add the new layers to the map
+                if($('input[value=ski]').prop("checked")){
+                    /* skiCluster.addLayer(ski);
+                    skiCluster.addTo(map) */
+                    skiCluster.addTo(map)
+                    }
+                if($('input[value=crski]').prop("checked")){
+                    crskiCluster.addTo(map)
+                    }
+                if($('input[value=icefishing]').prop("checked")){
+                    icefishingCluster.addTo(map)
+                    }
+                if($('input[value=surf]').prop("checked")){
+                    surfCluster.addTo(map)
+                    }
+                if($('input[value=golf]').prop("checked")){
+                    golfCluster.addTo(map)
+                    }
+                if($('input[value=festivals]').prop("checked")){
+                    festivalsCluster.addTo(map)
+                    }
+    });
 
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\LOAD THE LAYERS/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
@@ -324,17 +392,6 @@ var redpanda = new L.geoJson.ajax("php/requestredpanda.php?", {style:ecoStyle}, 
 var komododragon = new L.geoJson.ajax("php/requestkomododragon.php?", {style:ecoStyle}, {onEachFeature:popUpKomodoDragon});
 
 /////////////Points///////////////
-/*
-var nature = new L.geoJson.ajax("php/requestnature.php?", 
-    {pointToLayer: function(feature,latlng){
-            return L.marker(latlng, {
-                icon: golfIcon
-                }).on('mouseover', function() {
-            layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country + ')</br> Typ: '+ feature.properties.description +'</small>');
-                })
-            }
-        });
-*/
 var nature = new L.geoJson.ajax("php/requestnature.php?",{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:natureIcon})},onEachFeature:popUpNature});
 ski = new L.geoJson.ajax("php/requestski.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:skiIcon})},onEachFeature:popUpSki});
 crski = new L.geoJson.ajax("php/requestcrski.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:CRskiIcon})},onEachFeature:popUpCRSki});
@@ -342,6 +399,42 @@ icefishing = new L.geoJson.ajax("php/requesticefishing.php?month="+month,{pointT
 golf = new L.geoJson.ajax("php/requestgolf.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:golfIcon})},onEachFeature:popUpGolf});
 surf = new L.geoJson.ajax("php/requestsurf.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:surfIcon})},onEachFeature:popUpSurf});
 festivals = new L.geoJson.ajax("php/requestfestivals.php?month="+month,{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:festivalsIcon})},onEachFeature:popUpFestivals});
+
+///////////////CLusters///////////////
+nature .on('data:loaded', function(){
+    natureCluster.addLayer(nature);
+}
+);
+
+ski .on('data:loaded', function(){
+    skiCluster.addLayer(ski);
+}
+);
+
+crski .on('data:loaded', function(){
+    crskiCluster.addLayer(crski);
+}
+);
+
+icefishing .on('data:loaded', function(){
+    icefishingCluster.addLayer(icefishing);
+}
+);
+
+golf .on('data:loaded', function(){
+    golfCluster.addLayer(golf);
+}
+);
+
+surf .on('data:loaded', function(){
+    surfCluster.addLayer(surf);
+}
+);
+
+festivals .on('data:loaded', function(){
+    festivalsCluster.addLayer(festivals);
+}
+);
 	 
 //***************************************	  
 // Checkbox
@@ -380,49 +473,52 @@ $(document).ready(function(){
 
 	$('input[value="nature"]').click(function(){
              if($(this).prop("checked") == true){
-                nature.addTo(map);}
+                natureCluster.addTo(map);}
 	else if ($(this).prop("checked") == false){
-		map.removeLayer(nature);}});
+		map.removeLayer(natureCluster);}});
 
 
 	$('input[value="ski"]').click(function(){
              if($(this).prop("checked") == true){
-                ski.addTo(map);}
+                skiCluster.addTo(map);}
 	else if ($(this).prop("checked") == false){
-		map.removeLayer(ski);}});
-	$('input[value="crski"]').click(function(){
+		map.removeLayer(skiCluster);}});
+	
+    $('input[value="crski"]').click(function(){
              if($(this).prop("checked") == true){
-                crski.addTo(map);}
+                crskiCluster.addTo(map);}
 	else if ($(this).prop("checked") == false){
-		map.removeLayer(crski);}});
-	$('input[value="icefishing"]').click(function(){
+		map.removeLayer(crskiCluster);}});
+	
+    $('input[value="icefishing"]').click(function(){
              if($(this).prop("checked") == true){
-                icefishing.addTo(map);}
+                icefishingCluster.addTo(map);}
 	else if ($(this).prop("checked") == false){
-		map.removeLayer(icefishing);}});
+		map.removeLayer(icefishingCluster);}});
 
 	$('input[value="golf"]').click(function(){
              if($(this).prop("checked") == true){
-                golf.addTo(map);}
+                golfCluster.addTo(map);}
 	else if ($(this).prop("checked") == false){
-		map.removeLayer(golf);}});
-	$('input[value="surf"]').click(function(){
+		map.removeLayer(golfCluster);}});
+	
+    $('input[value="surf"]').click(function(){
       	     if($(this).prop("checked") == true){
-                surf.addTo(map);}
+                surfCluster.addTo(map);}
 	else if ($(this).prop("checked") == false){
-		map.removeLayer(surf);}});
+		map.removeLayer(surfCluster);}});
 
 	$('input[value="festivals"]').click(function(){
       	     if($(this).prop("checked") == true){
-                festivals.addTo(map);}
+                festivalsCluster.addTo(map);}
 	else if ($(this).prop("checked") == false){
-		map.removeLayer(festivals);}});
+		map.removeLayer(festivalsCluster);}});
 });
 
 
 
 // control that shows country info on hover
-var info = L.control({position: 'bottomleft'});
+/* var info = L.control({position: 'bottomleft'});
 info.onAdd = function (map) {
     this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
     this.update();
@@ -435,6 +531,7 @@ info.update = function (props) {
         : 'Hover over a country!');
 };
 info.addTo(map);
+*/
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -779,6 +876,6 @@ detach: true,
 
 // If true and detach = true, leave original menu intact.
 
-cloneOnDetach: tru
+cloneOnDetach: true,
 
 });
