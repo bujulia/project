@@ -114,24 +114,27 @@
 
         // Add all the countries to the globe
             d3.json("Maps/world-countries.json", function(collection) {
-            features = g.selectAll(".feature").data(collection.features)            
+                features = g.selectAll(".feature").data(collection.features)            
 
-            features.enter().append("path")
-                .attr("class", "feature")
-                .attr("d", function(d){ return path(circle.clip(d)); })
+                features.enter().append("path")
+                    .attr("class", "feature")
+                    .attr("d", function(d){ return path(circle.clip(d)); })
                 
-                // Go from the globe to the 2D map by clicking on the continents
-                .on("click",function(){
-                    var windowatlas=window.open('atlas.html');
-                    windowatlas.onload = function() {
-                    // Every svg path is bound to the data from the imported geojson file.
-                    var d = d3.event.target.__data__;
-                    // There is inverse projection method in case D3 does define one.
-                    console.log(Globe.invert(d3.mouse(this)));
-                    var coord=Globe.invert(d3.mouse(this));
-                    windowatlas.postMessage({ coords: coord }, '*');
-                }
-                });
+                    // Go from the globe to the 2D map by clicking on the continents
+                    .on("click",function(){
+                        var windowatlas=window.open('atlas.html');
+                        windowatlas.onload = function() {
+                        // Every svg path is bound to the data from the imported geojson file.
+                        var d = d3.event.target.__data__;
+                        // There is inverse projection method in case D3 does define one.
+                        console.log(Globe.invert(d3.mouse(this)));
+                        var coord=Globe.invert(d3.mouse(this));
+                        //var coord=[25,125];
+                        windowatlas.postMessage({ coords: coord }, '*');
+                        //var query = encodeURIComponent(JSON.stringify(coord));
+                        //window.open('atlas.html?' + query, '_self');
+                    }
+                    });
             });
 
         // Redraw all items with new projections

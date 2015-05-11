@@ -85,14 +85,13 @@ function runPrefixMethod(obj, method) {
   });
 };
 
-var windowWidth = $(window).width();
+var windowWidth = $(window).width() / 2;
 var windowHeight = $(window).height() / 2;
 
 $('#imprint').button().click(function(event) {
   $('#dialog' ).dialog({ title: 'Imprint' });
   $('#dialogframe').prop({ height: windowHeight, width: windowWidth });
   $('#dialogframe').prop('src', 'Descriptions/Imprint.html');
-
   event.preventDefault();
 });
 
@@ -114,7 +113,8 @@ $('#fullscreen').button().click(function(event) {
   var element = document.querySelector('body');
   runPrefixMethod(element, 'requestFullScreen');
 });
-/*Print the Window*/
+
+//Print the Window
 $( '#printbutton' ).button({
   icons: { primary: "ui-icon-print" }
 });
@@ -130,6 +130,7 @@ $('#printbutton').button().click(function printIT() {
 $('#createpdf').button().click(function printIT() {
     window.pdf();
 });
+
 
 
 $('#tabs').tabs();
@@ -260,7 +261,6 @@ $( "#amount-range" ).val( ui.value );
 });
 $( "#amount-range" ).val( $( "#slider-range" ).slider( "value" ) );
 });*/
-
 
 $( '#infobutton' ).button({
   icons: { primary: "ui-icon-info" }

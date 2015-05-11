@@ -7,6 +7,8 @@
 	2015-3-2: Created
 */
 
+//var coord = JSON.parse(decodeURIComponent(document.URL.replace(/.*?\?/, '')));
+
 L.mapbox.accessToken = 'pk.eyJ1IjoiYnVqdWxpYSIsImEiOiJpNnpsb0dFIn0.j2t-srvzbqOy3xq9QZDGIA'; //access token so that the map can be taken from mapbox online
 
 var map = L.mapbox.map('map', 'bujulia.basemap', {
@@ -21,7 +23,7 @@ var map = L.mapbox.map('map', 'bujulia.basemap', {
     map.setView([25,125], 4);
   window.addEventListener('message', function(event) {
     console.log(event.data);
-    //map.setView(coord, 4);
+    map.setView([25,125], 4);
   }, false);
 
 new L.Control.Zoom({position: 'topright'}).addTo(map);
