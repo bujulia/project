@@ -384,16 +384,21 @@ right:600px;
 bottom:0px;
 }
 
-#dialog{
-  z-index:0;
-  left:0;
-  top:0;
+#dialogframe{
+  position:center;
+  height:400px;
   width:100%;
-  height:100%
+}
+
+#dialogframe1{
+  positon:center;
+  height:400px;
+  width:100%;
 }
 
 #dialog-message{
 background:#ffffff;
+background-size: 100%;
 }
 
 .ui-accordion-header {
