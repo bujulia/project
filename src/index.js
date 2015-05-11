@@ -89,9 +89,9 @@ var windowWidth = $(window).width() / 2;
 var windowHeight = $(window).height() / 2;
 
 $('#imprint').button().click(function(event) {
-  $('#dialog' ).dialog({ title: 'Imprint' });
-  $('#dialogframe').prop({ height: windowHeight, width: windowWidth });
-  $('#dialogframe').prop('src', 'Descriptions/Imprint.html');
+  $('#dialog1' ).dialog({ title: 'Imprint' });
+  $('#dialogframe1').prop({ height: windowHeight, width: windowWidth });
+  $('#dialogframe1').prop('src', 'Descriptions/Imprint.html');
   event.preventDefault();
 });
 
@@ -209,14 +209,14 @@ $('#autocomplete').autocomplete({
 $('#menu-1,#menu-2,#menu-3').menu();
 
 //search button
-$(function() {
-    var availableTags = [
+//$(function() {
+  //  var availableTags = [
       
-    ];
-    $( "#search" ).autocomplete({
-      source: availableTags
-    });
-  });
+    //];
+    //$( "#search" ).autocomplete({
+    //  source: availableTags
+    //)});
+  //});
 
 $(function() {
     $( "#menu" ).menu();
@@ -298,8 +298,7 @@ $('#flightbutton').button().click(function() {
 
 
 $('#sliderbtn').button().click(function() {
-  $('.slider').show();
- 
+  $('.slider').toggle("drop", { direction: "down" }, 100); 
   
 })
 

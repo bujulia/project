@@ -21,10 +21,10 @@ var map = L.mapbox.map('map', 'bujulia.basemap', {
 	zoomControl: false
 	})
     map.setView([25,125], 4);
-  window.addEventListener('message', function(event) {
-    console.log(event.data);
-    map.setView([25,125], 4);
-  }, false);
+  //window.addEventListener('message', function(event) {
+    //console.log(event.data);
+    //map.setView([25,125], 4);
+  //}, false);
 
 new L.Control.Zoom({position: 'topright'}).addTo(map);
 
