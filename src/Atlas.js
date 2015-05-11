@@ -798,5 +798,3 @@ var searchControl = new L.Control.Search({layer: cendroidLayer, propertyName: "n
 map.addControl( searchControl );
 
 
-
-
