@@ -75,6 +75,13 @@ var countryStyle = {
     "opacity": 0.65,
 	"color": '#a5a5a5'
 };
+var cendroidStyle = {
+    "fillOpacity": 0, 
+    "weight": 0.1,
+    "opacity": 0.1,
+	"color": '#a5a5a5'
+};
+
 
 //add map
 geojson = L.geoJson(countries, { //var countries comes from external js-file 
@@ -675,119 +682,23 @@ $("#summer").click(function(){
 		
 		
 	});
-//search control
-//var controlSearch = new L.Control.Search({layer: geojson, initial: false,position:"topright"});
-
-	//map.addControl( controlSearch );
-
-
-/* var searchControl = new L.Control.Search({layer: geojson, propertyName: 'name', circleLocation:false});
-
-searchControl.on('search_locationfound', function(e) {
-
-    e.layer.setStyle({fillColor: '#3f0'});
-
-}).on('search_collapsed', function(e) {
-
-    featuresLayer.eachLayer(function(layer) {
-        featuresLayer.resetStyle(layer);
-    }); 
-});
-
-map.addControl(searchControl);
- */
-
-
-$('#main-nav > ul').dropotron({
-
-// Parent jQuery object.
-selectorParent: null,
-
-// Base Z-Index.
-
-baseZIndex: 1000,
-
-// <a href="http://www.jqueryscript.net/menu/">Menu</a> class (assigned to every <ul>).
-
-menuClass: 'dropotron',
-
-// Expansion mode ("hover" or "click").
-
-expandMode: 'hover',
-
-// Hover delay (in ms).
-
-hoverDelay: 150,
-
-// Hide delay (in ms; 0 disables).
-
-hideDelay: 250,
-
-// Opener class.
-
-openerClass: 'opener',
-
-// Active opener class.
-
-openerActiveClass: 'active',
-
-// Submenu class prefix.
-
-submenuClassPrefix: 'level-',
-
-// Menu mode ("instant", "fade", "slide", "zoom").
-
-mode: 'fade',
-
-// Menu speed ("fast", "slow", or ms).
-
-speed: 'fast',
-
-// Easing mode ("swing", "linear").
-
-easing: 'swing',
-
-// Alignment ("left", "center", "right").
-
-alignment: 'left',
-
-// Submenu offset X.
-
-offsetX: 0,
-
-// Submenu offset Y.
-
-offsetY: 0,
-
-// Global offset Y.
-
-globalOffsetY: 0,
-
-// IE Offset X.
-
-IEOffsetX: 0,
-
-// IE Offset Y.
-
-IEOffsetY: 0,
-
-// If true and mode = "fade", prevents top-level opener fade.
-
-noOpenerFade: true,
-
-// Detach second level menus (prevents parent style bleed).
-
-detach: true,
-
-// If true and detach = true, leave original menu intact.
-
-cloneOnDetach: tru
-
-});
 
 
 
+/***********************Points GeoJSON *********************/
+//add map
+var cendroidLayer = L.geoJson(cendroids, {
+    pointToLayer: function(feature, latlng) {
+        return new L.circleMarker(latlng, {
+            opacity: 0,
+            fillOpacity: 0
+        })
+    }
+}).addTo(map);
 
+var searchControl = new L.Control.Search({layer: cendroidLayer, propertyName: "name", circleLocation:true, position:"topright"});
+
+map.addControl( searchControl );
 
 
 
