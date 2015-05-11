@@ -18,12 +18,11 @@ Versions:
 <link rel="stylesheet" href="libs/jquery-ui.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <!-- <script src="//code.jquery.com/jquery-1.10.2.js"></script> -->
-<!--<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />-->
-<!--<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>-->
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 
 <!-- external countries geojson overlay -->
 <script src="src/countries.js" type="text/javascript"></script> 
-<script src="src/cendroids.js" type="text/javascript"></script> 
 <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.8/mapbox.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.8/mapbox.css' rel='stylesheet' />
 
@@ -40,11 +39,6 @@ Versions:
 
 <!-- AJAX.js plugin -->
 <script src ="plugin/leaflet-ajax-master/dist/leaflet.ajax.min.js"></script>
-
-
-<!--Search control plugin -->
-<script src ="libs/leaflet-search.js"></script>
-<link rel="stylesheet" href="libs/leaflet-search.css" />
 
 <!-- our own styles, they need to appear on the bottom -->
 <link rel="stylesheet" href="CSS/Atlas.css">
@@ -64,8 +58,8 @@ Versions:
 	<a href="index.html"><img id="logo" src="images/banner.png" alt="Logo"></a>
 	<button id="home">H</button>						<!-- invisible button to leave space for the logo -->
 	<button id="description">Map Description</button>
-	<button id="printbutton" onclick="printIT()"></button>
-	<button  id="fullscreen">Fullscreen</button>
+	<button id="printbutton" onclick="printIT()"> &#9113 </button>
+	<button id="fullscreen">Fullscreen</button>
 	<button id="imprint">Imprint</button>
 	<label id="text" for="search">Search: </label>
 	<input id="search">
@@ -92,7 +86,7 @@ Versions:
     <div class="nature1" id="nature">
 	<h3>NATURE</h3>
 		<div id="submenu1">
-          <span><img src = "images/8by8.png">         <class="nature2" id="animals">Animals</span>
+          <span class="nature2" id="animals">Animals</span>
 		  <div>
 			<div class="nature3" id="animals1">
 				<form action="php/requesttiger.php" method="get">
@@ -125,7 +119,7 @@ Versions:
 				</form>	 
 			</div>	
 		  </div>
-		 <span><img src = "images/8by8.png">         <class="nature2" id="wonders">Wonders</span>
+		 <h3 class="nature2" id="wonders">Wonders</h3>
 		 <div class="nature3" id="wonders1">
 				<form action="php/requestnature.php" method="get">
 					<input type="checkbox" value="nature" name="nature">Wonders
@@ -137,7 +131,7 @@ Versions:
 
           <div class="activities1" id="activities"><h3>SPORTS</h3>
 		  <div id="submenu2">
-		   <span><img src = "images/8by8.png">         <class="activities2" id="winter">Winter sports</span>
+			<h3 class="activities2" id="winter">Winter sports</h3>	  
 				<div>
 				<div class="activities3" id="ski">
 					<form action="php/requestski.php" method="get">
@@ -155,7 +149,7 @@ Versions:
 					</form>
 				</div>	  
 			    </div>
-				<span><img src = "images/8by8.png">         <class="activities2" id="summer">Summer sports</span>
+			<h3 class="activities2" id="summer">Summer sports</h3>
 				<div>
 				<div class="activities3" id="golf">
 					<form action="php/requestgolf.php" method="get">
@@ -182,8 +176,8 @@ Versions:
 </div>
 
 
-<button  id="infobutton"></button>
-
+<button id="infobutton"></button>
+<div class="infobox" id="infowindow"></div>
 
 <button  id="flightbutton"></button>
 <div class="widget">

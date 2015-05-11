@@ -1,7 +1,5 @@
 <?
 $month=$_GET["month"]; //month parameter
-//checkbox[]
-
 
 //echo "<pre>Simple check to see if connection works :-)</pre>\n"; flush();
 error_reporting(E_ALL); ini_set('display_errors', true);    
@@ -17,7 +15,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
-  $result = pg_query($link, 'select "Name", "Country", "Typ", "Experience", "Frequency", "QualityWS", "WaveDirect", st_asgeojson(wkb_geometry) as geojson from surf where ' . $month . '=1'); //wkb_geometry
+  $result = pg_query($link, 'select "Name", "Country", "Typ", "Experience", "Frequency", "QualityWS", "WaveDirect", st_asgeojson(wkb_geometry) as geojson from surf2 where ' . $month . '=1'); //wkb_geometry
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson
@@ -50,7 +48,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 
       // Add feature array to feature collection array
       array_push($geojson['features'], $feature);
-   }
+   };
 
 //close database connectin
 pg_close($link);

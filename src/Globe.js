@@ -40,7 +40,7 @@
             .projection(Globe)
             .pointRadius(2)
 
-        Globe.scale(Globe.scale() * 1.5);
+        Globe.scale(Globe.scale() * 1.6);
 
         // Setup path for sun
         var Sun = d3.geo.azimuthal()
@@ -88,7 +88,7 @@
 
         // Create the Sun
         var Sun = svg.append("circle")
-            .attr('cx', 1240)
+            .attr('cx', 200)
             .attr('cy', 160)
             .attr('r', Sun.scale())
             .attr('class', 'Sun')
@@ -114,22 +114,27 @@
 
         // Add all the countries to the globe
             d3.json("Maps/world-countries.json", function(collection) {
-            features = g.selectAll(".feature").data(collection.features)            
+                features = g.selectAll(".feature").data(collection.features)            
 
-            features.enter().append("path")
-                .attr("class", "feature")
-                .attr("d", function(d){ return path(circle.clip(d)); })
+                features.enter().append("path")
+                    .attr("class", "feature")
+                    .attr("d", function(d){ return path(circle.clip(d)); })
                 
-                // Go from the globe to the 2D map by clicking on the continents
-                .on("click",function(){
-                    var windowatlas=window.open('atlas.html');
-                    // Every svg path is bound to the data from the imported geojson file.
-                    var d = d3.event.target.__data__;
-                    // There is inverse projection method in case D3 does define one.
-                    console.log(Globe.invert(d3.mouse(this)));
-                    var coord=Globe.invert(d3.mouse(this));
-                    windowatlas.postMessage({ coords: coord }, '*');
-                });
+                    // Go from the globe to the 2D map by clicking on the continents
+                    .on("click",function(){
+                        var windowatlas=window.open('atlas.html');
+                        windowatlas.onload = function() {
+                        // Every svg path is bound to the data from the imported geojson file.
+                        var d = d3.event.target.__data__;
+                        // There is inverse projection method in case D3 does define one.
+                        console.log(Globe.invert(d3.mouse(this)));
+                        var coord=Globe.invert(d3.mouse(this));
+                        //var coord=[25,125];
+                        windowatlas.postMessage({ coords: coord }, '*');
+                        //var query = encodeURIComponent(JSON.stringify(coord));
+                        //window.open('atlas.html?' + query, '_self');
+                    }
+                    });
             });
 
         // Redraw all items with new projections
@@ -196,21 +201,16 @@
         .domain([0, width])
         .range([-180, 180]);
 
-    var φ = d3.scale.linear() // Initialise variable height
-        .domain([0, height])
-        .range([90, -90]);
-
     var scrollSpeed = 50; 
     var current = 0;
     
     function rotationGlobe(){
         current += 1;
         Globe.rotate([λ(current), 0]);
-        g.selectAll("path").attr("d", path);
+        svg.selectAll("path").attr("d", path);
     }
 
      setInterval(rotationGlobe, scrollSpeed);  
-
 */
     getSize();
 

@@ -280,9 +280,9 @@ top: 40px;
   
 }
 .ui-slider-label {
- color: #000000;
+ color: #fff;
  font-family: Arial, Helvetica, sans-serif;
- text-shadow: white 0.5em 0.5em 1.0em;
+ text-shadow: black 0.5em 0.5em 1.0em;
  }
 
 #logo{
@@ -402,6 +402,28 @@ background:#ffffff;
     padding:10px !important;   
 	border: none !important;
 }
+
+/* styling for the marker symbols */
+.marker-cluster-small {
+  background-color: rgba(255,255,255, 0.6);
+  }
+.marker-cluster-small div {
+  background-color: rgba(255,255,255, 0.6);
+  }
+
+.marker-cluster-medium {
+  background-color: rgba(255,255,255, 0.6);
+  }
+.marker-cluster-medium div {
+  background-color: rgba(255,255,255, 0.6);
+}
+
+.marker-cluster-large {
+  background-color: rgba(255,255,255, 0.6);
+  }
+.marker-cluster-large div {
+  background-color: rgba(255,255,255, 0.6);
+  }
 
 
  
