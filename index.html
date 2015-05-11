@@ -34,6 +34,7 @@ Versions:
 
 <link rel="stylesheet" href="CSS/Atlas.css">
 <link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="CSS/sliderglobe.css">
 
 <!-- AJAX.js plugin -->
 <script src ="plugin/leaflet-ajax-master/dist/leaflet.ajax.min.js"></script>
@@ -65,28 +66,34 @@ Versions:
 <nav>
 <button class="dropdown-toggle" id="share"><font color="white">Share</font></button>
 <ul class="dropdown">
-		<li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html&t=Share" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Facebook.png"></a><font color="black">Facebook</font></li>
-		<li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html&text=Share:%20http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Twitter.png"></a><font color="black">Twitter</font></li>
-		<li><a href="https://plus.google.com/share?url=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Google+.png"></a><font color="black">Google+</font></li>
-		<li><a href="mailto:?subject=Share&body=Now%20We%20can%20Share%20the%20map%20content:%20http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Email.png"></a><font color="black">Mail</font></li>
+		<li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html&t=Share" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Facebook.png"></a><font color="white">Facebook</font></li>
+		<li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html&text=Share:%20http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Twitter.png"></a><font color="white">Twitter</font></li>
+		<li><a href="https://plus.google.com/share?url=http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Google+.png"></a><font color="white">Google+</font></li>
+		<li><a href="mailto:?subject=Share&body=Now%20We%20can%20Share%20the%20map%20content:%20http%3A%2F%2Ffile%3A%2F%2F%2FL%3A%2FUniversit%25C3%25A4t%2F6.%2520Semester%2FMultimedia%2520Cartography%2FGithub%2Fproject%2Fatlas.html" target="_blank" title="Email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><img src="images/flat_web_icon_set/color/Email.png"></a><font color="white">Mail</font></li>
 	
 </ul>
 </nav>
 
 <div class="slider"></div>	  
 
-<button class="round-button" id="infobutton"></button>
+<button id="infobutton"></button>
 <div class="infobox" id="infowindow"></div>
 
-<button class="round-button" id="flightbutton"></button>
+<button id="flightbutton"></button>
 <div class="widget">
  <iframe allowTransparency="true" src="http://www.quicktrip.com/quicktrip-widget.html?Affiliate=48bdd172-f175-4aca-ab9f-079cbbd8f61a&Mode=flight&Culture=en-CA" width="300" height="250" scrolling="no" frameBorder="0"></iframe>  
 </div>
 
 <button id="sliderbtn">Select your favorite month!</button>
 
+<div id="dialog1" title="Imprint">
+	<iframe id="dialogframe1" frameborder="0"></iframe>
+</div>
 
-<div id="dialog-message" title="Information">
+<div id="dialog" title="Map Description">
+	<iframe id="dialogframe" frameborder="0"></iframe>
+</div>
+
 <!-- Load atlas script after the HTML elements are created -->
 <script src="src/index.js"></script>
 

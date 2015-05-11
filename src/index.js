@@ -89,9 +89,9 @@ var windowWidth = $(window).width() / 2;
 var windowHeight = $(window).height() / 2;
 
 $('#imprint').button().click(function(event) {
-  $('#dialog' ).dialog({ title: 'Imprint' });
-  $('#dialogframe').prop({ height: windowHeight, width: windowWidth });
-  $('#dialogframe').prop('src', 'Descriptions/Imprint.html');
+  $('#dialog1' ).dialog({ title: 'Imprint' });
+  $('#dialogframe1').prop({ height: windowHeight, width: windowWidth });
+  $('#dialogframe1').prop('src', 'Descriptions/Imprint.html');
   event.preventDefault();
 });
 
@@ -298,8 +298,7 @@ $('#flightbutton').button().click(function() {
 
 
 $('#sliderbtn').button().click(function() {
-  $('.slider').show();
- 
+  $('.slider').toggle("drop", { direction: "down" }, 100); 
   
 })
 

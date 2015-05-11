@@ -1,0 +1,23 @@
+
+	.sliderglobe{
+  position: absolute;
+  left: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+  right: 200px;
+  bottom: 40px;
+  height: 10px;
+  background: #cccccc;
+  outline-color: #b3b3b3;
+  display:none;
+  
+}
+
+.ui-slider-label {
+ color: #fff;
+ font-family: Arial, Helvetica, sans-serif;
+ }
+
+
+
+ 
