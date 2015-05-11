@@ -40,7 +40,7 @@
             .projection(Globe)
             .pointRadius(2)
 
-        Globe.scale(Globe.scale() * 1.6);
+        Globe.scale(Globe.scale() * 1.68);
 
         // Setup path for sun
         var Sun = d3.geo.azimuthal()
@@ -89,7 +89,7 @@
         // Create the Sun
         var Sun = svg.append("circle")
             .attr('cx', 200)
-            .attr('cy', 160)
+            .attr('cy', 170)
             .attr('r', Sun.scale())
             .attr('class', 'Sun')
             .attr("filter", "url(#glowSun)")
