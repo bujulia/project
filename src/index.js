@@ -209,14 +209,14 @@ $('#autocomplete').autocomplete({
 $('#menu-1,#menu-2,#menu-3').menu();
 
 //search button
-//$(function() {
-  //  var availableTags = [
+$(function() {
+    var availableTags = [
       
-    //];
-    //$( "#search" ).autocomplete({
-    //  source: availableTags
-    //)});
-  //});
+    ];
+    $( "#search" ).autocomplete({
+      source: availableTags
+    });
+  });
 
 $(function() {
     $( "#menu" ).menu();

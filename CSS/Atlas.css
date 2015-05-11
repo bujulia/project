@@ -377,13 +377,19 @@ ul.dropdown {
 	height:50px;
 }
 
-
-
  
 #sliderbtn{
 position:absolute;
 right:600px;
 bottom:0px;
+}
+
+#dialog{
+  z-index:0;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%
 }
 
 #dialog-message{

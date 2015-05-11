@@ -149,6 +149,14 @@
             });
         }
 
+        //d3.timer(function() {
+        //            var origin = Globe.origin();
+        //            origin[0] += 0.5;
+        //            Globe.origin(origin);
+        //            circle.origin(origin);
+        //            redraw();
+        //});
+
         // Rotation of the earth only in the horizontal direction
         function move() {
             if(d3.event){
@@ -159,9 +167,9 @@
                 backgroundCircle.attr('r', scale);
                 path.pointRadius(2 * scale / scale0);
 
-                Globe.origin(origin);
-                circle.origin(origin);
-                
+                    Globe.origin(origin);
+                    circle.origin(origin);
+
                 redraw();
             }
         }
