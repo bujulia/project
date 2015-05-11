@@ -263,8 +263,6 @@ $(".slider")
 
             // You need to add the new layers to the map
                 if($('input[value=ski]').prop("checked")){
-                    /* skiCluster.addLayer(ski);
-                    skiCluster.addTo(map) */
                     skiCluster.addTo(map)
                     }
                 if($('input[value=crski]').prop("checked")){
@@ -572,12 +570,6 @@ $('#description').button().click(function(event) {
   event.preventDefault();
 });
 
-//$('#description').button().click(function() {
-//  var url = $('#mapframe').prop('src').replace(/Maps\//, 'Descriptions/').replace(/\..*$/, '.html');
-//  $('#dialog').dialog({ title: 'Map Description' });
-//  $('#dialogframe').prop('src', url);
-//  event.preventDefault();
-//});
 
 $('#fullscreen').button().click(function(event) {
   var element = document.querySelector('body');
@@ -596,65 +588,6 @@ $( '#printbutton' ).button( "option", "icons", { primary: "ui-icon-print" } );
 $('#printbutton').button().click(function printIT() {
     window.print();
 });
-$('#createpdf').button().click(function printIT() {
-    window.pdf();
-});
-
-
-$('#tabs').tabs();
-
-$('#accordion').accordion().click(function(event) {
-  switch (event.target.id) {
-  case 'overview':
-  case 'innovative':
-  case 'future':
-    $('#dialog').dialog({ title: 'Not Yet' });
-    $('#dialogframe').prop('src', 'Descriptions/NotYet.html');
-    break;
-  }
-});
-
-
-$('#autocomplete').autocomplete({
-  source: ['Innovative Map', 'Future Map']
-});
-
-$('#menu-1,#menu-2,#menu-3').menu();
-
- $(function() {
-var availableTags = [
-"Australia",
-"Bangladesh",
-"Laos",
-"China",
-"Japan",
-"North-Korea",
-"South-Korea",
-"Vietnam",
-"Thailand",
-"Singapore",
-"Indonesia",
-"Papa-New-guinea",
-"New Zealand"
-];
-$( "#tags" ).autocomplete({
-source: availableTags
-});
-});
-
-//menu
-$('#autocomplete').autocomplete({
-  source: ['Innovative Map', 'Future Map']
-});
-
-$('#menu-1,#menu-2,#menu-3').menu();
-
-
-
-$(function() {
-    $( "#menu" ).menu();
-  });
-
 
 
 //drop down menu with share buttons
@@ -673,27 +606,7 @@ $(document).click(function(e) {
 });
 
 });
-/*alert window
-$( "#slider-range-max" ).mouseover(function() {
-alert( "Choose your month" );
-});
-*/
 
-
-/*Slider-range
- $(function() {
- $("#slider-range").slider({
-        range: true,
-        min: 1,
-        max: 12,
-        values: [1, 12],
-        step:1
-slide: function( event, ui ) {
-$( "#amount-range" ).val( ui.value );
-}
-});
-$( "#amount-range" ).val( $( "#slider-range" ).slider( "value" ) );
-});*/
 
 
 $( '#infobutton' ).button({
