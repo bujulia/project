@@ -11,6 +11,10 @@
 
 L.mapbox.accessToken = 'pk.eyJ1IjoiYnVqdWxpYSIsImEiOiJpNnpsb0dFIn0.j2t-srvzbqOy3xq9QZDGIA'; //access token so that the map can be taken from mapbox online
 
+var southWest = L.latLng(-90, -180),
+    northEast = L.latLng(90, 180),
+    bounds = L.latLngBounds(southWest, northEast);
+
 var map = L.mapbox.map('map', 'bujulia.basemap', {
 	maxZoom: 7,
 	minZoom: 2,
@@ -18,7 +22,8 @@ var map = L.mapbox.map('map', 'bujulia.basemap', {
 	keyboard: true, // we can also navigate with keyboard
 	keyboardPanOffset: 280, // Amount of pixels to pan when pressing an arrow key.
 	keyboardZoomOffset: 1, //Number of zoom levels to change when pressing + or - key.
-	zoomControl: false
+	zoomControl: false,
+    maxBounds: bounds,
 	})
     map.setView([25,125], 4);
   //window.addEventListener('message', function(event) {
@@ -44,13 +49,13 @@ function highlightFeature(e) {
     if (!L.Browser.ie && !L.Browser.opera) {
         layer.bringToFront();
     }
-	// info.update(layer.feature.properties); //Update Info about Country
+	info.update(layer.feature.properties); //Update Info about Country
 }
 
 //define what happens on mouseout
 function resetHighlight(e) {
     geojson.resetStyle(e.target);
-	// info.update(); //Update Info about Country
+	info.update(); //Update Info about Country
 }
 //define a click listener that zooms to the country
 function zoomToFeature(e) {
@@ -90,8 +95,7 @@ geojson = L.geoJson(countries, { //var countries comes from external js-file
 //****************************** PHP Layers *********************************
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\DEFINE THE ICONS/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 //Style for polygons:
-var ecoStyle = {"fillColor": "#7ae969", "fillOpacity": "0.4", "color": "#7ae969", "opacity": "0.2", "weight": "0"};
-var ecoStylea = {"fillColor": "#7ae969", "fillOpacity": "0.6", "color": "#7ae969", "opacity": "0.2", "weight": "0"};
+var ecoStyle = {"fillColor": "#7ae969", "fillOpacity": "0.4", "color": "#1dd300", "opacity": "0.8", "weight": "1"};
 
 var natureIcon = L.icon({
     iconUrl: 'images/nature.svg',
@@ -169,12 +173,6 @@ var allCluster = new L.MarkerClusterGroup({
     disableClusteringAtZoom:7,
     maxClusterRadius: 80});
 
-
-/*
-var test2 = L.marker([25,115]).addTo(map);
-var test1 = L.marker([25,115], {icon: festivalsIcon}).addTo(map);
-var test3 = L.marker([25,105], {icon: icefishingIcon}).addTo(map);
-*/
 
 /*************** GLOBAL VAR for the layers with months ******************/
 var ski;
@@ -331,7 +329,7 @@ function popUpKomodoDragon(feature,layer){
 ///////////// 2. Points ///////////////
 // function for the popup window Nature-Wonders
 function popUpNature(feature,layer){
-    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country + ')</br> Typ: '
+    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country + ')</br> Type: '
 	+ feature.properties.description +'</small>');
     layer.on('click', function(e){
         this.openPopup();
@@ -349,7 +347,7 @@ function popUpSki(feature,layer){
 };
 // function for the popup window CRSki
 function popUpCRSki(feature,layer){
-    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +')</br>CR-Slope length: '
+    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +')</br>Slope length: '
 	+ feature.properties.slope_length + '</small>');
     layer.on('click', function(e){
         this.openPopup();
@@ -374,7 +372,7 @@ function popUpGolf(feature,layer){
 };
 // function for the popup window Surf
 function popUpSurf(feature,layer){
-    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +') </br> Typ: '
+    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +') </br> Type: '
 	+ feature.properties.typ + '</br> Difficulty: '
 	+ feature.properties.experience + '</small>');
     layer.on('click', function(e){
@@ -392,7 +390,7 @@ function popUpFestivals(feature,layer){
 };
 
 /////////////Polygons///////////////
-var tiger = new L.geoJson.ajax("php/requesttiger.php?", {style:ecoStylea}, {onEachFeature:popUpTiger});
+var tiger = new L.geoJson.ajax("php/requesttiger.php?", {style:ecoStyle}, {onEachFeature:popUpTiger});
 var giantpanda = new L.geoJson.ajax("php/requestgiantpanda.php?", {style:ecoStyle}, {onEachFeature:popUpGiantPanda});
 var orangutan = new L.geoJson.ajax("php/requestorangutan.php?", {style:ecoStyle}, {onEachFeature:popUpOrangutan});
 var asiaticelephant = new L.geoJson.ajax("php/requestasiaticelephant.php?", {style:ecoStyle}, {onEachFeature:popUpAsiaticElephant});
@@ -526,7 +524,7 @@ $(document).ready(function(){
 
 
 // control that shows country info on hover
-/* var info = L.control({position: 'bottomleft'});
+var info = L.control({position: 'bottomleft'});
 info.onAdd = function (map) {
     this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
     this.update();
@@ -539,7 +537,7 @@ info.update = function (props) {
         : 'Hover over a country!');
 };
 info.addTo(map);
-*/
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

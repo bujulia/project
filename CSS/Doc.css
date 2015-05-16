@@ -20,7 +20,17 @@ h3 {
   color: black;
 }
 
+h4 {
+  font-size: 13px;
+  color: black;
+}
+
 p {
 	font-size: 12px;
+  color: black;
+}
+
+table {
+  font-size: 11px;
   color: black;
 }
