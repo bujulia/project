@@ -123,9 +123,9 @@
                         var windowatlas=window.open('atlas.html','_top');
                         //windowatlas.onload = function() {
                         // Every svg path is bound to the data from the imported geojson file.
-                        //var d = d3.event.target.__data__;
+                        var d = d3.event.target.__data__;
                         // There is inverse projection method in case D3 does define one.
-                        //console.log(Globe.invert(d3.mouse(this)));
+                        console.log(Globe.invert(d3.mousehover(this)));
                         //var coord=Globe.invert(d3.mouse(this));
                         //var coord=[25,125];
                         //windowatlas.postMessage({ coords: coord }, '*');
@@ -194,11 +194,6 @@
         }
     }
     
-    var formatTime = d3.time.format("%e %B");
-    var div = d3.select("body").append("div")   
-        .attr("class", "tooltip")               
-        .style("opacity", 0);
-
     getSize();
 
 }(window, d3));
