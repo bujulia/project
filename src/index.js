@@ -158,6 +158,7 @@ var months = ["January", "February", "March", "April", "May", "June", "July", "A
 // lets be fancy for the demo and select the current month.
 var activeMonth = new Date().getMonth();
 
+/*
 $(".slider")
                     
     // activate the slider with options
@@ -177,7 +178,7 @@ $(".slider")
     .on("slidechange", function(e,ui) {
         $("#labels-months-output").text( "You selected " + months[ui.value] + " (" + ui.value + ")");
     });
-
+*/
 
 
  $(function() {
@@ -297,10 +298,10 @@ $('#flightbutton').button().click(function() {
 });
 
 
-$('#sliderbtn').button().click(function() {
-  $('.slider').toggle("drop", { direction: "down" }, 100); 
+//$('#sliderbtn').button().click(function() {
+//  $('.slider').toggle("drop", { direction: "down" }, 100); 
   
-})
+//})
 
 
 

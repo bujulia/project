@@ -32,7 +32,7 @@
         // Setup path for globe
         var Globe = d3.geo.azimuthal()
             .mode("orthographic") // Globe has a orthographic projection
-            .translate([width / 2, height / 2.25]);
+            .translate([width / 2, height / 2.05])
 
         var scale0 = Globe.scale();
 
@@ -40,7 +40,7 @@
             .projection(Globe)
             .pointRadius(2)
 
-        Globe.scale(Globe.scale() * 1.68);
+        Globe.scale(Globe.scale() * 1.8);
 
         // Setup path for sun
         var Sun = d3.geo.azimuthal()
@@ -53,7 +53,7 @@
             .projection(Sun)
             .pointRadius(2)
 
-        Sun.scale(Sun.scale() / 5);
+        Sun.scale(Sun.scale() / 4.5);
 
         // Setup zoom behavior
         var zoom = d3.behavior.zoom(true)
@@ -103,7 +103,7 @@
         // Create the base globe
         var backgroundCircle = svg.append("circle")
             .attr('cx', width / 2)
-            .attr('cy', height / 2.25)
+            .attr('cy', height / 2.05)
             .attr('r', Globe.scale())
             .attr('class', 'globe')
             .attr("filter", "url(#glow)")
@@ -114,12 +114,10 @@
 
         // Add all the countries to the globe
             d3.json("Maps/world-countries.json", function(collection) {
-                features = g.selectAll(".feature").data(collection.features)            
-
+                features = g.selectAll(".feature").data(collection.features) 
                 features.enter().append("path")
-                    .attr("class", "feature")
+                    .attr("class", "feature")                 
                     .attr("d", function(d){ return path(circle.clip(d)); })
-                
                     // Go from the globe to the 2D map by clicking on the continents
                     .on("click",function(){
                         var windowatlas=window.open('atlas.html');
@@ -135,7 +133,7 @@
                         //var query = encodeURIComponent(JSON.stringify(coord));
                         //window.open('atlas.html?' + query, '_self');
                     //}
-                    });
+                    })
             });
 
         // Redraw all items with new projections
@@ -149,23 +147,15 @@
             });
         }
 
-        //d3.timer(function() {
-        //            var origin = Globe.origin();
-        //            origin[0] += 0.5;
-        //            Globe.origin(origin);
-        //            circle.origin(origin);
-        //            redraw();
-        //});
-
         // Rotation of the earth only in the horizontal direction
         function move() {
             if(d3.event){
                 var scale = d3.event.scale;
-                var origin = [d3.event.translate[0] * -1, 0];
-                
+                var origin = [-d3.event.translate[0] / 5, 0];
+
                 Globe.scale(scale);
                 backgroundCircle.attr('r', scale);
-                path.pointRadius(2 * scale / scale0);
+                path.pointRadius(2*scale / scale0);
 
                     Globe.origin(origin);
                     circle.origin(origin);
@@ -204,23 +194,11 @@
         }
     }
     
-    // Rotate globe
-/*
-    var λ = d3.scale.linear() // Initialise variable width
-        .domain([0, width])
-        .range([-180, 180]);
+    var formatTime = d3.time.format("%e %B");
+    var div = d3.select("body").append("div")   
+        .attr("class", "tooltip")               
+        .style("opacity", 0);
 
-    var scrollSpeed = 50; 
-    var current = 0;
-    
-    function rotationGlobe(){
-        current += 1;
-        Globe.rotate([λ(current), 0]);
-        svg.selectAll("path").attr("d", path);
-    }
-
-     setInterval(rotationGlobe, scrollSpeed);  
-*/
     getSize();
 
 }(window, d3));
