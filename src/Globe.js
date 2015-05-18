@@ -72,6 +72,11 @@
                     .call(zoom)
                     .on("dblclick.zoom", null);
 
+        // East Asia on the front of the globe
+
+        Globe.origin([90, 0])
+        circle.origin([90, 0])
+
         // Create a list of stars and the sun and add them to outerspace
         var starList1 = createStars(1000);
                 
@@ -151,7 +156,7 @@
         function move() {
             if(d3.event){
                 var scale = d3.event.scale;
-                var origin = [-d3.event.translate[0] / 5, 0];
+                var origin = [-d3.event.translate[0] / 5 + 90, 0];
 
                 Globe.scale(scale);
                 backgroundCircle.attr('r', scale);
