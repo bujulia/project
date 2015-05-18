@@ -1,0 +1,411 @@
+#map { 
+	height: 100%;
+	top: 32px;
+	left: 0px;
+	right: 0px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 70%;
+  position: absolute;
+  overflow: hidden;
+  margin: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.menubar {
+  position: absolute;
+  top: 0;
+  height: 32px;
+  left: 0;
+  right: 0;
+  background: #cccccc;
+  -webkit-tap-highlight-color: #b3b3b3;
+}
+
+
+.navigation {
+  position: absolute;
+  left: 0;
+  top: 32px;
+  right: 0;
+  bottom: 0;
+  width: 60px;
+  -webkit-tap-highlight-color: #b3b3b3;
+}
+
+
+#infowindow {
+	position: absolute;
+	right: 0;
+	bottom: 340px;
+	width: 200pc;
+	background-color: #cccccc;
+}
+
+.widget{
+position:absolute;
+right:10px;
+bottom:150px;
+display:none;}
+
+
+.ns {
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#search {
+   position: absolute;
+  right: 600px;
+  top: 2px;
+ 
+}
+
+#text {
+   position: absolute;
+  right: 780px;
+  top: 2px;
+ 
+}
+#imprint {
+   position: absolute;
+  right: 10px;
+  top: 2px;
+ 
+}
+
+#fullscreen {
+   position: absolute;
+  right: 300px;
+  top: 2px;
+ 
+}
+
+#description {
+   position: absolute;
+  right: 400px;
+  top: 2px;
+ 
+}
+#head {
+   position: absolute;
+  left: 200px;
+  font-size: 20px;
+}
+
+#printbutton{
+   position: absolute;
+  right: 200px;
+  top: 2px;
+  width:40px;
+  height:26px;
+   -ms-transform: scale(1); /* IE 9 */
+  -webkit-transform: scale(1); /* Chrome, Safari, Opera */
+  transform: scale(1);
+  vertical-align: middle;
+ 
+}
+
+
+
+#tabs {
+   position: absolute;
+  left: 0;
+  top: 32px;
+  right: 0;
+  bottom: 0;
+  height: 40;
+  
+}
+
+/* .info stays for information about a country */
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: black;
+    border-radius: 5px;
+  position: absolute;
+  width: 180px;
+  height: 60px;
+  left: 0px;
+  bottom: 0px;
+}
+
+.info h4 {
+    margin: 0 0 5px;
+  color: #777;
+}
+
+/* colours for the themes ******************************************/
+.nature1 {
+	background: #1dd300;
+	color: black;
+	opacity: 0.6;
+	}
+
+.nature2 {
+	background: none;
+	color: white;
+	font-size: 150%;
+
+	
+	}
+
+.nature3 {
+	background: none;
+	color: black;
+	display: none;
+	}	
+
+.activities1 {
+	background: #c7007d;
+	color: black;
+	opacity: 0.6;
+	}
+	
+.activities2 {
+	background: none;
+	color: white;
+	font-size: 100%;
+
+	}
+	
+.activities3 {
+	background: none;
+	color: black;
+	display: none;
+	}
+
+.culture1 {
+	background: #ff6c00;
+	color: black;
+	opacity: 0.6;
+	}
+	
+.culture2 {
+	background: #ff9140;
+	color: white;
+	}
+	
+/* what is this?*/
+li  {
+	display: inline-block;
+	width:120px;
+	height:10px;
+	}
+	
+#menu{
+position:absolute;
+left: 0;
+top: 40px;
+
+}
+/*
+.nature{
+  position: absolute;
+  text-align: center;
+  left: 0;
+  top: 40px;
+  right: 0;
+  bottom: 0;
+  height: 140px;
+  width: 180px;
+  padding: 10px 0;
+}
+
+#activities{
+   position: absolute;
+   text-align: center;
+  left: 0;
+  top: 200px;
+  bottom: 0;
+  height: 140px;
+  width: 180px;
+  padding: 10px 0;
+}
+
+#culture{
+  position: absolute;
+  text-align: center;
+  left: 0;
+  top: 360px;
+  bottom: 0;
+  height: 140px;
+  width: 180px;
+  padding: 10px 0;
+}
+ */
+#animals   {
+ 
+       
+	   }
+
+
+
+#winter   {
+
+      
+	   }
+	  
+
+#summer   {
+	   }
+	   
+
+
+#festivals  {display: inline-block;
+     	   }
+	   
+	    
+.slider{
+  position: absolute;
+  left: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+  right: 200px;
+  bottom: 40px;
+  height: 10px;
+  background: #cccccc;
+  outline-color: #b3b3b3;
+  display:none;
+  
+}
+.ui-slider-label {
+ color: #000;
+ font-family: Arial, Helvetica, sans-serif;
+ }
+
+#logo{
+	left: 0;
+	top: 0px;
+	position: absolute;
+	height: 32px;
+	width: 328px;
+	border: 0;
+}
+
+#ui-menu { width: 600px; }
+
+#home{
+	visibility: hidden;
+}
+
+nav {
+  position: absolute;
+  top:2px;
+  right:100px;
+  
+}
+
+.dropdown-toggle {
+
+}
+ul.dropdown {
+  display:none;
+  position: absolute;
+  top: 100%;
+  margin-top: .5em;
+  background: #00FFFFFFF;
+  min-width: 12em;
+  z-index:1;
+  padding: 0;
+  border-radius: 0 0 .2em .2em;
+    li {
+      list-style-type: none;
+      a {
+        text-decoration: none;
+        padding: .5em 1em;
+        display: block;
+      }
+   }
+}
+
+
+#infobutton {
+    position: absolute;
+	right: 10px;
+	top: 150px;
+    width:50px;
+	height:50px;
+	vertical-align: middle;
+	
+	
+}
+
+.ui-button-icon-primary 
+{  position: absolute;
+  right: 200px;
+  top: 2px;
+   left:1.2em !important;    // default it is 0.5, so it's always on left position...
+   -ms-transform: scale(1.2); /* IE 9 */
+  -webkit-transform: scale(1.2); /* Chrome, Safari, Opera */
+  transform: scale(1.2);
+}​
+
+
+.round-button {
+    display:block;
+    width:50px;
+    height:50px;
+    line-height:50px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 3px gray;
+  
+}
+.round-button:hover {
+    background: #262626;
+}
+
+
+
+#flightbutton {
+	bottom: 80px;
+	right:10px;
+	position: absolute;
+    background: url('./plane.png');
+	width:50px;
+	height:50px;
+}
+
+#dialogframe{
+  position:center;
+  height:400px;
+  width:100%;
+}
+
+#dialogframe1{
+  positon:center;
+  height:400px;
+  width:100%;
+}
+
+#dialog-message{
+background:#ffffff;
+background-size: 100%;
+}
+
+
+h2 {
+  position: fixed;
+  right: 870px;
+  top:6px;
+  color: black;
+  font-size: 9pt;
+  font-weight: 100;
+  float: left;
+}
+
+
+ 
