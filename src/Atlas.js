@@ -36,6 +36,21 @@ new L.Control.Zoom({position: 'topright'}).addTo(map);
 /***********************Countries GeoJSON *********************/
 var geojson;
 
+// control that shows country info on hover
+var info = L.control({position: 'bottomleft'});
+info.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+    this.update();
+    return this._div;
+};
+// method that we will use to update the control based on feature properties passed
+info.update = function (props) {
+    this._div.innerHTML = '<h4>Country Information</h4>' +  (props ?
+        '<b>' + props.name + '</b><br />Continent: ' + props.continent + ''
+        : 'Hover over a country!');
+};
+ info.addTo(map);
+
 //event listener for layer mouseover event
 function highlightFeature(e) {
     var layer = e.target;
@@ -49,18 +64,18 @@ function highlightFeature(e) {
     if (!L.Browser.ie && !L.Browser.opera) {
         layer.bringToFront();
     }
-	info.update(layer.feature.properties); //Update Info about Country
+    info.update(layer.feature.properties); //Update Info about Country
 }
 
 //define what happens on mouseout
 function resetHighlight(e) {
     geojson.resetStyle(e.target);
-	info.update(); //Update Info about Country
+    info.update(); //Update Info about Country
 }
 //define a click listener that zooms to the country
 function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
-	duration: 0.3;
+    duration: 0.3;
 }
 
 function onEachFeature(feature, layer) {
@@ -523,23 +538,6 @@ $(document).ready(function(){
 
 
 
-// control that shows country info on hover
-var info = L.control({position: 'bottomleft'});
-info.onAdd = function (map) {
-    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-    this.update();
-    return this._div;
-};
-// method that we will use to update the control based on feature properties passed
-info.update = function (props) {
-    this._div.innerHTML = '<h4>Country Information</h4>' +  (props ?
-        '<b>' + props.name + '</b><br />Continent: ' + props.continent + ''
-        : 'Hover over a country!');
-};
-info.addTo(map);
-
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function runPrefixMethod(obj, method) {
   ['', 'webkit', 'moz', 'o', 'ms'].some(function(pf) {
@@ -621,12 +619,12 @@ $( '#infobutton' ).button( "option", "icons", { primary: "ui-icon-info" } );
 
 $('#infobutton').button().click(function(event) {
   $('#dialog-message' ).dialog({ title: 'Information', 
-  
-  position:  { my: 'top', at: 'top+60',  of: $('#infobutton') }
-  
+  position:  { my: 'right top', at: 'top+60',  of: $('#infobutton') }
   });
- 
+
 });
+
+
 
 
 $('#flightbutton').button().click(function() {

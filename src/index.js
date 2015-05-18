@@ -6,72 +6,7 @@
 	Versions:
 	2015-3-2: Created
 */
-//////connection to php file
 
-
-
-
-//****************************** PHP Layers *********************************
-//what i implemented: js(php-part), css (bottom), php(alles), html()
-
-
-
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\DEFINE THE ICONS/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-
-
-
-
-/*
-//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\LOAD THE LAYERS/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-///////////// 1. Polygons ///////////////
-// function for the popup window Tiger
-function popUpTiger(feature,layer){
-    layer.bindPopup('<b>' + feature.properties.ECO_NAME + '</b></br><small>('+ feature.properties.AREA +')</small>');
-    layer.on('mouseover', function(e){
-        this.openPopup();
-    });
-};
-
-// function for the popup window Giant Panda
-function popUpGiantPanda(feature,layer){
-    layer.bindPopup('<b>' + feature.properties.ECO_NAME + '</b></br><small>('+ feature.properties.AREA +')</small>');
-    layer.on('mouseover', function(e){
-        this.openPopup();
-    });
-};
-// function for the popup window Orangutan
-function popUpOrangutan(feature,layer){
-    layer.bindPopup('<b>' + feature.properties.ECO_NAME + '</b></br><small>('+ feature.properties.AREA +')</small>');
-    layer.on('mouseover', function(e){
-        this.openPopup();
-    });
-};
-// function for the popup window Asiatic Elephant
-function popUpAsiaticElephant(feature,layer){
-    layer.bindPopup('<b>' + feature.properties.ECO_NAME + '</b></br><small>('+ feature.properties.AREA +')</small>');
-    layer.on('mouseover', function(e){
-        this.openPopup();
-    });
-};
-// function for the popup window Red Panda
-function popUpRedPanda(feature,layer){
-    layer.bindPopup('<b>' + feature.properties.ECO_NAME + '</b></br><small>('+ feature.properties.AREA +')</small>');
-    layer.on('mouseover', function(e){
-        this.openPopup();
-    });
-};
-
-// function for the popup window Komododragon
-function popUpKomodoDragon(feature,layer){
-    layer.bindPopup('<b>' + feature.properties.ECO_NAME + '</b></br><small>('+ feature.properties.AREA +')</small>');
-    layer.on('mouseover', function(e){
-        this.openPopup();
-    });
-};
-*/
-
-///////////// 2. Points ///////////////
-// function for the popup window Nature-Wonders
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -181,47 +116,9 @@ $(".slider")
 */
 
 
- $(function() {
-var availableTags = [
-"Australia",
-"Bangladesh",
-"Laos",
-"China",
-"Japan",
-"North-Korea",
-"South-Korea",
-"Vietnam",
-"Thailand",
-"Singapore",
-"Indonesia",
-"Papa-New-guinea",
-"New Zealand"
-];
-$( "#tags" ).autocomplete({
-source: availableTags
-});
-});
+ 
 
-//menu
-$('#autocomplete').autocomplete({
-  source: ['Innovative Map', 'Future Map']
-});
 
-$('#menu-1,#menu-2,#menu-3').menu();
-
-//search button
-$(function() {
-    var availableTags = [
-      
-    ];
-    $( "#search" ).autocomplete({
-      source: availableTags
-    });
-  });
-
-$(function() {
-    $( "#menu" ).menu();
-  });
 
 
 

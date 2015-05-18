@@ -120,7 +120,7 @@
                     .attr("d", function(d){ return path(circle.clip(d)); })
                     // Go from the globe to the 2D map by clicking on the continents
                     .on("click",function(){
-                        var windowatlas=window.open('atlas.html');
+                        var windowatlas=window.open('atlas.html',"_self");
                         //windowatlas.onload = function() {
                         // Every svg path is bound to the data from the imported geojson file.
                         //var d = d3.event.target.__data__;

@@ -5,27 +5,6 @@
 	right: 0px;
 }
 
-/* .info stays for information about a country */
-.info {
-    padding: 6px 8px;
-    font: 14px/16px Arial, Helvetica, sans-serif;
-    background: white;
-    background: rgba(255,255,255,0.8);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-	color: black;
-    border-radius: 5px;
-	position: absolute;
-	width: 180px;
-	height: 60px;
-	left: 0px;
-	bottom: 0px;
-}
-
-.info h4 {
-    margin: 0 0 5px;
-  color: #777;
-}
-
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 70%;
@@ -73,6 +52,7 @@ position:absolute;
 right:10px;
 bottom:150px;
 display:none;}
+
 
 .ns {
   -webkit-touch-callout: none;
@@ -144,6 +124,27 @@ display:none;}
   bottom: 0;
   height: 40;
   
+}
+
+/* .info stays for information about a country */
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: black;
+    border-radius: 5px;
+  position: absolute;
+  width: 180px;
+  height: 60px;
+  left: 0px;
+  bottom: 0px;
+}
+
+.info h4 {
+    margin: 0 0 5px;
+  color: #777;
 }
 
 /* colours for the themes ******************************************/
