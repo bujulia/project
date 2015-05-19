@@ -1,5 +1,5 @@
 #map { 
-	height: 95%;
+	height: 100%;
 	top: 32px;
 	left: 0px;
 	right: 0px;
@@ -76,7 +76,7 @@ display:none;}
  
 }
 #imprint {
-   position: absolute;
+  position: absolute;
   right: 10px;
   top: 2px;
   width:140px;
@@ -87,7 +87,7 @@ display:none;}
 }
 
 #fullscreen {
-   position: absolute;
+  position: absolute;
   right: 380px;
   top: 2px;
   width:140px;
@@ -97,7 +97,7 @@ display:none;}
 }
 
 #description {
-   position: absolute;
+  position: absolute;
   right: 540px;
   top: 2px;
   width:140px;
@@ -113,12 +113,12 @@ display:none;}
 }
 
 #printbutton{
-   position: absolute;
+  position: absolute;
   right: 320px;
   top: 2px;
   color:white;
   height:26px;
-   -ms-transform: scale(1); /* IE 9 */
+  -ms-transform: scale(1); /* IE 9 */
   -webkit-transform: scale(1); /* Chrome, Safari, Opera */
   transform: scale(1);
   vertical-align: middle;
@@ -257,11 +257,7 @@ top: 40px;
   padding: 10px 0;
 }
  */
-#animals   { cursor: pointer;cursor: hand; 
- 
-       
-	   }
-.cursor   { cursor: pointer; cursor: hand; 
+#animals   { cursor: pointer; cursor: hand; 
  
        
 	   }
@@ -274,7 +270,10 @@ top: 40px;
       
 	   }
 	  
+.cursor {cursor: pointer; cursor: hand; 
 
+      
+	   }
 #summer   { cursor: pointer; cursor: hand; 
 	   }
 	   
@@ -341,7 +340,14 @@ ul.dropdown {
   z-index:1;
   padding: 0;
   border-radius: 0 0 .2em .2em;
-    
+    li {
+      list-style-type: none;
+      a {
+        text-decoration: none;
+        padding: .5em 1em;
+        display: block;
+      }
+   }
 }
 
 
@@ -395,7 +401,7 @@ ul.dropdown {
  
 #sliderbtn{
 position:absolute;
-right:800px;
+right:600px;
 bottom:0px;
 height:25px;
 width:200px;
@@ -404,22 +410,14 @@ color:white;
 }
 
 #dialogframe{
-  position:absolute;
+  position:center;
   height:400px;
   width:100%;
 }
 
-#dialog1{
-  position:absolute;
-  top: 100px;
-  left: 100px;
-  bottom: 100px;
-  right: 100px;
-  
-}
 #dialogframe1{
- position:absolute;
-  height:100%;
+ position:center;
+  height:400px;
   width:100%;
 }
 
