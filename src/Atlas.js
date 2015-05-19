@@ -110,7 +110,7 @@ geojson = L.geoJson(countries, { //var countries comes from external js-file
 //****************************** PHP Layers *********************************
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\DEFINE THE ICONS/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 //Style for polygons:
-var ecoStyle = {"fillColor": "#7ae969", "fillOpacity": "0.4", "color": "#1dd300", "opacity": "0.8", "weight": "1"};
+var ecoStyle = {"fillColor": "#7ae969", "fillOpacity": "0.2", "color": "#1dd300", "opacity": "0.8", "weight": "0"};
 
 var natureIcon = L.icon({
     iconUrl: 'images/nature.svg',
@@ -298,54 +298,11 @@ $(".slider")
 
 
 //\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\LOAD THE LAYERS/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-///////////// 1. Polygons ///////////////
-// function for the popup window Tiger
-function popUpTiger(feature,layer){
-    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.area +')</small>');
-    layer.on('click', function(e){
-        this.openPopup();
-    });
-};
-// function for the popup window Giant Panda
-function popUpGiantPanda(feature,layer){
-    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.area +')</small>');
-    layer.on('click', function(e){
-        this.openPopup();
-    });
-};
-// function for the popup window Orangutan
-function popUpOrangutan(feature,layer){
-    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.area +')</small>');
-    layer.on('click', function(e){
-        this.openPopup();
-    });
-};
-// function for the popup window Asiatic Elephant
-function popUpAsiaticElephant(feature,layer){
-    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.area +')</small>');
-    layer.on('click', function(e){
-        this.openPopup();
-    });
-};
-// function for the popup window Red Panda
-function popUpRedPanda(feature,layer){
-    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.area +')</small>');
-    layer.on('click', function(e){
-        this.openPopup();
-    });
-};
-// function for the popup window Komododragon
-function popUpKomodoDragon(feature,layer){
-    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.area + ')</small>');
-    layer.on('click', function(e){
-        this.openPopup();
-    });
-}; 
-///////////// 2. Points ///////////////
+///////////// Popups for Points ///////////////
 // function for the popup window Nature-Wonders
 function popUpNature(feature,layer){
     layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country + ')</br> Type: '
-	+ feature.properties.description +'</small>');
+	+ feature.properties.description +'</small>',{offset: new L.Point(0,-33)});
     layer.on('click', function(e){
         this.openPopup();
     });
@@ -355,7 +312,7 @@ function popUpSki(feature,layer){
     layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +') </br> Number of lifts: '
 	+ feature.properties.lifts + '</br>Height difference: '
 	+ feature.properties.height_dif + '</br>Slope Length: '
-	+ feature.properties.slope_leng + '</small>');
+	+ feature.properties.slope_leng + '</small>',{offset: new L.Point(0,-33)});
     layer.on('click', function(e){
         this.openPopup();
     });
@@ -363,14 +320,14 @@ function popUpSki(feature,layer){
 // function for the popup window CRSki
 function popUpCRSki(feature,layer){
     layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +')</br>Slope length: '
-	+ feature.properties.slope_length + '</small>');
+	+ feature.properties.slope_length + '</small>',{offset: new L.Point(0,-33)});
     layer.on('click', function(e){
         this.openPopup();
     });
 };
 // function for the popup window IceFishing
 function popUpIceFishing(feature,layer){
-    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +')</small>');
+    layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +')</small>',{offset: new L.Point(0,-33)});
     layer.on('click', function(e){
         this.openPopup();
     });
@@ -380,16 +337,16 @@ function popUpGolf(feature,layer){
     layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +') </br> Number of holes: '
 	+ feature.properties.holes + '</br>Length of course / Par: '
 	+ feature.properties.length + ' [m] / ' + feature.properties.par + '</br>Terrain: '
-	+ feature.properties.terrain + '</small>');
+	+ feature.properties.terrain + '</small>',{offset: new L.Point(0,-33)});
     layer.on('click', function(e){
-        this.openPopup();
+        this.openPopup(	);
     });
 };
 // function for the popup window Surf
 function popUpSurf(feature,layer){
     layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +') </br> Type: '
 	+ feature.properties.typ + '</br> Difficulty: '
-	+ feature.properties.experience + '</small>');
+	+ feature.properties.experience + '</small>',{offset: new L.Point(0,-33)});
     layer.on('click', function(e){
 	this.openPopup();         
     });
@@ -398,19 +355,19 @@ function popUpSurf(feature,layer){
 function popUpFestivals(feature,layer){
     layer.bindPopup('<b>' + feature.properties.name + '</b></br><small>('+ feature.properties.country +') </br> Number of bands: '
 	+ feature.properties.bands + '</br>Estimated attendance: '
-	+ feature.properties.attendance + ' visitors</br>' + feature.properties.musictype + '</br> <a href ='+ feature.properties.youtube+'> Link to Video </a> </small>');
+	+ feature.properties.attendance + ' visitors</br>' + feature.properties.musictype + '</br> <a href ='+ feature.properties.youtube+'> Link to Video </a> </small>',{offset: new L.Point(0,-33)});
     layer.on('click', function(e){
         this.openPopup();
     });
 };
 
 /////////////Polygons///////////////
-var tiger = new L.geoJson.ajax("php/requesttiger.php?", {style:ecoStyle}, {onEachFeature:popUpTiger});
-var giantpanda = new L.geoJson.ajax("php/requestgiantpanda.php?", {style:ecoStyle}, {onEachFeature:popUpGiantPanda});
-var orangutan = new L.geoJson.ajax("php/requestorangutan.php?", {style:ecoStyle}, {onEachFeature:popUpOrangutan});
-var asiaticelephant = new L.geoJson.ajax("php/requestasiaticelephant.php?", {style:ecoStyle}, {onEachFeature:popUpAsiaticElephant});
-var redpanda = new L.geoJson.ajax("php/requestredpanda.php?", {style:ecoStyle}, {onEachFeature:popUpRedPanda});
-var komododragon = new L.geoJson.ajax("php/requestkomododragon.php?", {style:ecoStyle}, {onEachFeature:popUpKomodoDragon});
+var tiger = new L.geoJson.ajax("php/requesttiger.php?", {style:ecoStyle, onEachFeature: function (feature,layer){layer.bindPopup("Tiger");}});
+var giantpanda = new L.geoJson.ajax("php/requestgiantpanda.php?", {style:ecoStyle, onEachFeature: function (feature,layer){layer.bindPopup("Giant Panda");}});
+var orangutan = new L.geoJson.ajax("php/requestorangutan.php?", {style:ecoStyle, onEachFeature: function (feature,layer){layer.bindPopup("Orangutan");}});
+var asiaticelephant = new L.geoJson.ajax("php/requestasiaticelephant.php?", {style:ecoStyle, onEachFeature: function (feature,layer){layer.bindPopup("Asiatic Elephant");}});
+var redpanda = new L.geoJson.ajax("php/requestredpanda.php?", {style:ecoStyle, onEachFeature: function (feature,layer){layer.bindPopup("Red Panda");}});
+var komododragon = new L.geoJson.ajax("php/requestkomododragon.php?", {style:ecoStyle, onEachFeature: function (feature,layer){layer.bindPopup("Komodo Dragon");}});
 
 /////////////Points///////////////
 var nature = new L.geoJson.ajax("php/requestnature.php?",{pointToLayer: function(feature,latlng){return L.marker(latlng,{icon:natureIcon})},onEachFeature:popUpNature});
