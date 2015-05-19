@@ -78,7 +78,7 @@
         circle.origin([90, 0])
 
         // Create a list of stars and the sun and add them to outerspace
-        var starList1 = createStars(1000);
+        var starList1 = createStars(3000);
                 
         var stars = svg.append("g")
             .selectAll("g")

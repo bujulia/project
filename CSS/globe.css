@@ -1,14 +1,11 @@
+/* CSS File for globe.html */
+
 body {
     background-color: #000000;
     overflow: hidden;
 }
 
-#info {
-    position: absolute;
-    z-index: 10;
-    left: 25px;
-    top: 25px;
-}
+/* Right position of the globe */
 
 #defs {
     height: 0;
@@ -19,6 +16,8 @@ body {
     fill: none;
     pointer-events: all;
 }
+
+/* Style of continents */
 
 .feature {
     position:relative;
@@ -36,10 +35,14 @@ body {
     cursor:pointer; 
 }
 
+/* Style of base globe */
+
 .globe {
     stroke: rgba(255, 255, 255, .5);
     stroke-width: .25px;
 }
+
+/* Style of stars */
 
 .star {
     fill: #fff;
@@ -47,10 +50,14 @@ body {
     stroke-width: .25px;
 }
 
+/* Style of sun */
+
 .Sun {
     stroke: rgba(255, 204, 0, .5);
     stroke-width: .25px;
 }
+
+/* Style of hint */
 
 h2 {
     width: 350px;
