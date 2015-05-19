@@ -139,6 +139,18 @@
                         //window.open('atlas.html?' + query, '_self');
                     //}
                     })
+                    .on("mouseenter", function() {
+                        d3.select("#tooltip").style("visibility", "visible");
+                    })
+                    .on("mouseleave", function() {
+                        d3.select("#tooltip").style("visibility", "hidden");
+                    })
+                    .on("mousemove", function() {
+                    d3.select("#tooltip")
+                        .style("left", d3.event.pageX + "px")
+                        .style("top", d3.event.pageY + "px")
+                        .text(d3.event.target.__data__.properties.name);
+                    })
             });
 
         // Redraw all items with new projections
