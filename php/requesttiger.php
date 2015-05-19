@@ -16,7 +16,7 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
 	//echo 'connected to server';
 	}*/
 
-  $result = pg_query($link, 'select "ECO_NAME", "AREA", st_asgeojson(wkb_geometry) as geojson from tiger');
+  $result = pg_query($link, 'select "eco_name", "area", st_asgeojson(geom) as geojson from tiger2');
   $numrows = pg_numrows($result);
 
   // Output Array as GeoJson
@@ -38,8 +38,8 @@ extension_loaded('pgsql') || die('pgsql module unavailable');
             'type' => 'EPSG',
             'properties' => array('code' => '4326' )),
 	'properties' => array(
-	'name' => $edge['ECO_NAME'],					//Name
-	'area' => $edge['AREA'])					//Area     
+	'name' => $edge['eco_name'],					//Name
+	'area' => $edge['area'])					//Area     
       );
       // Add feature array to feature collection array
       array_push($geojson['features'], $feature);
