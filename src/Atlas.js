@@ -646,6 +646,16 @@ $('#sliderbtn').button().click(function() {
 })
 
 
+	$('.sliderbutton').click(function(){
+		var $this = $(this);
+		$this.toggleClass('sliderbutton');
+		if($this.hasClass('sliderbutton')){
+			$this.text('Select your favorite month!');			
+		} else {
+			$this.text('Hide');
+		}
+	});
+
 $(function() {
 	$( "#nature" ).accordion({collapsible:true,  heightStyle: 'content'});
     $( "#culture" ).accordion({collapsible:true,  heightStyle: 'content'});

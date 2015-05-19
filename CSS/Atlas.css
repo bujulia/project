@@ -79,20 +79,28 @@ display:none;}
    position: absolute;
   right: 10px;
   top: 2px;
+  width:140px;
+  height:26px;
+  background:black;
  
 }
 
 #fullscreen {
    position: absolute;
-  right: 300px;
+  right: 480px;
   top: 2px;
- 
+  width:140px;
+  height:26px;
+  background:black;
 }
 
 #description {
    position: absolute;
-  right: 400px;
+  right: 640px;
   top: 2px;
+  width:140px;
+  height:26px;
+  background:black;
  
 }
 #head {
@@ -103,15 +111,15 @@ display:none;}
 
 #printbutton{
    position: absolute;
-  right: 200px;
+  right: 320px;
   top: 2px;
-  width:40px;
+  width:140px;
   height:26px;
    -ms-transform: scale(1); /* IE 9 */
   -webkit-transform: scale(1); /* Chrome, Safari, Opera */
   transform: scale(1);
   vertical-align: middle;
- 
+  background:black;
 }
 
 
@@ -151,7 +159,7 @@ display:none;}
 .nature1 {
 	background: #1dd300;
 	color: black;
-	opacity: 0.6;
+	opacity: 0.8;
 	}
 
 .nature2 {
@@ -171,7 +179,7 @@ display:none;}
 .activities1 {
 	background: #c7007d;
 	color: black;
-	opacity: 0.6;
+	opacity: 0.8;
 	}
 	
 .activities2 {
@@ -190,7 +198,7 @@ display:none;}
 .culture1 {
 	background: #ff6c00;
 	color: black;
-	opacity: 0.6;
+	opacity: 0.8;
 	}
 	
 .culture2 {
@@ -246,25 +254,27 @@ top: 40px;
   padding: 10px 0;
 }
  */
-#animals   {
+#animals   { cursor: pointer; cursor: hand; 
  
        
 	   }
 
+#wonders   { cursor: pointer; cursor: hand; 
+	   }
 
-
-#winter   {
+#winter   {cursor: pointer; cursor: hand; 
 
       
 	   }
 	  
 
-#summer   {
+#summer   { cursor: pointer; cursor: hand; 
 	   }
 	   
 
 
 #festivals  {display: inline-block;
+cursor: pointer; cursor: hand; 
      	   }
 	   
 	    
@@ -304,12 +314,13 @@ top: 40px;
 nav {
   position: absolute;
   top:2px;
-  right:100px;
-  
+  right:160px;
+  background:black;
 }
 
-.dropdown-toggle {
-
+.dropdown-toggle { background:black;
+width:140px;
+height:26px;
 }
 ul.dropdown {
   display:none;
@@ -339,7 +350,7 @@ ul.dropdown {
     width:50px;
 	height:50px;
 	vertical-align: middle;
-	
+	background: black;
 	
 }
 
@@ -384,6 +395,9 @@ ul.dropdown {
 position:absolute;
 right:600px;
 bottom:0px;
+height:25px;
+width:200px;
+background:black;
 }
 
 #dialogframe{
@@ -393,7 +407,7 @@ bottom:0px;
 }
 
 #dialogframe1{
-  positon:center;
+ position:center;
   height:400px;
   width:100%;
 }

@@ -38,7 +38,7 @@ L.Control.Search = L.Control.extend({
 		//TODO add option for persist markerLoc after collapse!
 		autoCollapseTime: 1200,		//delay for autoclosing alert and collapse after blur
 		zoom: null,					//zoom after pan to location found, default: map.getZoom()
-		text: 'Search...',			//placeholder value	
+		text: 'Search a country...',			//placeholder value	
 		textCancel: 'Cancel',		//title in cancel button
 		textErr: 'Location not found',	//error message
 		position: 'topleft',
