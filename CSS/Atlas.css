@@ -23,7 +23,7 @@ body {
   height: 32px;
   left: 0;
   right: 0;
-  background: #cccccc;
+  background: white;
   -webkit-tap-highlight-color: #b3b3b3;
 }
 
@@ -82,25 +82,28 @@ display:none;}
   width:140px;
   height:26px;
   background:black;
+  color:white;
  
 }
 
 #fullscreen {
    position: absolute;
-  right: 480px;
+  right: 380px;
   top: 2px;
   width:140px;
   height:26px;
   background:black;
+  color:white;
 }
 
 #description {
    position: absolute;
-  right: 640px;
+  right: 540px;
   top: 2px;
   width:140px;
   height:26px;
   background:black;
+  color:white;
  
 }
 #head {
@@ -113,7 +116,7 @@ display:none;}
    position: absolute;
   right: 320px;
   top: 2px;
-  width:140px;
+  color:white;
   height:26px;
    -ms-transform: scale(1); /* IE 9 */
   -webkit-transform: scale(1); /* Chrome, Safari, Opera */
@@ -286,7 +289,7 @@ cursor: pointer; cursor: hand;
   right: 200px;
   bottom: 40px;
   height: 10px;
-  background: #cccccc;
+  background: white;
   outline-color: #b3b3b3;
   display:none;
   
@@ -294,6 +297,7 @@ cursor: pointer; cursor: hand;
 .ui-slider-label {
  color: #000;
  font-family: Arial, Helvetica, sans-serif;
+ font-size:120%;
  }
 
 #logo{
@@ -318,9 +322,10 @@ nav {
   background:black;
 }
 
-.dropdown-toggle { background:black;
+#share { background:black;
 width:140px;
 height:26px;
+color:white;
 }
 ul.dropdown {
   display:none;
@@ -398,6 +403,7 @@ bottom:0px;
 height:25px;
 width:200px;
 background:black;
+color:white;
 }
 
 #dialogframe{
