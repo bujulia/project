@@ -76,7 +76,7 @@ display:none;}
  
 }
 #imprint {
-   position: absolute;
+  position: absolute;
   right: 10px;
   top: 2px;
   width:140px;
@@ -113,12 +113,12 @@ display:none;}
 }
 
 #printbutton{
-   position: absolute;
+  position: absolute;
   right: 320px;
   top: 2px;
   color:white;
   height:26px;
-   -ms-transform: scale(1); /* IE 9 */
+  -ms-transform: scale(1); /* IE 9 */
   -webkit-transform: scale(1); /* Chrome, Safari, Opera */
   transform: scale(1);
   vertical-align: middle;
