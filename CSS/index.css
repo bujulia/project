@@ -394,18 +394,4 @@ ul.dropdown {
 #dialog-message{
 background:#ffffff;
 background-size: 100%;
-}
-
-
-h2 {
-  position: fixed;
-  right: 870px;
-  top:6px;
-  color: black;
-  font-size: 9pt;
-  font-weight: 100;
-  float: left;
-}
-
-
- 
+} 

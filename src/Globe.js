@@ -21,7 +21,7 @@
         // Setup path for outerspace
         var space = d3.geo.azimuthal()
             .mode("equidistant") // Outerspace has a equidistant projection
-            .translate([width / 2, height / 2]);
+            //.translate([width / 2, height / 2]);
 
         space.scale(space.scale() * 3);
 
@@ -32,7 +32,7 @@
         // Setup path for globe
         var Globe = d3.geo.azimuthal()
             .mode("orthographic") // Globe has a orthographic projection
-            .translate([width / 2, height / 2.05])
+            .translate([width / 2, height / 2.15])
 
         var scale0 = Globe.scale();
 
@@ -108,7 +108,7 @@
         // Create the base globe
         var backgroundCircle = svg.append("circle")
             .attr('cx', width / 2)
-            .attr('cy', height / 2.05)
+            .attr('cy', height / 2.15)
             .attr('r', Globe.scale())
             .attr('class', 'globe')
             .attr("filter", "url(#glow)")
@@ -126,19 +126,8 @@
                     // Go from the globe to the 2D map by clicking on the continents
                     .on("click",function(){
                         var windowatlas=window.open('atlas.html','_top');
-                        //windowatlas.onload = function() {
-                        // Every svg path is bound to the data from the imported geojson file.
-                        var d = d3.event.target.__data__;
-                        // There is inverse projection method in case D3 does define one.
-                        console.log(Globe.invert(d3.mousehover(this)));
-                        //var coord=Globe.invert(d3.mouse(this));
-                        //var coord=[25,125];
-                        //windowatlas.postMessage({ coords: coord }, '*');
-                        
-                        //var query = encodeURIComponent(JSON.stringify(coord));
-                        //window.open('atlas.html?' + query, '_self');
-                    //}
                     })
+                    // Create tooltips for nations
                     .on("mouseenter", function() {
                         d3.select("#tooltip").style("visibility", "visible");
                     })

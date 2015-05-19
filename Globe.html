@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/globe.css">
 </head>
 <body>
 
@@ -60,10 +60,20 @@
         </defs>
 
     </svg>
+
+    <!-- Scripts used -->
+
     <script src="http://marcneuwirth.com/experiments/globe/d3.custom.js"></script>
     <script src="src/Globe.js"></script>
+
+    <!-- Initialisation of divs -->
+
     <div id="Sun"></div>
     <div id="globe"></div>
-    <div id="tooltip" style="position:absolute;background:rgba(255,255,220,0.9);padding:3px;visibility:hidden;pointer-events:none">tooltip</div>
+    <div id="tooltip" style="position:absolute;background:rgba(255,255,255,0.9);border-style:solid;border-color: #000000;border-width:1px;margin-left: 12px;padding:3px;visibility:hidden;pointer-events:none">tooltip</div>
+
+    <!-- Hint -->
+
+    <h2>Click on a country on the globe to get started!</h2>
 </body>
 </html>
