@@ -7,14 +7,17 @@
 	2015-3-2: Created
 */
 
-//var coord = JSON.parse(decodeURIComponent(document.URL.replace(/.*?\?/, '')));
+/*********************** Initialization of the Map *********************/
 
+// AccessToken provided by mapbox so we can load our custom basemap
 L.mapbox.accessToken = 'pk.eyJ1IjoiYnVqdWxpYSIsImEiOiJpNnpsb0dFIn0.j2t-srvzbqOy3xq9QZDGIA'; //access token so that the map can be taken from mapbox online
 
+// bound for the panning restriction is created
 var southWest = L.latLng(-90, -180),
     northEast = L.latLng(90, 180),
     bounds = L.latLngBounds(southWest, northEast);
 
+// loading of the custom basemap from mapbox
 var map = L.mapbox.map('map', 'bujulia.basemap', {
 	maxZoom: 7,
 	minZoom: 2,
@@ -26,14 +29,11 @@ var map = L.mapbox.map('map', 'bujulia.basemap', {
     maxBounds: bounds,
 	})
     map.setView([25,125], 4);
-  //window.addEventListener('message', function(event) {
-    //console.log(event.data);
-    //map.setView([25,125], 4);
-  //}, false);
 
+// setting the zoomcontrol (+/- sign) on the topright
 new L.Control.Zoom({position: 'topright'}).addTo(map);
 
-/***********************Countries GeoJSON *********************/
+/***********************Countries from GeoJSON *********************/
 var geojson;
 
 // control that shows country info on hover
@@ -46,7 +46,7 @@ info.onAdd = function (map) {
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
     this._div.innerHTML = '<h4>Country Information</h4>' +  (props ?
-        '<b>' + props.name + '</b><br />Continent: ' + props.continent + ''
+        '<b>' + props.name_long + '</b><br />Population: ' + props.pop_est + '</b><br />Continent: ' + props.continent + ''
         : 'Hover over a country!');
 };
  info.addTo(map);
@@ -560,28 +560,6 @@ $(document).click(function(e) {
 });
 
 });
-
-
-
-$( '#infobutton' ).button({
-  icons: { primary: "ui-icon-info" }
-});
-
-// Getter
-var icons = $( '#infobutton' ).button( "option", "icons" );
- 
-// Setter
-$( '#infobutton' ).button( "option", "icons", { primary: "ui-icon-info" } );
-
-
-$('#infobutton').button().click(function(event) {
-  $('#dialog-message' ).dialog({ title: 'Information', 
-  position:  { my: 'right top', at: 'top+60',  of: $('#infobutton') }
-  });
-
-});
-
-
 
 
 $('#flightbutton').button().click(function() {
