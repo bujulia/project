@@ -126,7 +126,6 @@ display:none;}
 }
 
 
-
 #tabs {
    position: absolute;
   left: 0;
@@ -281,6 +280,7 @@ top: 40px;
 
 #festivals  {display: inline-block;
 cursor: pointer; cursor: hand; 
+color:black;
      	   }
 	   
 	    
