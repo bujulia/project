@@ -367,11 +367,9 @@ ul.dropdown {
    }
 }
 
-<<<<<<< Updated upstream
-
 .ui-button-icon-primary 
-{  position: absolute;
-=======
+{  position: absolute;}
+
 #infobutton {
   position: absolute;
 	right: 10px;
@@ -384,7 +382,6 @@ ul.dropdown {
 
 .ui-button-icon-primary {
   position: absolute;
->>>>>>> Stashed changes
   right: 200px;
   top: 2px;
   left:1.2em !important;    // default it is 0.5, so it's always on left position...
