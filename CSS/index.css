@@ -26,6 +26,13 @@ body {
   -webkit-tap-highlight-color: #b3b3b3;
 }
 
+.widget{
+  position:absolute;
+  right:10px;
+  bottom:150px;
+  display:none;
+}
+
 /* Style imprint button */
 
 #imprint {
