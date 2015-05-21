@@ -1,9 +1,14 @@
+                             /* CSS for index.html */
+
+
 #map { 
 	height: 95%;
 	top: 32px;
 	left: 0px;
 	right: 0px;
 }
+
+/* Style of the whole body */
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -16,6 +21,8 @@ body {
   bottom: 0;
   right: 0;
 }
+
+/* Style of the menu bar */
 
 .menubar {
   position: absolute;
@@ -75,6 +82,9 @@ display:none;}
   top: 2px;
  
 }
+
+/* Style imprint button */
+
 #imprint {
   position: absolute;
   right: 10px;
@@ -113,18 +123,21 @@ display:none;}
 }
 
 #printbutton{
-  position: absolute;
+  position:absolute;
   right: 320px;
   top: 2px;
   color:white;
   height:26px;
-  -ms-transform: scale(1); /* IE 9 */
-  -webkit-transform: scale(1); /* Chrome, Safari, Opera */
-  transform: scale(1);
-  vertical-align: middle;
   background:black;
+
 }
 
+.ui-icon-print{
+   left:1em !important;
+    display: inline-block;
+	color: red;
+    
+}
 
 #tabs {
    position: absolute;
@@ -209,6 +222,7 @@ display:none;}
 	}
 	
 /* what is this?*/
+
 li  {
 	display: inline-block;
 	width:120px;
@@ -280,7 +294,6 @@ top: 40px;
 
 #festivals  {display: inline-block;
 cursor: pointer; cursor: hand; 
-color:black;
      	   }
 	   
 	    
@@ -322,7 +335,6 @@ nav {
   position: absolute;
   top:2px;
   right:160px;
-  background:black;
 }
 
 #share { background:black;
@@ -330,7 +342,7 @@ width:140px;
 height:26px;
 color:white;
 }
-ul.dropdown {
+ul.dropdown  {
   display:none;
   position: absolute;
   top: 100%;
@@ -340,14 +352,6 @@ ul.dropdown {
   z-index:1;
   padding: 0;
   border-radius: 0 0 .2em .2em;
-    li {
-      list-style-type: none;
-      a {
-        text-decoration: none;
-        padding: .5em 1em;
-        display: block;
-      }
-   }
 }
 
 
@@ -362,15 +366,6 @@ ul.dropdown {
 	
 }
 
-.ui-button-icon-primary 
-{  position: absolute;
-  right: 200px;
-  top: 2px;
-   left:1.2em !important;    // default it is 0.5, so it's always on left position...
-   -ms-transform: scale(1.2); /* IE 9 */
-  -webkit-transform: scale(1.2); /* Chrome, Safari, Opera */
-  transform: scale(1.2);
-}​
 
 
 .round-button {
