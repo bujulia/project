@@ -45,15 +45,6 @@ body {
   -webkit-tap-highlight-color: #b3b3b3;
 }
 
-
-#infowindow {
-	position: absolute;
-	right: 0;
-	bottom: 340px;
-	width: 200pc;
-	background-color: #cccccc;
-}
-
 .widget{
 position:absolute;
 right:10px;
@@ -157,12 +148,12 @@ display:none;}
     background: rgba(255,255,255,0.8);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
   color: black;
-    border-radius: 5px;
+  border-radius: 5px;
   position: absolute;
   width: 180px;
-  height: 60px;
+  height: 90px;
   left: 0px;
-  bottom: 0px;
+  bottom: 25px;
 }
 
 .info h4 {
@@ -221,8 +212,6 @@ display:none;}
 	color: black;
 	}
 	
-/* what is this?*/
-
 li  {
 	display: inline-block;
 	width:120px;
@@ -235,44 +224,9 @@ left: 0;
 top: 40px;
 
 }
-/*
-.nature{
-  position: absolute;
-  text-align: center;
-  left: 0;
-  top: 40px;
-  right: 0;
-  bottom: 0;
-  height: 140px;
-  width: 180px;
-  padding: 10px 0;
-}
 
-#activities{
-   position: absolute;
-   text-align: center;
-  left: 0;
-  top: 200px;
-  bottom: 0;
-  height: 140px;
-  width: 180px;
-  padding: 10px 0;
-}
-
-#culture{
-  position: absolute;
-  text-align: center;
-  left: 0;
-  top: 360px;
-  bottom: 0;
-  height: 140px;
-  width: 180px;
-  padding: 10px 0;
-}
- */
 #animals   { cursor: pointer; cursor: hand; 
  
-       
 	   }
 
 #wonders   { cursor: pointer; cursor: hand; 
@@ -354,20 +308,6 @@ ul.dropdown  {
   border-radius: 0 0 .2em .2em;
 }
 
-
-#infobutton {
-    position: absolute;
-	right: 10px;
-	top: 150px;
-    width:50px;
-	height:50px;
-	vertical-align: middle;
-	background: black;
-	
-}
-
-
-
 .round-button {
     display:block;
     width:50px;
@@ -414,11 +354,6 @@ color:white;
  position:center;
   height:400px;
   width:100%;
-}
-
-#dialog-message{
-background:#ffffff;
-background-size: 100%;
 }
 
 .ui-accordion-header {
