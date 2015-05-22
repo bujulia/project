@@ -83,28 +83,6 @@ $(function() {
   });
 });
 
-/*
-$( '#infobutton' ).button({
-  icons: { primary: "ui-icon-info" }
-});
-
-// Getter
-var icons = $( '#infobutton' ).button( "option", "icons" );
- 
-// Setter
-$( '#infobutton' ).button( "option", "icons", { primary: "ui-icon-info" } );
-
-
-$('#infobutton').button().click(function(event) {
-  $('#dialog-message' ).dialog({ title: 'Information', 
-  
-  position:  { my: 'top', at: 'top+60',  of: $('#infobutton') }
-  
-  });
- 
-});
-*/
-
 // Flight  button
 
 $('#flightbutton').button().click(function() {
