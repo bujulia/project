@@ -878,9 +878,9 @@ var SearchMarker = L.Marker.extend({
 				{
 					clearInterval(circle._timerAnimLoc);
 					circle.setRadius(oldrad);//reset radius
-					//if(typeof afterAnimCall == 'function')
-						//afterAnimCall();
-						//TODO use create event 'animateEnd' in SearchMarker 
+					if(typeof afterAnimCall == 'function')
+						afterAnimCall();
+						circle.setStyle({fill: false, stroke: false});
 				}
 			}, tInt);
 		}
