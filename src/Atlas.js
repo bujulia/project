@@ -33,6 +33,7 @@ var map = L.mapbox.map('map', 'bujulia.basemap', {
 // setting the zoomcontrol (+/- sign) on the topright
 new L.Control.Zoom({position: 'topright'}).addTo(map);
 
+
 /***********************Countries from GeoJSON *********************/
 var geojson;
 
@@ -652,5 +653,4 @@ var cendroidLayer = L.geoJson(cendroids, {
 var searchControl = new L.Control.Search({layer: cendroidLayer, propertyName: "name", circleLocation:true, position:"topright"});
 
 map.addControl( searchControl );
-
 
